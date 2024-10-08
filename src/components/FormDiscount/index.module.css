@@ -1,0 +1,75 @@
+.form_wrapper {
+    display: flex;
+    padding: 32px 32px 0px 32px;
+    margin: 80px 0 40px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: 12px;
+    background: linear-gradient(80.46deg, #87933D -0.68%, #55610B 66.66%);
+/*    background: linear-gradient(261.47deg, #0B710B 32.63%, #339933 98.96%),
+ linear-gradient(80.46deg, #87933D -0.68%, #55610B 66.66%); */
+
+}
+
+.title {
+  font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
+  font-weight: 700;
+  line-height: 110%;
+  text-align: center;   
+  color: #FFFFFF; 
+}
+
+.form_sale{  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;      
+      }
+
+.form_image {
+        width: 58%; 
+        /* background-image: url(../../media/form_discount.svg);
+        background-size: contain; /* Масштабируем картинку по размеру контейнера */
+        /* background-repeat: no-repeat; /* Не повторяем картинку */
+        /* background-position: center; Центрируем изображение */ 
+            
+      }  
+
+.form_item {
+        width: 40%; 
+        padding: 20px; 
+        display: flex;
+        flex-direction: column;
+        gap: 10px;  
+      } 
+ 
+
+  .form_input {
+    padding: 16px 32px 16px 32px;
+    border-radius: 6px;
+    border: 1px 0px 0px 0px;
+    border: 1px solid #FFFFF1;
+    background-color: transparent;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    color: #FFFFFF;
+  }
+
+  .btn{
+    padding: 16px 32px 16px 32px;
+    border-radius: 6px;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: center;
+    color: #282828;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+  
