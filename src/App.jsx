@@ -1,8 +1,25 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import AllProductsPage from './pages/AllProductsPage'
+import MainPage from './pages/MainPage'
+import Layout from './components/Layout'
+import AllSalesPage from './pages/AllSalesPage'
+import CategoriesPage from './pages/CategoriesPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<MainPage />}/>
+          <Route path='products' element={<AllProductsPage />}/>
+          <Route path='sales' element={<AllSalesPage />}/>
+          <Route path='catigories' element={<CategoriesPage />}/>
+          <Route path='*' element={<NotFoundPage />}/>
+        </Route>
+      </Routes>
+    </>
   )
 }
 
