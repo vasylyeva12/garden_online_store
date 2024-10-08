@@ -1,0 +1,60 @@
+ .wrapper {   
+    border-bottom: 1px solid rgb(221, 221, 221);
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    font-size: 20px;
+    padding: 30px 40px 28px 40px;   
+ }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav li a:hover {
+    color: #92a134;
+  }
+
+  .discountBtn { 
+  text-align: center;
+   cursor: pointer;   
+  }
+  
+  .nav_item {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    font-family: Montserrat;
+  }
+  
+  .navbar_actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .btn_nav {
+    background: #92a134;
+    color: #fff;
+    width: 171px;
+    height: 40px;
+    size: 26px;
+    padding: 10px 20px;
+    border-radius: 7px;
+  }
+  
+  .navbar_actions_icon {
+    font-size: 62px;
+  }
+  
+  .header_content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
