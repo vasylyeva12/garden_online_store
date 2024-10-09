@@ -1,0 +1,53 @@
+.notFoundPage {
+  display: flex;
+  flex-direction: column; /* Элементы расположатся один под другим */
+  padding: 0 2.2%;
+}
+
+.wrapper_error {
+  width: 100%;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center; /* Центрирование по вертикали */
+  gap: 2%;
+}
+.wrapper_content {
+  text-align: center;
+}
+
+.wrapper_content h4 {
+  margin: 32px auto 16px auto;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 118%;
+  color: #424436;
+}
+
+.wrapper_content p {
+  font-size: 20px;
+  line-height: 130%;
+  color: #8b8b8b;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.btn {
+  width: Hug (209px) px;
+  height: Hug (58px) px;
+  padding: 16px 56px;
+  gap: 10px;
+  border-radius: 6px;
+  background: #92a134;
+  color: #ffffff;
+  border: none;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+  text-align: center;
+  transition: 250ms;
+}
+
+.btn:hover {
+    background: #282828;
+}
