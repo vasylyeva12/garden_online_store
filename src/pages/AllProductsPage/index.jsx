@@ -1,9 +1,12 @@
 import React from 'react'
 import s from './index.module.css'
+import ProductsList from '../../components/ProductsList'
 
 const AllProductsPage = () => {
   return (
-    <div>AllProductsPage</div>
+    <div>
+      <ProductsList />
+    </div>
   )
 }
 
