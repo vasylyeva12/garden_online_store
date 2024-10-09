@@ -7,6 +7,7 @@ import Layout from './components/Layout'
 import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         </Route>
       </Routes>
     </>
+
   )
 }
 
