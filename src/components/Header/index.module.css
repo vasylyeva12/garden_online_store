@@ -1,21 +1,23 @@
-.header {
+body {
+  margin-top: clamp(4.25rem, 3rem + 5.5556vw, 8rem);
+}
+.header { 
   position: -webkit-sticky;
   width: 100%;
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 900;
-  border-bottom: 1px solid var(--grey-divider, #ddd);
+
   background-color: #ffffff;
   margin-top: -130px;
+  border-bottom: 1px solid #DDDDDD
 }
 
-body {
-  margin-top: clamp(4.25rem, 3rem + 5.5556vw, 8rem);
-}
-
-.header_area {
-    display: flex;
+.header_section {
+    display: flex;    
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;   
 }
+
+

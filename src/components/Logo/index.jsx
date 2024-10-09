@@ -2,6 +2,7 @@ import React from 'react'
 import s from './index.module.css'
 import { NavLink } from 'react-router-dom'
 import logo from '../../media/logo.svg'
+import ThemeToggle from '../ThemeToggle'
 
 const Logo = () => {
   return (
@@ -9,6 +10,7 @@ const Logo = () => {
         <NavLink to='/'>
             <img src={logo} alt="logo" />
         </NavLink>
+        <ThemeToggle />
     </div>
   )
 }
