@@ -1,9 +1,9 @@
- .wrapper {   
-    border-bottom: 1px solid rgb(221, 221, 221);
+ .wrapper {  
 
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 12px;
     align-items: center;
     max-width: 1440px;
     font-size: 20px;
@@ -20,9 +20,13 @@
     color: #92a134;
   }
 
-  .discountBtn { 
+  .btn { 
   text-align: center;
    cursor: pointer;   
+  }
+
+  .btn_hidden {
+    display: none;
   }
   
   .nav_item {

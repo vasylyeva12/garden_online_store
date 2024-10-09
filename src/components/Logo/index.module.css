@@ -1,0 +1,14 @@
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo a img {
+    transition: transform 0.5s;
+}
+
+.logo a img:active {
+    transform: scale(0.8);
+}

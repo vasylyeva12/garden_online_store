@@ -1,0 +1,29 @@
+.navbar_actions {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav_favourites {
+   
+    align-items: center;
+}
+
+.favourites {
+    width: 54px;
+    height: 54px;
+}
+
+.favourites:hover {
+    color: rgb(258, 143, 123);
+}
+.nav_basket svg {
+    
+    width: 57px;
+    height: 67px;
+}
+
+.nav_basket svg:hover {
+    color: #92A134;
+    
+}
