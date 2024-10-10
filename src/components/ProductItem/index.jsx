@@ -3,7 +3,7 @@ import s from './index.module.css'
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiHandbagLight } from "react-icons/pi";
 
-const ProductItem = (id, image, title, price, discont_price) => {
+const ProductItem = ({id, image, title, price, discont_price}) => {
     // Вычисляем процент скидки
   const discountPercent =
   discont_price !== 0
@@ -12,7 +12,7 @@ const ProductItem = (id, image, title, price, discont_price) => {
   return (
     <div>
         <div className={s.product_item}>
-            <div className={img_container}>
+            <div className={s.img_container}>
                 <img 
                 src={`http://localhost:3333/${image}`} 
                 alt={title}
@@ -20,7 +20,7 @@ const ProductItem = (id, image, title, price, discont_price) => {
             </div>
             {discountPercent !== 0 && (
                 <div className={s.cross_out}>
-                    <div className={discount_text}>-{discountPercent}%</div>
+                    <div className={s.discount_text}>-{discountPercent}%</div>
                 </div>
             )}
             {/* иконка сердце */}
@@ -28,7 +28,7 @@ const ProductItem = (id, image, title, price, discont_price) => {
             {/* иконка корзины */}
             <PiHandbagLight className={s.bag}/>
 
-            <h3 product_title>{title}</h3>
+            <h3 className={s.product_title}>{title}</h3>
             <div className={s.price_container}>
                 {
                     discont_price ? (
