@@ -10,7 +10,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import SingleCategoryPage from './pages/SingleCategoryPage';
 import SingleProductPage from './pages/SingleProductPage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
-import FavoritesPage from './pages/FavoritesPage';
+import LikedProductsPage from './pages/LikedProductsPage';
 
 const App = () => {
   return (
@@ -24,9 +24,9 @@ const App = () => {
           <Route path='sales' element={<AllSalesPage />}/>
           <Route path='catigories' element={<CategoriesPage />}/>
           <Route path='catigories/:category_name' element={<SingleCategoryPage />}/>
-          <Route path='catigories/:category_name/:id' element={<SingleCategoryPage />}/>
+          <Route path='catigories/:category_name/:category_id' element={<SingleCategoryPage />}/>
           <Route path='cart' element={<ShoppingCartPage />}/>
-          <Route path='favorites' element={<FavoritesPage />}/>
+          <Route path='favorites' element={<LikedProductsPage />}/>
           <Route path='favorites/:id' element={<SingleProductPage />}/>
           <Route path='*' element={<NotFoundPage />}/>
         </Route>

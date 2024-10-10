@@ -2,7 +2,7 @@ import React from 'react'
 import s from './index.module.css'
 import { Link } from 'react-router-dom'
 
-const TitleBar = ({ title, buttonText, linkTo}) => {
+const TitleBar = ({ title, textButton, linkTo}) => {
     
   return (
     <div>

@@ -7,7 +7,7 @@ const Sale = () => {
   return (
     <div>
         <div className={`${s.sale_container} container`}>
-            <TitleBar title="Sale" textButton="All sales" linrTo="/sales"/>
+            <TitleBar title="Sale" textButton="All sales" linkTo="/sales"/>
             <div>
                 <ProductList />
             </div>
