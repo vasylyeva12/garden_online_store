@@ -7,10 +7,7 @@ import Layout from './components/Layout'
 import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
-import SingleCategoryPage from './pages/SingleCategoryPage';
 import SingleProductPage from './pages/SingleProductPage';
-import ShoppingCartPage from './pages/ShoppingCartPage';
-import LikedProductsPage from './pages/LikedProductsPage';
 
 const App = () => {
   return (
