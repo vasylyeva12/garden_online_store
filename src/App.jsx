@@ -26,8 +26,8 @@ const App = () => {
           <Route path='catigories/:category_name' element={<SingleCategoryPage />}/>
           <Route path='catigories/:category_name/:category_id' element={<SingleCategoryPage />}/>
           <Route path='cart' element={<ShoppingCartPage />}/>
-          <Route path='favorites' element={<LikedProductsPage />}/>
-          <Route path='favorites/:id' element={<SingleProductPage />}/>
+          <Route path='liked' element={<LikedProductsPage />}/>
+          <Route path='liked/:id' element={<SingleProductPage />}/>
           <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>
