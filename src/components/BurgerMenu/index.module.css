@@ -5,20 +5,23 @@
 }
 
 .nav_favourites {
-   
+    border: 2.2px;
+    color: #424436;
     align-items: center;
 }
 
 .favourites {
     width: 54px;
     height: 54px;
+    
 }
 
 .favourites:hover {
-    color: rgb(258, 143, 123);
+    color: #92a134;
 }
 .nav_basket svg {
-    
+    border: 2.2px;
+    color: #424436;
     width: 57px;
     height: 67px;
 }
