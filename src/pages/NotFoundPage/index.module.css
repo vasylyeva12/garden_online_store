@@ -1,0 +1,50 @@
+.notFoundPage {
+    max-width: 760px;
+    max-height: 530px;
+    
+    }
+    
+    .notFoundPage__itemContent{
+        display: flex;
+        flex-direction: column; /* Элементы расположатся один под другим */
+        align-items: center;    /* Центрирование всех элементов по горизонтали */
+        justify-content: center; /* Центрирование по вертикали */
+        text-align: center; /* Центрируем текст внутри */
+        
+    }
+    
+    .itemContent_title {
+        font-family: Montserrat;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 70.4px;
+        text-align: center;
+        color: #424436;
+    }
+    
+    .itemContent_description{
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        text-align: center;
+        color: #8B8B8B;
+    }
+    
+    .itemContent_button{
+        width: Hug (209px)px;
+        height: Hug (58px)px;
+        padding: 16px 56px 16px 56px;
+        gap: 10px;
+        border-radius: 6px;
+        background: #92A134;
+        color: #FFFFFF;
+    
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+        text-align: center;
+        
+    }
+    

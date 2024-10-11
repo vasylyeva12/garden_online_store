@@ -7,6 +7,8 @@ import Layout from './components/Layout'
 import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
+import SingleProductPage from './pages/SingleProductPage';
+
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
           <Route path='products' element={<AllProductsPage />}/>
           <Route path='sales' element={<AllSalesPage />}/>
           <Route path='catigories' element={<CategoriesPage />}/>
+          <Route path='product' element={<SingleProductPage />}/>
           <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>
