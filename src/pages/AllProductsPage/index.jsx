@@ -12,7 +12,7 @@ const AllProductsPage = () => {
     dispatch(getAllProducts)
   },[])
   return (
-    <div>
+    <div className='container'>
       <ProductsList products={allProductsState}/>
     </div>
   )
