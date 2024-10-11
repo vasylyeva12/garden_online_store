@@ -1,13 +1,19 @@
 import React from "react";
-import s from "./index.module.css";
 import CategoryItem from "../CategoryItem";
+import s from "./index.module.css";
 
 function CategoriesList({ categories }) {
   return (
     <div>
-      {categories.map((el) => (
-        <CategoryItem key={el.id} {...el} />
-      ))}
+      {categories && // отрисовка категорий
+            categories
+              .slice(0, 4)
+              .map((category) => (
+                <CategoryItem
+                  key={category.id}
+                  category={category}
+                />
+              ))}
     </div>
   );
 }

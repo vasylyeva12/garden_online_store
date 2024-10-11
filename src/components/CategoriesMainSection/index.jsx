@@ -11,7 +11,9 @@ function CategoriesMainSection() {
         TextButton="All categories"
         linkTo="/categories"
       />
+      <div>
       <CategoriesList />
+      </div>
     </div>
   );
 }
