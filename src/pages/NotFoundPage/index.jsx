@@ -3,10 +3,9 @@ import s from "./index.module.css";
 import four from "../../media/notFoundPage_4.svg";
 import zero from "../../media/notFoundPage_kaktus.svg";
 import { useNavigate } from "react-router-dom";
-import React from 'react';
-import s from "./index.module.css";
-import img1 from "../../media/notFoundPage_4.svg";
-import img2 from "../../media/notFoundPage_kaktus.svg";
+
+
+
 
 const NotFoundPage = () => {
   const navigate = useNavigate()

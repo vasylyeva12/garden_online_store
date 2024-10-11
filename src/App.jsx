@@ -8,6 +8,10 @@ import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import SingleProductPage from './pages/SingleProductPage';
+import LikedProductsPage from './pages/LikedProductsPage';
+import SingleCategoryPage from './pages/SingleCategoryPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
+
 
 const App = () => {
   return (
@@ -23,9 +27,8 @@ const App = () => {
           <Route path='catigories/:category_name' element={<SingleCategoryPage />}/>
           <Route path='catigories/:category_name/:category_id' element={<SingleCategoryPage />}/>
           <Route path='cart' element={<ShoppingCartPage />}/>
-          <Route path='favorites' element={<LikedProductsPage />}/>
-          <Route path='favorites/:id' element={<SingleProductPage />}/>
-          <Route path='product' element={<SingleProductPage />}/>
+          <Route path='liked' element={<LikedProductsPage />}/>
+          <Route path='liked/:id' element={<SingleProductPage />}/>
           <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>
