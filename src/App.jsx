@@ -8,6 +8,10 @@ import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import SingleProductPage from './pages/SingleProductPage';
+import LikedProductsPage from './pages/LikedProductsPage';
+import SingleCategoryPage from './pages/SingleCategoryPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
+
 
 const App = () => {
   return (
