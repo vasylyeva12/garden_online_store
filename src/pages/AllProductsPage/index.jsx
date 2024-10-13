@@ -13,6 +13,7 @@ const AllProductsPage = () => {
   },[])
   return (
     <div className='container'>
+       <h1 className={s.title}>All products</h1>
       <ProductsList products={allProductsState}/>
     </div>
   )

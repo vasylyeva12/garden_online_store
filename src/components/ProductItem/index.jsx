@@ -16,7 +16,7 @@ const ProductItem = ({
   title,
   price,
   discont_price,
-  productStyle,
+ 
 }) => {
   // const isLiked = useSelector((state) => state.cart.cartItems.some((el) => el.id === id))
 
@@ -38,7 +38,7 @@ const ProductItem = ({
   // };
 
   return (   
-      <div className={`${s.product_item} ${productStyle}`}>
+      <div className={`${s.products_wrapper} `}>
         <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img
@@ -54,7 +54,7 @@ const ProductItem = ({
           </div>
         )}
 
-        <div className={s.icons_container}>
+        <div className={s.icons_wrapper}>
           {/* иконка сердце */}
           <IoIosHeartEmpty
             className={s.like}
