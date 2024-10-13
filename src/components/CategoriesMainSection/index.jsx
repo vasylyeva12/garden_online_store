@@ -1,6 +1,7 @@
 import React from "react";
 import TitleBar from "../TitleBar";
 import CategoriesList from "../CategoriesList";
+import s from './index.module.css'
 
 
 function CategoriesMainSection() {
@@ -8,7 +9,7 @@ function CategoriesMainSection() {
     <div className={`${s.categories_container} container`}>
       <TitleBar
         title="Categories"
-        TextButton="All categories"
+        textButton="All categories"
         linkTo="/categories"
       />
       <div>
@@ -19,3 +20,4 @@ function CategoriesMainSection() {
 }
 
 export default CategoriesMainSection;
+

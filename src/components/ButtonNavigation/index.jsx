@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import s from './index.module.css';
+import s from './index.module.css'; // Подключаем стили из вашего файла CSS
 
 const ButtonNavigation = ({ crumbs }) => {
   return (
-    <div className="button-navigation">
+    <div className={s.buttonNavigation}>
       {crumbs.map((crumb, index) => {
         const isLast = index === crumbs.length - 1;
 
         return (
-          <div key={index} className="button-navigation_item">
-            <Link to={crumb.path} className={`button-navigation_link ${isLast ? 'last' : ''}`}>
-              <button className="button-navigation_btn">
+          <div key={index} className={s.buttonNavigationItem}>
+            <Link to={crumb.path} className={`${s.buttonNavigationLink} ${isLast ? s.last : ''}`}>
+              <button className={s.buttonNavigationBtn}>
                 {crumb.label}
               </button>
             </Link>
-            {!isLast && <div className="button-navigation_separator"></div>}
+            {!isLast && <div className={s.buttonNavigationSeparator}></div>}
           </div>
         );
       })}

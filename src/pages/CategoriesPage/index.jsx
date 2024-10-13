@@ -20,7 +20,7 @@ const CategoriesPage = () => {
     <div className="container">
       <ButtonNavigation crumbs={crumbs} />
       <h2 className={s.categories_section-title}>Categories</h2>
-      <CategoriesList />
+      <CategoriesList categories={categoriesState}/>
     </div>
   );
 };

@@ -4,13 +4,13 @@ import s from "./index.module.css";
 
 function CategoriesList({ categories }) {
   return (
-    <div>
+    <div className={s.categories-list}>
       {categories && // отрисовка категорий
             categories
               .slice(0, 4)
               .map((category) => (
                 <CategoryItem
-                  key={category.id}
+                  key={category}
                   category={category}
                 />
               ))}
