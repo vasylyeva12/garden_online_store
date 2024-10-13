@@ -1,0 +1,7 @@
+.title {
+    font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem); /*гибкий  размер шрифта с учётом различных размеров экрана */
+    font-weight: 700;
+    line-height: 110%;
+    margin-bottom: 40px;
+    color: #424436;
+  }
