@@ -1,0 +1,32 @@
+.navbar_actions {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav_favourites {
+    border: 2.2px;
+    color: #424436;
+    align-items: center;
+}
+
+.favourites {
+    width: 54px;
+    height: 54px;
+    
+}
+
+.favourites:hover {
+    color: #92a134;
+}
+.nav_basket svg {
+    border: 2.2px;
+    color: #424436;
+    width: 57px;
+    height: 67px;
+}
+
+.nav_basket svg:hover {
+    color: #92A134;
+    
+}
