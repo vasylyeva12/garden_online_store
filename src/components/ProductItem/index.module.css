@@ -1,10 +1,12 @@
 .product_item {
+  width: 100%;
+  height: 422px;
   position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 16px;
+  gap: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
 
@@ -22,10 +24,9 @@
   font-size: 20px;
   line-height: 130%;
   font-weight: 500;
-  
 }
 
-/* .img_container {
+.img_container {
   width: 100%;
   height: 284px;
 
@@ -34,14 +35,14 @@
   align-items: center;
   border-radius: 12px 12px 0 0;
   overflow: hidden;
-} */
+}
 
 .product_item:hover .images {
   transform: scale(1.05);
 }
 
 .images {
-  width: 100%; 
+  width: 100%;
   height: 284px;
   border-radius: 12px 12px 0 0;
   border-bottom: 1px solid #ddd;
@@ -105,7 +106,6 @@
 }
 
 .bag {
-  
   width: 44px;
   height: 48px;
   border: 2.2px;
@@ -116,15 +116,16 @@
   fill: rgb(53, 161, 53); */
 }
 
-.btn{
-    background-color: green;
-    color: white;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    position: absolute;
-    top: 40%;
-    display: none; 
+.btn {
+  background-color: #92a134;
+  color: white;
+  border-radius: 5px;
+  padding: 16px 32px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+  position: absolute;
+  top: 40%;
+  display: none;
+  align-items: center;
 }
