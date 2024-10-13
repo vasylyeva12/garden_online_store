@@ -5,26 +5,131 @@
     gap: 50px;
     width: 900px;
     margin: 20px auto;
+
+    
 }
 
 .product img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
+    max-width: 780px;
+    max-height: 572px;
+    object-fit: contain; 
+    /* определяет, как содержимое заменяемого элемента, такого как <img> или <video>, должно заполнять контейнер относительно его высоты и ширины. */
+
 }
 
 .product > div {
+    max-width: 548px;
+    max-height: 574px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 32px;
 }
 
 .product > div a {
-    background-color: green;
-    padding: 10px;
+    /* для ссылки Read more */
     cursor: pointer;
-    border-radius: 10px;
-    color: white;
+    color: #424436;
     width: fit-content;
     text-decoration: none;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.8px;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.product > h2 {
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    
+}
+
+.price {
+   position: relative;
+        
+}
+
+.prices {
+    display: flex;
+    justify-content: space-between;
+    max-width: 280px;
+    max-height: Hug 70px;
+    gap: 32px;
+}
+
+.priceReal {
+    width: 147px;
+    height: 70px;
+    font-family: Montserrat;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 70.4px;
+    text-align: left;
+    color: #424436;    
+}
+
+.priceDisc{
+    width: 101px;
+    height: 52px;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 52px;
+    text-align: left;
+    color: #8B8B8B;
+    text-decoration: line-through;
+    bottom: 0;
+    right: 0;
+}
+
+.discount_percent{
+    max-width: 63px;
+    max-height: 34px;
+    padding: 4px 8px;
+    gap: 10px;
+    border-radius: 6px;  
+    background-color: #92A134;
+    color: white;
+    font-size: 16px;  
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    position: absolute;
+    top: 0; 
+    right: 0;
+}
+.counter {
+    border-radius: 6px;
+    padding: 6px 16px;
+    background-color: #a13456;
+    font-size: 16px; 
+    Gap: 32px; 
+}
+
+.descr{
+    width: 548px;
+    height: 306px;   
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: left;
+    color: #424436;      
+}
+.fullDescr{
+    width: 548px;
+    height: 227px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: left;
+    
 }
