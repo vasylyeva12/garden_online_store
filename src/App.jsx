@@ -3,6 +3,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import AllProductsPage from './pages/AllProductsPage'
 import MainPage from './pages/MainPage'
+import NavMenuPages from './components/NavMenuPages';
 import Layout from './components/Layout'
 import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
@@ -28,7 +29,7 @@ const App = () => {
           <Route path='catigories/:category_name/:category_id' element={<SingleCategoryPage />}/>
           <Route path='cart' element={<ShoppingCartPage />}/>
           <Route path='liked' element={<LikedProductsPage />}/>
-          <Route path='liked/:id' element={<SingleProductPage />}/>
+          <Route path='liked/:id' element={<SingleProductPage />}/>          
           <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>

@@ -7,6 +7,8 @@ import {
   deleteLikedProductAction,
 } from "../../store/reducers/likedProductsReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { addProductToCartAction } from "../../store/reducers/cartReducer";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({
   id,
@@ -21,9 +23,9 @@ const ProductItem = ({
   const dispatch = useDispatch();
   // Вычисляем процент скидки
   const discountPercent =
-    discont_price !== 0
+    discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
-      : 0;
+      : null;
 
   // const handleClickLikeIcon = (event) => {
   //   event.stopPropagation();
@@ -35,9 +37,9 @@ const ProductItem = ({
   //   }
   // };
 
-  return (
-    <div>
+  return (   
       <div className={`${s.product_item} ${productStyle}`}>
+        <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img
             src={`http://localhost:3333/${image}`}
@@ -46,7 +48,7 @@ const ProductItem = ({
           />
         </div>
 
-        {discountPercent !== 0 && (
+        {discountPercent !== null && (
           <div className={s.cross_out}>
             <div className={s.discount_text}>-{discountPercent}%</div>
           </div>
@@ -73,8 +75,15 @@ const ProductItem = ({
             <p className={s.discount_price}>${price}</p>
           )}
         </div>
+        </Link>
+
+        <div 
+        className={s.btn}
+        onClick={()=> dispatch(addProductToCartAction({id, image, title, price, discont_price}))}>
+          Add to cart</div>
+        
       </div>
-    </div>
+    
   );
 };
 

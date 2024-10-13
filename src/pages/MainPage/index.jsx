@@ -6,12 +6,14 @@ import CategoriesMainSection from '../../components/CategoriesMainSection'
 
 
 
+
 const MainPage = () => {
   return (
     <div>
         <MainBanner />
         <CategoriesMainSection />
         <FormDiscount />
+        
     </div>
   )
 }
