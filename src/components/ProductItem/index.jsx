@@ -23,9 +23,9 @@ const ProductItem = ({
   const dispatch = useDispatch();
   // Вычисляем процент скидки
   const discountPercent =
-    discont_price !== 0
+    discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
-      : 0;
+      : null;
 
   // const handleClickLikeIcon = (event) => {
   //   event.stopPropagation();
@@ -37,8 +37,7 @@ const ProductItem = ({
   //   }
   // };
 
-  return (
-   
+  return (   
       <div className={`${s.product_item} ${productStyle}`}>
         <Link to={`/products/${id}`}>
         <div className={s.img_container}>
@@ -49,7 +48,7 @@ const ProductItem = ({
           />
         </div>
 
-        {discountPercent !== 0 && (
+        {discountPercent !== null && (
           <div className={s.cross_out}>
             <div className={s.discount_text}>-{discountPercent}%</div>
           </div>
