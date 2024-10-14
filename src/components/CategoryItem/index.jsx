@@ -20,3 +20,4 @@ const CategoryItem = ({ image, title }) => {
 };
 
 export default CategoryItem;
+

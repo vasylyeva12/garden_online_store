@@ -10,6 +10,7 @@ function CategoriesList({ categories }) {
       {
         categories.map(el => <CategoryItem {...categories}/>)
       }
+
     </div>
   );
 }

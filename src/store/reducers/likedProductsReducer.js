@@ -1,30 +1,56 @@
-const ADD_LIKED_PRODUCT = 'ADD_LIKED_PRODUCT';
-const DELETE_FROM_LIKED_PRODUCT = 'DELETE_FROM_LIKED_PRODUCT';
+const initialState = {
+  likedProducts: [],
+  likeTotalQuantity: 0,
+};
+const ADD_LIKED_PRODUCT = "ADD_LIKED_PRODUCT";
+const DELETE_FROM_LIKED_PRODUCT = "DELETE_FROM_LIKED_PRODUCT";
 
-
-export const addLikedProductAction = product => ({ type: ADD_LIKED_PRODUCT, payload: product });
-export const deleteLikedProductAction = product_id => ({ type: DELETE_FROM_LIKED_PRODUCT, payload: product_id });
-
-const checkLikedProduct = (state, payload) => {
-    const product = state.find(el => el.id === payload.id) 
-
-if (product) {
-    product.count++
-    return [...state]    
-}else{
-    return [...state, {...payload, count:1}]
+export const addLikedProductAction = (product) => (dispatch, getState) => {
+  const state = getState();
+  const existingIndex = state.likedProducts.likedProducts.findIndex(
+    (item) => item.id === product.id
+  );
+  let updateLikedProducts = [...state.likedProducts.likedProducts];
+  if (existingIndex === -1) {
+    //добавляем товар, если его еще нет в понравившихся
+    updateLikedProducts.push(product);
+  }
+  dispatch({
+    type: ADD_LIKED_PRODUCT,
+    payload: updateLikedProducts,
+  });
 }
-}
 
-// если продукт в избранном найден, то в product будет {} (true)
-// если продукт в избранном не найден, то в product будет undefined (false)
+  //удаление товара из списка избранных
 
-export const likedProductsReducer = (state = [], action) => {
-   
-    if(ADD_LIKED_PRODUCT === action.payload){
-      return checkLikedProduct(state, action.payload)
-    }else if (action.type === DELETE_FROM_LIKED_PRODUCT){
-        return state.filter(el => el.id !==action.payload)
+  export const deleteLikedProductAction = (product_id) => (dispatch, getState) => {
+      const state = getState();
+      const updateLikedProducts = state.likedProducts.likedProducts.filter(
+        (item) => item.id !== product_id
+      );
+
+      dispatch({
+        type: DELETE_FROM_LIKED_PRODUCT,
+        payload: updateLikedProducts,
+      });
+    };
+
+  export const likedProductsReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case ADD_LIKED_PRODUCT:
+        return {
+          ...state,
+          likedProducts: action.payload,
+          likeTotalQuantity: state.likeTotalQuantity + 1,
+        };
+      case DELETE_FROM_LIKED_PRODUCT:
+        return {
+          ...state,
+          likedProducts: action.payload,
+          likeTotalQuantity: state.likeTotalQuantity - 1,
+        };
+      default:
+        return state;
     }
-    return state
-}
+  };
+
