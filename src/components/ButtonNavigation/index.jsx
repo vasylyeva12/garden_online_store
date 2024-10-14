@@ -19,7 +19,7 @@ const ButtonNavigation = ({ crumbs }) => {
             {!isLast && <div className={s.button-navigation_separator}></div>}
           </div>
         );
-      })} */}
+      })} 
     </div>
   );
 };
