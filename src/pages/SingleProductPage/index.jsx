@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import s from './index.module.css'
 import zero from "../../media/notFoundPage_kaktus.svg";
 import ButtonAddToCard from '../../components/ButtonAddToCard';
+import NavMenuPages from '../../components/NavMenuPages';
+import Counter from '../../components/Counter';
 
 
 
@@ -14,18 +16,27 @@ const SingleProductPage = () => {
 
   useEffect(() => getSingleProduct(product_id, setSingleProduct), []);
 
-    const { title, price, description, image, category } = singleProduct;
-  return (
-    <div className={s.product}>
+    const { title, price, discont_price, description, image, category, categoryId } = singleProduct;
+ 
+    
+  
+    return (
+    <>
+      <div className={s.navMenuPages}>
+        <NavMenuPages  />
+      </div>
+      
+      <div className={s.product}>
       {/* <img src={image} alt={title} /> */}
+      {/* <img src={http://localhost:3333/products/${product.image}} /> */}
       <img className={s.four} src={zero} alt="kaktus" />
       <div>
-        <h2>{ title } Secateurs </h2>
+        <h2>{ title } Secateurs</h2>
 
         <div className={s.price}>
           <div className={s.prices}>
              <p className={s.priceReal}>{ price } $199</p>
-             <p className={s.priceDisc}>{ price } $240</p>
+             <p className={s.priceDisc}>{ discont_price } $240</p>
           </div>
           
           <div className={s.discount_percent}>
@@ -33,11 +44,9 @@ const SingleProductPage = () => {
           </div>
         </div>
 
-        <div className={s.counter}>
-          <div>
-            <p className={s.cunter}>- 1 + </p>
-            <ButtonAddToCard></ButtonAddToCard> 
-          </div>
+        <div className={s.counter_item}>     
+            <Counter />
+            <ButtonAddToCard /> 
         </div>
 
         <h3 className={s.descr}>{ description } Description</h3>
@@ -46,11 +55,17 @@ const SingleProductPage = () => {
 This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects.
 Supplied with replacement blade and spare spring. You may also be interested in our pack of two replacement springs.</p>
         
-        <Link to={`/categories/${category}`}>
+        {/* <Link to={`/categories/${category}`}>
           { category } Read more
-        </Link>
+        </Link> */}
+        <Link to={`/categories/${category}`}>
+        {category ? category : "No category"} Read more
+       </Link>
       </div>
     </div>
+    
+    </>
+    
   )
 }
 
