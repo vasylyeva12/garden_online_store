@@ -1,22 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import s from "./index.module.css";
 
-function CategoryItem({ category }) {
-  const categoryUp = category[0].toUpperCase() + category.slice(1);
+const CategoryItem = ({ image, title }) => {
 
   return (
-    <Link to={`/categories/${category}`} className={s.categories-item}>
-      {categoryUp}
-    </Link>
+    <div className={s.categories_wrapper}>
+      <Link to={`/categories/${id}`}>
+        <div className={s.image_wrapper}>
+          <img
+            className={s.images}
+            src={`http://localhost:3333/${image}`}
+            alt={title}
+          />
+        </div>
+        <p>{title}</p>
+      </Link>
+    </div>
   );
-}
+};
 
 export default CategoryItem;
-
-
-
-
-
-
 

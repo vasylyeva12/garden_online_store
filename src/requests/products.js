@@ -16,6 +16,7 @@ export const getAllProducts = (dispatch) => {
 export const getProductsByCategory = (categoryId) => {
     return dispatch => {
         fetch(`http://localhost:3333/products/category/${categoryId}`)
+
             .then(res => res.json())
             .then(json => dispatch(loadProductsByCategoryAction(json)))
     }  
