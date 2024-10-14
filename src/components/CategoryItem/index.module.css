@@ -1,18 +1,8 @@
-.category_item {
+.card {
   max-width: 100%;
 }
 
-.category_title {
-  text-decoration: none;
-  margin-top: 12px;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 130%;
-  text-align: center;
-  color: var(--black);
-}
-
-.category_image {
+.image_wrapper {
   display: block;
   border-radius: 12px;
   width: 100%;
