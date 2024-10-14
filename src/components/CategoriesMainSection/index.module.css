@@ -1,5 +1,13 @@
-.categories_container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+.wrapper {
+  margin-top: 56px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.categoryItem {
+  max-width: 100%;
 }
