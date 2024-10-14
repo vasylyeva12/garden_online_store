@@ -13,9 +13,9 @@ export const getAllProducts = (dispatch) => {
     
 }
 
-export const getProductsByCategory = (category_name) => {
+export const getProductsByCategory = (categoryId) => {
     return dispatch => {
-        fetch(`http://localhost:3333/products/category/${category_name}`)
+        fetch(`http://localhost:3333/products/category/${categoryId}`)
             .then(res => res.json())
             .then(json => dispatch(loadProductsByCategoryAction(json)))
     }  
@@ -26,6 +26,7 @@ export const getSingleProduct = (product_id) => {
         fetch(`http://localhost:3333/products/${product_id}`)
             .then(res => res.json())
             .then(json => dispatch(loadSingleProductAction(json)))
+            .catch(error => console.error('Error fetching product:', error));
     }  
 }
 

@@ -4,7 +4,8 @@ import s from "./index.module.css";
 
 function CategoriesList({ categories }) {
   return (
-    <div className={s.categories-list}>
+    <div className={s.categories_list}>
+      
       {/* {categories && // отрисовка категорий
             categories
               .slice(0, 4)
@@ -15,7 +16,7 @@ function CategoriesList({ categories }) {
                 />
               ))} */}
                {
-            categories.map(el => <CategoryItem key={el} category={el} />)
+            // categories.map(el => <CategoryItem key={el} category={el} />)
         }
     </div>
   );
