@@ -1,0 +1,39 @@
+.button-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .button-navigation_item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .button-navigation_link {
+    text-decoration: none;
+  }
+  
+  .button-navigation_btn {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .button-navigation_btn:hover {
+    background-color: #DDDDDD;
+  }
+  
+  .button-navigation_separator {
+    width: 20px;
+    height: 1px;
+    background-color: #DDDDDD;
+  }
+  
+  .last .button-navigation_btn {
+    font-weight: bold;
+  }

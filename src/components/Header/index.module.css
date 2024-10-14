@@ -3,13 +3,13 @@ body {
 }
 .header { 
   position: -webkit-sticky;
-  width: 100%;
-  padding: 20px 0;
+  width: 100%;  
+  /* padding: 20px 0; */
   position: sticky;
   top: 0;
   z-index: 900;
 
-  background-color: #ffffff;
+  background-color: #fffff1;
   margin-top: -130px;
   border-bottom: 1px solid #DDDDDD
 }
