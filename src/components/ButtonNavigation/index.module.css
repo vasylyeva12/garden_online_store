@@ -1,19 +1,19 @@
-.button-navigation {
+.button {
     display: flex;
     align-items: center;
     gap: 10px; 
   }
   
-  .button-navigation_item {
+  .navigation_item {
     display: flex;
     align-items: center;
   }
   
-  .button-navigation_link {
+  .navigation_link {
     text-decoration: none;
   }
   
-  .button-navigation_btn {
+  .navigation_btn {
     padding: 6px 12px;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
@@ -24,16 +24,16 @@
     outline: none;
   }
   
-  .button-navigation_btn:hover {
+  .navigation_btn:hover {
     background-color: #DDDDDD;
   }
   
-  .button-navigation_separator {
+  .navigation_separator {
     width: 20px;
     height: 1px;
     background-color: #DDDDDD;
   }
   
-  .last .button-navigation_btn {
+  .last .navigation_btn {
     font-weight: bold;
   }

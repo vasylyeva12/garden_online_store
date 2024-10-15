@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./index.module.css";
 import TitleBar from "../TitleBar";
-import { fetchDiscountedProducts } from "../../requests/products";
 import { Link } from "react-router-dom";
+import ProductsList from "../ProductsList";
+import { getAllProducts } from "../../requests/products";
+import { useSelector } from "react-redux";
+
 
 const Sale = () => {
-  const { discountedProducts, loading, error } = fetchDiscountedProducts();
-  if (error) return <div>Error: {error}</div>;
-  if (!discountedProducts) return <div>No products available</div>;
+  // const { products } = useSelector((state) => state.products);
+  // useEffect(() => {
+  //   dispatch(getAllProducts);
+  // }, []);
+
+  // const discountedProducts = products?.filter(
+  //   (product) => product.discont_price !== null
+  // );
 
   return (
     <div className={`${s.sale_container} container`}>
@@ -16,6 +24,7 @@ const Sale = () => {
         <Link to="/sales">
           <button>All sales</button>
         </Link>
+        {/* <ProductsList products={discountedProducts}/> */}
       </div>
     </div>
   );
