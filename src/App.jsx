@@ -24,8 +24,8 @@ const App = () => {
           <Route path='products/:product_id' element={<SingleProductPage />}/>
           <Route path='sales' element={<AllSalesPage />}/>
           <Route path='catigories' element={<CategoriesPage />}/>
-          <Route path='catigories/:category_name' element={<SingleCategoryPage />}/>
-          <Route path='catigories/:category_name/:category_id' element={<SingleCategoryPage />}/>
+          <Route path='catigories/:categoryId' element={<SingleCategoryPage />}/>
+          <Route path='catigories/:category_name/:categoryId' element={<SingleCategoryPage />}/>
           <Route path='cart' element={<ShoppingCartPage />}/>
           <Route path='liked' element={<LikedProductsPage />}/>   
           <Route path='*' element={<NotFoundPage />}/>

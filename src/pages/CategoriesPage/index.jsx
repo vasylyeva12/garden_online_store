@@ -29,8 +29,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CategoriesList from "../../components/CategoriesList";
-
-
 import s from "./index.module.css";
 
 const CategoriesPage = () => {
@@ -41,11 +39,6 @@ const CategoriesPage = () => {
   useEffect(() => {
     dispatch(getCategories); 
   }, []);
-
-  // const crumbs = [
-  //   { label: "Main page", path: "/" },
-  //   { label: "Categories", path: "/categories" },
-  // ];
 
   return (
     <div className="container">
