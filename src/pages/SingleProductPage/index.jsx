@@ -52,7 +52,7 @@ const SingleProductPage = () => {
             <ButtonAddToCard /> 
         </div>
 
-        <h3 className={s.descr}>{ description } Description</h3>
+        <h3 className={s.descr}>{ description } Descriptionssssssss</h3>
 
         <p className={s.fullDescr}>This high quality everyday secateur features a fully hardened and tempered, high-carbon steel blade for lasting sharpness. For comfort, the robust but lightweight alloy handles are covered in a soft grip, in a bright terracotta colour for maximum visibility in the garden. It won’t be easy to leave this pruner behind at the end of the day! Rubber cushion stops prevent jarring over repeated use, reducing hand strain for the user.
 This secateur cuts up to 2.5 cm diameter. Carrying RHS endorsement, possibly the highest accolade in gardening, for peace of mind this pruner comes with a ten-year guarantee against manufacturing defects.
