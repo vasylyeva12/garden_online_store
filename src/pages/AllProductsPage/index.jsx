@@ -7,11 +7,15 @@ import ButtonNavigation from '../../components/ButtonNavigation'
 
 const AllProductsPage = () => {
   const allProductsState = useSelector(store => store.products)
+ 
 
   const dispatch = useDispatch()
+
   useEffect(()=>{
     dispatch(getAllProducts)
-  },[])
+  },[]) 
+
+  
   return (
     <div className='container'>
       {/* <ButtonNavigation /> */}

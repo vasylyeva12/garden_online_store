@@ -1,11 +1,7 @@
 import React from "react";
 import s from "./index.module.css";
-import { PiHandbagLight, PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
-import {
-  addLikedProductAction,
-  deleteLikedProductAction,
-} from "../../store/reducers/likedProductsReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
+import { useDispatch} from "react-redux";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 
