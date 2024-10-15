@@ -98,7 +98,10 @@
 
 .icons_wrapper svg {
   border: 2.2px;
-  color: #424436;
+  /* color: #424436; */
+  stroke-width: 6px;
+  stroke: #424436;
+  fill: #ffffff;
   
 }
 .like {

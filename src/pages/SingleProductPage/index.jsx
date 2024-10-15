@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import { getSingleProduct } from '../../requests/products'
 import { Link, useParams } from 'react-router-dom'
@@ -6,20 +7,22 @@ import zero from "../../media/notFoundPage_kaktus.svg";
 import ButtonAddToCard from '../../components/ButtonAddToCard';
 import NavMenuPages from '../../components/NavMenuPages';
 import Counter from '../../components/Counter';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { sortUserPlugins } from 'vite';
 
 
 const SingleProductPage = () => {
-  const [ singleProduct, setSingleProduct ] = useState({});
+  // const [selectedProduct, setSelectedProduct] = useState(null); /*for modal window */
+
+  const dispatch = useDispatch();
 
   const { product_id } = useParams();
 
-  useEffect(() => getSingleProduct(product_id, setSingleProduct), []);
+  useEffect(() => dispatch(getSingleProduct(product_id)), []);
+    const singleProduct = useSelector(store => store.singleProduct);
 
     const { title, price, discont_price, description, image, category, categoryId } = singleProduct;
- 
-    
-  
+   
     return (
     <>
       <div className={s.navMenuPages}>
@@ -35,7 +38,7 @@ const SingleProductPage = () => {
 
         <div className={s.price}>
           <div className={s.prices}>
-             <p className={s.priceReal}>{ price } $199</p>
+             <p className={s.priceReal}>{ price } </p>
              <p className={s.priceDisc}>{ discont_price } $240</p>
           </div>
           
@@ -58,8 +61,8 @@ Supplied with replacement blade and spare spring. You may also be interested in
         {/* <Link to={`/categories/${category}`}>
           { category } Read more
         </Link> */}
-        <Link to={`/categories/${category}`}>
-        {category ? category : "No category"} Read more
+        <Link to={`/products/${product_id}`}> 
+        {category ? category : "No product"} Read more
        </Link>
       </div>
     </div>
@@ -69,4 +72,6 @@ Supplied with replacement blade and spare spring. You may also be interested in
   )
 }
 
-export default SingleProductPage
+
+
+export default SingleProductPage;

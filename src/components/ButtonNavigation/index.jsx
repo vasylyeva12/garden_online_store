@@ -6,6 +6,7 @@ const ButtonNavigation = ({ crumbs }) => {
   return (
     <div className={s.button-navigation}>
       {crumbs.map((crumb, index) => {
+
         const isLast = index === crumbs.length - 1;
 
         return (
@@ -18,7 +19,7 @@ const ButtonNavigation = ({ crumbs }) => {
             {!isLast && <div className={s.button-navigation_separator}></div>}
           </div>
         );
-      })}
+      })} 
     </div>
   );
 };

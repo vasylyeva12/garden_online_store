@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./index.module.css";
-import { IoIosHeartEmpty } from "react-icons/io";
-import { PiHandbagLight } from "react-icons/pi";
+import { PiHandbagLight, PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
 import {
   addLikedProductAction,
   deleteLikedProductAction,
@@ -56,12 +55,14 @@ const ProductItem = ({
 
         <div className={s.icons_wrapper}>
           {/* иконка сердце */}
-          <IoIosHeartEmpty
-            className={s.like}
-            // onClick={handleClickLikeIcon}
+          <PiHeartFill 
+          className={s.like}
+          // onClick={handleClickLikeIcon}
           />
+            
+          
           {/* иконка корзины */}
-          <PiHandbagLight className={s.bag} />
+          <PiHandbagSimpleFill className={s.bag} />
         </div>
 
         <h3 className={s.product_title}>{title}</h3>
