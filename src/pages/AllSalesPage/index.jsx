@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import s from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import ProductsList from "../../components/ProductsList";
 import { getAllProducts } from "../../requests/products";
 import { checkPriceAction, loadSortProductsAction } from "../../store/reducers/productsReducer";
 import { Link } from "react-router-dom";
@@ -60,8 +59,8 @@ const AllSalesPage = () => {
               by default
             </option>
             <option value="name">by name (A-Z)</option>
-            <option value="price_asc">by price (ASC)</option>
-            <option value="price_desc">by price (DESC)</option>
+            <option value="price_asc">price: high-low</option>
+            <option value="price_desc">price: low-high</option>
           </select>
         </div>
       </div>
