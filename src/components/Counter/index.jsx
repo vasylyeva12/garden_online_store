@@ -7,7 +7,7 @@ const Counter = () => {
       const increment = () => {
       setCount(count + 1);
     };
-  n
+  
     const decrement = () => {
       if (count > 1) { // Не позволяем значению опуститься ниже 1
         setCount(count - 1);
