@@ -1,23 +1,29 @@
-const initialState = {
-    product: null,
-    loading: false,
-    error: null
+const defaultState = {
+    data: {},
+    status: 'loading'
 }
 
 const LOAD_SINGLE_PRODUCT = 'LOAD_SINGLE_PRODUCT';
+const CHANGE_SINGLE_PRODUCT_STATUS = 'CHANGE_SINGLE_PRODUCT_STATUS'
 
 
-export const loadSingleProductAction = singleProduct => ({ type: LOAD_SINGLE_PRODUCT, payload: singleProduct });
+export const loadSingleProductAction = product => ({ type: LOAD_SINGLE_PRODUCT, payload: product });
+export const changeSingleProductStatusAction = () => ({ type: CHANGE_SINGLE_PRODUCT_STATUS });
 
-export const singleProductReducer = (state = initialState, action) => {
+export const singleProductReducer = (state = defaultState, action) => {
     switch (action.type) {
         case LOAD_SINGLE_PRODUCT:
           return {
             ...state,
-            product: action.payload[0],
-            loading: false,
-            error: null,
+            data: action.payload[0],
+            status: 'ready'
           };
+          case CHANGE_SINGLE_PRODUCT_STATUS:
+            return {
+              ...state,
+              status: 'loading'
+            }
+            
         default:
     return state
 }
