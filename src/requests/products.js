@@ -10,9 +10,9 @@ export const getAllProducts = (dispatch) => {
     .then(json => dispatch(loadAllProductsAction(json)))
 };
 
-export const getProductsByCategory = (categoryId) => {
+export const getProductsByCategory = (id) => {
   return (dispatch) => {
-    fetch(`http://localhost:3333/products/category/${categoryId}`)
+    fetch(`http://localhost:3333/products/categoryId/${id}`)
       .then((res) => res.json())
       .then((json) => dispatch(loadProductsByCategoryAction(json)));
   };
