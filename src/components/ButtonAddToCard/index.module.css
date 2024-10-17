@@ -1,0 +1,13 @@
+.btn {
+    max-width: 284px;
+    max-height: 58px;
+    top: 20px;
+    left: 20px;
+    padding: 16px 32px;
+    border-radius: 6px;  
+    background-color: #92A134;
+    color: white;
+    font-size: 16px;  
+  }
+
+ 

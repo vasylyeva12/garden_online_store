@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import s from "./index.module.css";
 import ProductItem from "../ProductItem";
 
-const ProductsList = ({ products }) => { 
 
-  const [alProducts, setAllproducts] = useState(products)
-
-  useEffect(() => {
-  const discountedProducts = products.filter(
-    (product) => product.discont_price
-  )
-  }, [products])
-
+const ProductsList = ({ products }) => {
   return (
     <div className={s.products_list}>
-      {
-        products.map(el => <ProductItem key={el.id} {...el} />)
-      }
+      {products.map((el) => (
+        <ProductItem key={el.id} {...el} />
+      ))}
     </div>
   );
 };
