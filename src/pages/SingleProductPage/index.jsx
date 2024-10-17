@@ -8,6 +8,7 @@ import NavMenuPages from "../../components/NavMenuPages";
 import Counter from "../../components/Counter";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSingleProductStatusAction } from "../../store/reducers/singleProductReducer";
+import ButtonNavigation from "../../components/ButtonNavigation";
 
 const SingleProductPage = () => {
   // const [selectedProduct, setSelectedProduct] = useState(null); /*for modal window */
@@ -35,9 +36,7 @@ const SingleProductPage = () => {
 
   return (
     <>
-      <div className={s.navMenuPages}>
-        <NavMenuPages />
-      </div>
+      <ButtonNavigation />
 
       {
         singleProductState.status === 'loading'

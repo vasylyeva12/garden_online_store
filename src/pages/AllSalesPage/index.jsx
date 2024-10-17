@@ -5,6 +5,7 @@ import { getAllProducts } from "../../requests/products";
 import { checkPriceAction, loadSortProductsAction } from "../../store/reducers/productsReducer";
 import { Link } from "react-router-dom";
 import ProductItem from "../../components/ProductItem";
+import ButtonNavigation from "../../components/ButtonNavigation";
 
 const AllSalesPage = () => {
   const dispatch = useDispatch();
@@ -31,15 +32,7 @@ const AllSalesPage = () => {
 
   return (
     <div className="container">
-      <div className={s.navigation}>
-        <Link to="/">
-          <div> Main page</div>
-        </Link>
-        <div className={s.line}></div>
-        <Link to="/sales">
-          <div>All sales</div>
-        </Link>
-      </div>
+     <ButtonNavigation showOnlyFirstTwoButtons={false}/>
 
       <h1 className={s.title}>Discounted items</h1>
 

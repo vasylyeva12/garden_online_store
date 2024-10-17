@@ -32,11 +32,12 @@ import s from "./index.module.css";
 import { Link } from "react-router-dom";
 import { getCategories } from "../../requests/categories";
 import CategoryItem from "../../components/CategoryItem";
+import ButtonNavigation from "../../components/ButtonNavigation";
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
 
-  const getCategoriesState = useSelector((store) => store.categories);
+  const {data: categories, isLoading} = useSelector((store) => store.categories);
 
   useEffect(() => {
     dispatch(getCategories);
@@ -44,7 +45,8 @@ const CategoriesPage = () => {
 
   return (
     <div className="container">
-      <div className={s.buttons}>
+      <ButtonNavigation showOnlyFirstTwoButtons={false}/>
+      {/* <div className={s.buttons}>
         <Link to="/">
           <div className={s.navigation}>Main page</div>
         </Link>
@@ -52,12 +54,12 @@ const CategoriesPage = () => {
         <Link to="/categories">
           <div className={s.navigation}>Categories</div>
         </Link>
-      </div>
+      </div> */}
 
       <div className={s.categories}>
         <h2 className={s.title}> Categories </h2>
         <div className={s.categories_container}>
-          {getCategoriesState.map((el) => (
+          {categories.map((el) => (
             <CategoryItem key={el.id} {...el} />
           ))}
         </div>
