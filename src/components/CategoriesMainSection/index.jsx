@@ -17,11 +17,13 @@ export default function CategoriesMainSection() {
           textButton="All categories"
           linkTo="/categories"
         />
-        <div className={s.cardContainer}>
-          {limitedCategories.map((el) => (
-            <CategoryItem key={el.id} {...el} className={s.categoryItem} />
-          ))}
-        </div>
+        <div className={s.categories_container}>
+            {
+                  
+               limitedCategories.filter(el => el.id !== 4).map(el => <CategoryItem key={el.id} {...el}/>)
+                  
+            }
+         </div>
       </div>
     </div>
   );
