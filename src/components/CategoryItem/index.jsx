@@ -12,8 +12,8 @@ const CategoryItem = ({ id, image, title }) => {
             src={`http://localhost:3333/${image}`} 
             alt={title}
           />
-        </div>
         <p>{title}</p>
+        </div>
       </Link>
     </div>
   );
