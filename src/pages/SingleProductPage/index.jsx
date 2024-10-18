@@ -34,6 +34,13 @@ const SingleProductPage = () => {
     categoryId,
   } = singleProductState.data;
 
+  
+  // Вычисляем процент скидки
+  const discountPercent =
+    discont_price !== null
+      ? Math.round(((price - discont_price) / price) * 100)
+      : null;
+
   return (
     <>
       <ButtonNavigation />
@@ -42,38 +49,42 @@ const SingleProductPage = () => {
         singleProductState.status === 'loading'
         ? <p>Product info is loading...</p>
         : <div className={s.product}>
+        
         <img  src={`http://localhost:3333/${image}`} alt={title} />
+        
         <div>
           <h2>{title}</h2>
 
           <div className={s.price}>
-            <div className={s.prices}>
-              <p className={s.priceReal}>{price} </p>
-              <p className={s.priceDisc}>{discont_price}</p>
-            </div>
+              <div className={s.prices}>
+                <p className={s.priceReal}>${Math.round(price)}</p>
 
-            <div className={s.discount_percent}>
-              <p>{price}</p>
+                {/* Показывать discont_price только если есть скидка */}
+                {discont_price && price > discont_price && (
+                  <p className={s.priceDisc}>${Math.round(discont_price)}</p>
+                )}
+              </div>
+
+              {/* Показывать процент скидки, если он существует */}
+              {discountPercent && (
+                <div className={s.discount_percent}>
+                  <p>-{discountPercent}%</p>
+                </div>
+              )}
             </div>
-          </div>
 
           <div className={s.counter_item}>
             <Counter />
             <ButtonAddToCard />
           </div>
 
+          <h3 className={s.descr_text}>Description</h3>
+
           <h3 className={s.descr}>{description} </h3>
 
-          <p className={s.fullDescr}>
-            
-          </p>
-
-          {/* <Link to={`/categories/${category}`}>
-          { category } Read more
-        </Link> */}
-          <Link to={`/products/${product_id}`}>
-            {category ? category : "No product"} Read more
-          </Link>
+          <p className={s.fullDescr}> </p>
+          <Link className={s.readmore_text}>Read more</Link>
+          
         </div>
       </div>
       }
