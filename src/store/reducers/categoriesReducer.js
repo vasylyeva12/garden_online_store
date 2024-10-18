@@ -1,7 +1,5 @@
-const initialState = {
-    data: [],
-    isLoading: false
-  };
+const defaultState = []
+    
 
 const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
 const SET_CATEGORIES_LOADING = 'SET_CATEGORIES_LOADING';
@@ -19,19 +17,9 @@ export const setCategoriesLoadingAction = (isLoading) => ({
     payload: isLoading,
   });
 
-export const categoriesReducer = (state=initialState, action) => {
-    switch (action.type) {
-        case LOAD_CATEGORIES:
-          return {
-            ...state,
-            data: action.payload,
-          };
-        case SET_CATEGORIES_LOADING:
-          return {
-            ...state,
-            isLoading: action.payload,
-          };
-        default:
-          return state;
-      }
-}
+  export const categoriesReducer = (state = defaultState, action) => {
+    if(action.type === LOAD_CATEGORIES) {
+       return action.payload
+    }
+    return state
+ }

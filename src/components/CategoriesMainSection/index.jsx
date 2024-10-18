@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TitleBar from "../TitleBar";
 import s from "./index.module.css";
 import CategoryItem from "../CategoryItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "../../requests/categories";
 
 export default function CategoriesMainSection() {
-  const categories = useSelector((state) => state.categories);
+  
+  const categoriesState = useSelector((store) => store.categories);
+  const dispatch = useDispatch()
 
-  const limitedCategories = categories ? categories.slice(0, 4) : [];
+  useEffect(() => {
+dispatch(getCategories)
+  }, [dispatch])
+
+  // const limitedCategories = categoriesState ? categoriesState.slice(0, 4) : [];
 
   return (
     <section className={s.categories}>
@@ -19,8 +26,8 @@ export default function CategoriesMainSection() {
         />
         <div className={s.categories_container}>
           {
-            limitedCategories
-              .filter(el => el.id !== 5) // Фильтрация категории с id 5
+            categoriesState
+              .filter(el => el.id !== 4) // Фильтрация категории с id 5
               .map(el => <CategoryItem key={el.id} {...el} />)
           }
         </div>
