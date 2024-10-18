@@ -1,14 +1,13 @@
 .categories{
     display: flex;
-    margin-bottom: 80px;
-
+    margin: 80px 0;
 }
 
 .categories_container {
   
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: 32px;
   margin: 40px auto;
   align-items: center;
  
