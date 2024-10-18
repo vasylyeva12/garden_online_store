@@ -5,11 +5,14 @@
 
 }
 
-.categories_wrapper image {
+.categories_wrapper img {
   width: 316px;
   height: 350px;
-  border-radius: 5%;
   object-fit: cover;
+  width: 100%;
+  min-height: auto;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .categories_wrapper p {
@@ -19,6 +22,7 @@
   line-height: 26px;
   text-align: center;
   color: #424436;
+  padding: 8px;
   
 }
 
@@ -41,3 +45,4 @@
      height: 257px;
   }
 }
+

@@ -8,11 +8,12 @@ const CategoryItem = ({ id, image, title }) => {
       <Link to={`/categories/${id}`}>
         <div className={s.image_wrapper}>
           <img
+            className={s.images}
             src={`http://localhost:3333/${image}`} 
             alt={title}
           />
-        </div>
         <p>{title}</p>
+        </div>
       </Link>
     </div>
   );

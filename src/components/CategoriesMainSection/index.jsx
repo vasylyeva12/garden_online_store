@@ -1,63 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TitleBar from "../TitleBar";
 import s from "./index.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../../requests/categories";
-import CategoriesList from "../CategoriesList";
+import CategoryItem from "../CategoryItem";
+import { useSelector } from "react-redux";
 
 export default function CategoriesMainSection() {
-  const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
+  
+  // Ограничиваем количество категорий до 4
+  const limitedCategories = categories ? categories.slice(0, 4) : [];
 
-  useEffect(() => {
-    // Важно вызвать getCategories как функцию
-    dispatch(getCategories());
-  }, [dispatch]);
-
-  // Проверяем, есть ли категории, и ограничиваем вывод до 4
-  const limitedCategories =
-    categories && categories.length > 0 ? categories.slice(0, 5) : [];
 
   return (
-    <div className={s.categories_block}>
+    <section className={s.categories}>
       <div className="container">
-        <TitleBar
+        <TitleBar 
           title="Categories"
           textButton="All categories"
           linkTo="/categories"
         />
         <div className={s.categories_container}>
-          {limitedCategories
-            .filter((el) => el.id !== 5)
-            .map((el) => (
-              <CategoriesList key={el.id} {...el} />
-            ))}
+          {
+            limitedCategories
+              .filter(el => el.id !== 5) // Фильтрация категории с id 5
+              .map(el => <CategoryItem key={el.id} {...el} />)
+          }
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-// export default function CategoriesMainSection() {
-//   const categories = useSelector((state) => state.categories);
-
-//   const limitedCategories = categories && categories.length > 0 ? categories.slice(0, 4) : [];
-
-//   // const limitedCategories = categories ? categories.slice(0, 4) : [];
-
-//   return (
-//     <div className={s.categories_block}>
-//       <div className="container">
-//         <TitleBar
-//           title="Categories"
-//           textButton="All categories"
-//           linkTo="/categories"
-//         />
-//         <div className={s.categories_container}>
-//           {limitedCategories.map((el) => (
-//             <CategoryItem key={el.id} {...el} />
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

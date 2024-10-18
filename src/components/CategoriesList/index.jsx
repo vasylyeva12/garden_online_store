@@ -4,7 +4,6 @@ import s from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../requests/categories";
 
-
 function CategoriesList() {
   const dispatch = useDispatch();
 
@@ -15,7 +14,8 @@ function CategoriesList() {
   }, [dispatch]);
 
   return (
-      <div className={s.container}>
+
+      <div className="container">
         {getCategoriesState
           .map((el) => (
             <CategoryItem key={el.id} {...el} />
@@ -26,3 +26,5 @@ function CategoriesList() {
 
 
 export default CategoriesList;
+
+

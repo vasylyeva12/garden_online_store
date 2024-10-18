@@ -3,15 +3,15 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import AllProductsPage from './pages/AllProductsPage'
 import MainPage from './pages/MainPage'
-import NavMenuPages from './components/NavMenuPages';
 import Layout from './components/Layout'
 import AllSalesPage from './pages/AllSalesPage'
 import CategoriesPage from './pages/CategoriesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import SingleProductPage from './pages/SingleProductPage';
 import LikedProductsPage from './pages/LikedProductsPage';
-import SingleCategoryPage from './pages/SingleCategoryPage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
+import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
+
 
 
 const App = () => {
@@ -24,8 +24,7 @@ const App = () => {
           <Route path='products/:product_id' element={<SingleProductPage />}/>
           <Route path='sales' element={<AllSalesPage />}/>
           <Route path='categories' element={<CategoriesPage />}/>
-          <Route path='categories/:categoryId' element={<SingleCategoryPage />}/>
-          <Route path='categories/:category_name/:categoryId' element={<SingleCategoryPage />}/>
+          <Route path='/categories/:categoryId' element={<ProductsByCategoryPage />} />
           <Route path='cart' element={<ShoppingCartPage />}/>
           <Route path='liked' element={<LikedProductsPage />}/>   
           <Route path='*' element={<NotFoundPage />}/>
