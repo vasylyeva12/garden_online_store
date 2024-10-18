@@ -6,10 +6,8 @@ import { useSelector } from "react-redux";
 
 export default function CategoriesMainSection() {
   const categories = useSelector((state) => state.categories);
-  
-  // Ограничиваем количество категорий до 4
-  const limitedCategories = categories ? categories.slice(0, 4) : [];
 
+  const limitedCategories = categories ? categories.slice(0, 4) : [];
 
   return (
     <section className={s.categories}>

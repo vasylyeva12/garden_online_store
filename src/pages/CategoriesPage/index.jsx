@@ -10,7 +10,7 @@ const CategoriesPage = () => {
   
   const dispatch = useDispatch();
 
-  const getCategoriesState = useSelector((store) => store.categories);
+  const {data: categories, isLoading} = useSelector((store) => store.categories);
 
   useEffect(() => {
     dispatch(getCategories);
@@ -26,12 +26,12 @@ const CategoriesPage = () => {
         <Link to="/categories">
           <div className={s.navigation}>Categories</div>
         </Link>
-      </div>
+      </div> 
 
       <div className={s.categories}>
         <h2 className={s.title}> Categories </h2>
         <div className={s.categories_container}>
-          {getCategoriesState.map((el) => (
+          {categories.map((el) => (
             <CategoryItem key={el.id} {...el} />
           ))}
         </div>

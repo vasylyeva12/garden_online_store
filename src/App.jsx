@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import AllProductsPage from './pages/AllProductsPage'
 import MainPage from './pages/MainPage'
 import Layout from './components/Layout'
@@ -15,6 +15,12 @@ import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
 
 
 const App = () => {
+  const { key } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // при каждом изменении маршрута страница будет прокручена в самое начало.
+  }, [key]);
+
   return (
     <>
       <Routes>
@@ -31,8 +37,7 @@ const App = () => {
         </Route>
       </Routes>
     </>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
