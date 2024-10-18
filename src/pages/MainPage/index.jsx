@@ -5,12 +5,11 @@ import CategoriesMainSection from "../../components/CategoriesMainSection";
 import Sale from "../../components/Sale";
 import CategoriesPage from "../CategoriesPage";
 
-const MainPage = ({ isLoading }) => {
+const MainPage = () => {
   return (
     <div>
       <MainBanner />
-      <CategoriesMainSection isLoading={isLoading} />
-      <CategoriesPage/>
+      <CategoriesMainSection  />   
       <FormDiscount />
       <Sale />
     </div>
