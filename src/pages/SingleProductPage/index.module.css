@@ -1,27 +1,17 @@
-.navMenuPages{
-    width: 603px;
-    height: 36px;
-    top: 168px;
-    left: 40px;
-    margin-bottom: 20px;
-    
-}
 
 .product {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 900px;
-    margin: auto;
+    align-items: center;    
     margin-top: 122px;
     max-width: 1,360px;
-    max-height: 574px;
+    max-height: 578px;
     gap: 32px;
 }
 
 .product img {
     width: 57%;
-    min-height: auto;
+    max-height: 572px;
     object-fit: cover;
     border-radius: 12px; 
     /* определяет, как содержимое заменяемого элемента, такого как <img> или <video>, должно заполнять контейнер относительно его высоты и ширины. */
@@ -29,8 +19,8 @@
 }
 
 .product > div {
-    max-width: 548px;
-    max-height: 574px;
+    width: 40%;
+    max-height: 578px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -48,10 +38,10 @@
 }
 
 .product > h2 {
-    font-family: Montserrat;
-    font-size: 40px;
+   
+    font-size: clamp(1.5rem, 1.167rem + 1.48vw, 2.5rem);
     font-weight: 700;
-    line-height: 44px;
+    line-height: 110%;
     letter-spacing: 0.03em;
     text-align: left;
 }

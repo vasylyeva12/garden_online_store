@@ -4,6 +4,7 @@ import s from "./index.module.css";
 import { Link } from "react-router-dom";
 import { getCategories } from "../../requests/categories";
 import CategoryItem from "../../components/CategoryItem";
+import ButtonNavigation from "../../components/ButtonNavigation";
 
 const CategoriesPage = () => {
 
@@ -18,7 +19,8 @@ const CategoriesPage = () => {
 
   return (
     <div className='container'>
-      <div className={s.buttons}>
+      <ButtonNavigation />
+      {/* <div className={s.buttons}>
         <Link to="/">
           <div className={s.navigation}>Main page</div>
         </Link>
@@ -26,7 +28,7 @@ const CategoriesPage = () => {
         <Link to="/categories">
           <div className={s.navigation}>Categories</div>
         </Link>
-      </div> 
+      </div>  */}
 
       <div className={s.categories}>
         <h2 className={s.title}> Categories </h2>
