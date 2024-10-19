@@ -42,7 +42,7 @@ const SingleProductPage = () => {
       : null;
 
   return (
-    <>
+    <div className="container">
       <ButtonNavigation />
 
       {
@@ -90,7 +90,7 @@ const SingleProductPage = () => {
       }
 
       
-    </>
+    </div>
   );
 };
 

@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import s from "./index.module.css"; 
-import { getProductsByCategory, getSingleProduct } from "../../requests/products";
+import s from "./index.module.css";
+import {
+  getProductsByCategory,
+  getSingleProduct,
+} from "../../requests/products";
 import { store } from "../../store/store";
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { id, categoryId } = useParams();
+  const { id } = useParams();
 
   // Данные из Redux store
-  const categoryState = useSelector(store => store.products);
-  const productState = useSelector(store => store.product);
+  const categoryState = useSelector((store) => store.products);
+  const productState = useSelector((store) => store.product);
 
   let buttonText = "";
   let linkTo = "";
@@ -34,13 +37,15 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
 
   // Используем useEffect для загрузки данных при наличии id или categoryId
   useEffect(() => {
-    if (categoryId) {
-      dispatch(getProductsByCategory(categoryId));
-    }
+    // if (categoryId) {
+    //   dispatch(getProductsByCategory(categoryId));
+    // }
     if (id) {
       dispatch(getSingleProduct(id));
     }
-  }, [dispatch, categoryId, id]);
+
+    console.log(productState);
+  }, [dispatch, id]);
 
   const categoryTitle = categoryState?.category?.title || "";
   const productTitle = productState?.length > 0 ? productState[0].title : "";
@@ -53,8 +58,6 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
     ? { display: "block" }
     : { display: "none" };
 
- 
-
   return (
     <>
       <div className={`${s.navigation_container}`}>
@@ -65,9 +68,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
             </Link>
             <div className={s.line}></div>
             <Link to={linkTo}>
-              <button
-                id={categoryTitle || productTitle ? "" : s.last_button}
-              >
+              <button id={categoryTitle || productTitle ? "" : s.last_button}>
                 {buttonText}
               </button>
             </Link>
@@ -75,14 +76,14 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
         )}
         <div className={s.line} style={categoryButtonStyle}></div>
 
-        <Link to={`/categories/${categoryId}`}>
+        {/* <Link to={`/categories/${categoryId}`}>
           <button
             style={categoryButtonStyle}
             id={productTitle ? "" : s.last_button}
           >
             {categoryTitle}
           </button>
-        </Link>
+        </Link> */}
         <div style={productButtonStyle} className={s.line}></div>
         <div>
           <button id={s.last_button} style={productButtonStyle}>
@@ -95,4 +96,3 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
 };
 
 export default ButtonNavigation;
-
