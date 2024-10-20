@@ -25,7 +25,11 @@ const NavMenu = () => {
               All sales
             </NavLink>
           </li>
-         
+          <li className={s.nav_item}>
+            <NavLink to="/cart" className={s.nav_item}>
+              ShoppingCart
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className={s.btn_hidden}>

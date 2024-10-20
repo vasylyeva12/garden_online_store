@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { getSingleProduct } from "../../requests/products";
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
-import zero from "../../media/notFoundPage_kaktus.svg";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
 import NavMenuPages from "../../components/NavMenuPages";
 import Counter from "../../components/Counter";
@@ -30,11 +29,9 @@ const SingleProductPage = () => {
     discont_price,
     description,
     image,
-    category,
-    categoryId,
+    
   } = singleProductState.data;
 
-  
   // Вычисляем процент скидки
   const discountPercent =
     discont_price !== null
@@ -75,7 +72,8 @@ const SingleProductPage = () => {
 
           <div className={s.counter_item}>
             <Counter />
-            <ButtonAddToCard />
+            <ButtonAddToCard id={product_id} title={title} price={price} discont_price={discont_price} image={image}/>
+            
           </div>
 
           <h3 className={s.descr_text}>Description</h3>
