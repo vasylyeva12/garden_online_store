@@ -4,6 +4,7 @@ import ProductsList from '../../components/ProductsList'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../../requests/products'
 import ButtonNavigation from '../../components/ButtonNavigation'
+import ProductsContainer from '../../components/ProductsContainer'
 
 const AllProductsPage = () => {
   const allProductsState = useSelector(store => store.products)
@@ -21,6 +22,7 @@ const AllProductsPage = () => {
       <ButtonNavigation showOnlyFirstTwoButtons={false}/>
        <h1 className={s.title}>All products</h1>
       <ProductsList products={allProductsState}/>
+      {/* <ProductsContainer products={allProductsState} /> */}
     </div>
   )
 }
