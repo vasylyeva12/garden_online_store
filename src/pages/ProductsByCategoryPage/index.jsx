@@ -1,34 +1,67 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsByCategory } from "../../requests/products"; // Убедитесь, что путь к функции правильный
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList";
 import { changeStatusAction } from "../../store/reducers/productsByCategoryReducer";
-import ButtonNavigation from "../../components/ButtonNavigation";
+
+import { getCategories } from "../../requests/categories";
+import s from './index.module.css'
 
 const ProductsByCategoryPage = () => {
-  const { id } = useParams();
+  const { categoryId } = useParams();
   const dispatch = useDispatch();
+  
 
   // Получаем состояние продуктов по категории из Redux
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
+  const categoriesState = useSelector((store) => store.categories);
+  const category = categoriesState[categoryId - 1]
 
+  console.log(categoriesState);
+
+  useEffect(() => {
+    dispatch(getCategories);
+  }, []);
+  
   useEffect(() => {
     // Изменяем статус загрузки и загружаем продукты по категории
     dispatch(changeStatusAction());
-    console.log(id);
-    dispatch(getProductsByCategory(id));
-  }, [dispatch, id]); // Добавили id в зависимости для перезагрузки при его изменении
+  
+    dispatch(getProductsByCategory(categoryId));
+  }, [dispatch, categoryId]); // Добавили id в зависимости для перезагрузки при его изменении
 
   const { status, data } = productsByCategoryState; // Извлекаем статус и данные из состояния
 
-  console.log(productsByCategoryState);
+  
+
+
+  // console.log(productsByCategoryState);
   return (
     <div className="container">
+      {category && category.title ? (
+     <div className={s.breadcrumbs}>
+        <Link to='/' className={s.crumbBox}>
+          <span className={s.crumbText}>Main page</span>
+        </Link>
+        <div className={s.line}></div>
+        <Link to='/categories' className={s.crumbBox}>
+          <span className={s.crumbText}>Categories</span>
+        </Link>
+        <div className={s.line}></div>
+        <div className={s.crumbBox}>
+          <span className={s.crumbTextBlack}>{category.title}</span>
+        </div>
+      </div> 
+      ) : (
+        <p>Loading...</p>
+      )}
 
-      <ButtonNavigation />
+
+
+      
       <div>
         {status === "loading" ? (
           <p>Products are loading...</p> // Добавил параграф для текстового отображения
