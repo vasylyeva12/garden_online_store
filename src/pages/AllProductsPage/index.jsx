@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import s from "./index.module.css";
 import ProductsList from "../../components/ProductsList";
@@ -16,11 +17,13 @@ const AllProductsPage = () => {
   }, []);
 
   return (
+
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
       <h1 className={s.title}>All products</h1>
       <FilterBar />
       <ProductsList products={allProductsState} />
+
     </div>
   );
 };
