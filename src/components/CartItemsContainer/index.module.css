@@ -1,0 +1,20 @@
+.shopping_section{
+    max-width: 1,360px;
+    max-height: 582px;
+    gap: 32px;
+    opacity: 0px;
+    display: flex;
+    /* align-items: center;  */
+    /* width: 100%; */
+}
+
+.input_form{
+    max-width: 548px;
+    max-height: 582px;
+    padding: 32px 0px 0px 0px;
+    gap: 32px;
+    border-radius: 12px;
+    background-color: #F2F6D3;
+
+    
+}
