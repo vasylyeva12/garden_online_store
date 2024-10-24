@@ -10,7 +10,7 @@ import FilterPrice from "../../components/FilterBar/FilterPrice";
 import FilterDiscounded from "../../components/FilterBar/FilterDiscouted";
 import FilterSort from "../../components/FilterBar/FilterSort";
 
-const ProductsByCategoryPage = ({ title }) => {
+const ProductsByCategoryPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
