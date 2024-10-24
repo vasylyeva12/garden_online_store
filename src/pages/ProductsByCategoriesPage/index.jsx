@@ -1,19 +1,28 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsByCategory } from "../../requests/products"; // Убедитесь, что путь к функции правильный
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList";
 import { changeStatusAction } from "../../store/reducers/productsByCategoryReducer";
 
 const ProductsByCategoryPage = () => {
-  const { id } = useParams();
+  const { categoryId } = useParams();
   const dispatch = useDispatch();
+  
 
   // Получаем состояние продуктов по категории из Redux
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
+  const categoriesState = useSelector((store) => store.categories);
+  const category = categoriesState[categoryId - 1]
 
+  console.log(categoriesState);
+
+  useEffect(() => {
+    dispatch(getCategories);
+  }, []);
+  
   useEffect(() => {
     // Изменяем статус загрузки и загружаем продукты по категории
     dispatch(changeStatusAction());

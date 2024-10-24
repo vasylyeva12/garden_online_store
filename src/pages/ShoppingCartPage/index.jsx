@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import CartItemsContainer from '../../components/CartItemsContainer';
 import { Link } from 'react-router-dom'
 import { deleteAllAction } from '../../store/reducers/cartReducer';
-import ProductCard from '../../components/ProductCard';
 import OrderForm from '../../components/OrderForm';
 
 const ShoppingCartPage = () => {

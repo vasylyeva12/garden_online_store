@@ -7,11 +7,13 @@ import CategoryItem from "../../components/CategoryItem";
 import ButtonNavigation from "../../components/ButtonNavigation";
 
 const CategoriesPage = () => {
-
   
   const dispatch = useDispatch();
 
   const categoriesState = useSelector((store) => store.categories);
+
+  console.log(categoriesState);
+  
 
   useEffect(() => {
     dispatch(getCategories);

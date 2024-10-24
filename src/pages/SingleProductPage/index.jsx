@@ -3,7 +3,7 @@ import { getSingleProduct } from "../../requests/products";
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
-import NavMenuPages from "../../components/NavMenuPages";
+
 import Counter from "../../components/Counter";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSingleProductStatusAction } from "../../store/reducers/singleProductReducer";

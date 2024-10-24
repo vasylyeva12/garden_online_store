@@ -6,12 +6,12 @@ import {
   getProductsByCategory,
   getSingleProduct,
 } from "../../requests/products";
-import { store } from "../../store/store";
+
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id, categoryId } = useParams();
 
   // Данные из Redux store
   const categoryState = useSelector((store) => store.products);
@@ -33,22 +33,26 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   } else if (location.pathname.startsWith("/liked")) {
     buttonText = "Liked products";
     linkTo = "/liked";
+  } else if (location.pathname.startsWith("/products/:id")) {
+    buttonText = "Categories";
+    linkTo = "/products/:id";
   }
 
-  // Используем useEffect для загрузки данных при наличии id или categoryId
+  // Используем useEffect для загрузки данных при наличии id 
   useEffect(() => {
-    // if (categoryId) {
-    //   dispatch(getProductsByCategory(categoryId));
-    // }
+    if (categoryId) {
+      dispatch(getProductsByCategory(categoryId));
+    }
     if (id) {
       dispatch(getSingleProduct(id));
-    }
+       }
+    
+  }, [dispatch, id, categoryId]);
 
-    console.log(productState);
-  }, [dispatch, id]);
-
-  const categoryTitle = categoryState?.category?.title || "";
-  const productTitle = productState?.length > 0 ? productState[0].title : "";
+  const categoryTitle = 
+  categoryState && categoryState.category ? categoryState.category.title : "";
+  const productTitle = 
+  productState && productState.length > 0 ? productState[0].title : "";
 
   // Установка стилей для отображения кнопок в зависимости от наличия данных
   const categoryButtonStyle = categoryTitle
@@ -76,14 +80,14 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
         )}
         <div className={s.line} style={categoryButtonStyle}></div>
 
-        {/* <Link to={`/categories/${categoryId}`}>
+        <Link to={`/categories/${categoryId}`}>
           <button
             style={categoryButtonStyle}
             id={productTitle ? "" : s.last_button}
           >
             {categoryTitle}
           </button>
-        </Link> */}
+        </Link>
         <div style={productButtonStyle} className={s.line}></div>
         <div>
           <button id={s.last_button} style={productButtonStyle}>
