@@ -13,7 +13,7 @@ export const changeStatusAction = () => ({ type: CHANGE_STATUS_TO_LOADING });
 export const productsByCategoryReducer = (state = defaultState, action) => {
     if(action.type === LOAD_PRODUCTS_BY_CATEGORY){
         return {
-            data: action.payload.data,
+            data: action.payload.data.map(el => ({...el, visible: true})),
             status: 'ready'
         }
     } else if (action.type === CHANGE_STATUS_TO_LOADING) {

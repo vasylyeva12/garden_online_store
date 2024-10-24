@@ -5,7 +5,8 @@ import { getAllProducts } from "../../requests/products";
 import ProductItem from "../../components/ProductItem";
 import ButtonNavigation from "../../components/ButtonNavigation";
 import FilterBar from "../../components/FilterBar";
-
+import FilterPrice from "../../components/FilterBar/FilterPrice";
+import FilterSort from "../../components/FilterBar/FilterSort";
 
 const AllSalesPage = () => {
   const dispatch = useDispatch();
@@ -14,14 +15,17 @@ const AllSalesPage = () => {
   useEffect(() => {
     dispatch(getAllProducts);
   }, []);
-  
 
   return (
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
 
       <h1 className={s.title}>Discounted items</h1>
-      <FilterBar />
+
+      <div className={s.filters_container}>
+        <FilterPrice />
+        <FilterSort />
+      </div>
 
       <div className={`${s.products_list} `}>
         {allProductsState
