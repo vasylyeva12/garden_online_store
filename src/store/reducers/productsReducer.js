@@ -27,9 +27,9 @@ export const productsReducer = (state = defaultState, action) => {
     }else if (action.type === GET_DISCOUNTED_PRODUCTS) {
         if (action.payload) {
               state.map(el => {
-                if(el.discont_price !== null) {
+                if(el.discont_price) {
                     el.visible = true
-                 } else if(el.discont_price === null) {
+                 } else if(!el.discont_price) {
                     el.visible = false
                  }
                  return el 
