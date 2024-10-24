@@ -1,0 +1,69 @@
+.shop_cart{
+    max-height: 692px;
+    max-width: 1,360px;
+    top: 168px;
+    left: 40px;
+    gap: 40px;
+    opacity: 0px;
+    margin: 30px;
+}
+
+.cart{
+    max-width: 1,360px;
+    max-height: 582px;
+    gap: 32px;
+    opacity: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    width: 100%; /* Заставит блок занимать всю ширину родительского контейнера */
+
+}
+
+.linia{
+    display: flex; 
+    align-items: center;
+    flex-grow: 1; /* Позволит линии занять всю оставшуюся ширину */
+    margin-left: 20px; 
+}
+
+.cart > h1{
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 70.4px;
+    text-align: left;
+    color: #424436;
+}
+
+.linia hr {
+    flex-grow: 1; /* Линия займет всё доступное пространство между h1 и кнопкой */
+    border: none;
+    border-top: 1px solid #DDDDDD; 
+}
+
+.cart > hr {
+        max-width: 681px;
+        max-height: 0px;
+        border: 1px 0px 0px 0px;
+        color: #DDDDDD;     
+  }
+
+.store{
+    width: 170px;
+    height: 36px;
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 6px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    border: 1px solid #DDDDDD;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.16px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.store:hover {
+    cursor: pointer; 
+  }

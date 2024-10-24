@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
    productsByCategory: productsByCategoryReducer,
    product: singleProductReducer,
    cart: cartReducer,
-   likedProduct: likedProductsReducer,
+   likedProducts: likedProductsReducer,
   
 });
 

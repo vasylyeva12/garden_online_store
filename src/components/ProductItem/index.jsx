@@ -4,6 +4,7 @@ import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
 import { useDispatch} from "react-redux";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
+import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 
 const ProductItem = ({
   id,
@@ -32,6 +33,12 @@ const ProductItem = ({
   //   }
   // };
 
+  const handleClickLikeIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+  };
+
   return (   
       <div className={`${s.products_wrapper} `}>
         <Link to={`/products/${id}`}>
@@ -53,7 +60,7 @@ const ProductItem = ({
           {/* иконка сердце */}
           <PiHeartFill 
           className={s.like}
-          // onClick={handleClickLikeIcon}
+          onClick={handleClickLikeIcon}
           />
             
           
@@ -73,6 +80,14 @@ const ProductItem = ({
           )}
         </div>
         </Link>
+
+        <div className={s.icons_wrapper}>
+          {/* иконка сердце */}
+          <PiHeartFill 
+          className={s.like}
+          onClick={handleClickLikeIcon}
+          />
+        </div>
 
         <div 
         className={s.btn}

@@ -1,32 +1,43 @@
 .navbar_actions {
-    display: flex;
-    gap: 24px;
-    align-items: center;
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
 
 .nav_favourites {
-    border: 2.2px;
-    color: #424436;
-    align-items: center;
+  border: 2.2px;
+  color: #424436;
+  align-items: center;
 }
 
 .favourites {
-    width: 54px;
-    height: 54px;   
-    
+  width: 54px;
+  height: 54px;
+  position: relative;
+}
+.heart_count {
+  width: 26px;
+  height: 26px;
+  background-color: #92a134;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  position: absolute;
+  top: 35px;
+  right: 148px;
 }
 
 .favourites:hover {
-    color: #92a134;
+  color: #92a134;
 }
 .nav_basket svg {
-    border: 2.2px;
-    color: #424436;
-    width: 57px;
-    height: 67px;
+  border: 2.2px;
+  color: #424436;
+  width: 57px;
+  height: 67px;
 }
 
 .nav_basket svg:hover {
-    color: #92A134;
-    
+  color: #92a134;
 }

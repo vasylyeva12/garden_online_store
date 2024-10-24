@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { getSingleProduct } from "../../requests/products";
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
-import zero from "../../media/notFoundPage_kaktus.svg";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
 import NavMenuPages from "../../components/NavMenuPages";
 import Counter from "../../components/Counter";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSingleProductStatusAction } from "../../store/reducers/singleProductReducer";
+import ButtonNavigation from "../../components/ButtonNavigation";
 
 const SingleProductPage = () => {
   // const [selectedProduct, setSelectedProduct] = useState(null); /*for modal window */
@@ -29,58 +29,66 @@ const SingleProductPage = () => {
     discont_price,
     description,
     image,
-    category,
-    categoryId,
+    
   } = singleProductState.data;
 
+  // Вычисляем процент скидки
+  const discountPercent =
+    discont_price !== null
+      ? Math.round(((price - discont_price) / price) * 100)
+      : null;
+
   return (
-    <>
-      <div className={s.navMenuPages}>
-        <NavMenuPages />
-      </div>
+    <div className="container">
+      <ButtonNavigation />
 
       {
         singleProductState.status === 'loading'
         ? <p>Product info is loading...</p>
         : <div className={s.product}>
+        
         <img  src={`http://localhost:3333/${image}`} alt={title} />
+        
         <div>
           <h2>{title}</h2>
 
           <div className={s.price}>
-            <div className={s.prices}>
-              <p className={s.priceReal}>{price} </p>
-              <p className={s.priceDisc}>{discont_price}</p>
-            </div>
+              <div className={s.prices}>
+                <p className={s.priceReal}>${Math.round(price)}</p>
 
-            <div className={s.discount_percent}>
-              <p>{price}</p>
+                {/* Показывать discont_price только если есть скидка */}
+                {discont_price && price > discont_price && (
+                  <p className={s.priceDisc}>${Math.round(discont_price)}</p>
+                )}
+              </div>
+
+              {/* Показывать процент скидки, если он существует */}
+              {discountPercent && (
+                <div className={s.discount_percent}>
+                  <p>-{discountPercent}%</p>
+                </div>
+              )}
             </div>
-          </div>
 
           <div className={s.counter_item}>
             <Counter />
-            <ButtonAddToCard />
+            <ButtonAddToCard id={product_id} title={title} price={price} discont_price={discont_price} image={image}/>
+            
           </div>
+
+          <h3 className={s.descr_text}>Description</h3>
 
           <h3 className={s.descr}>{description} </h3>
 
-          <p className={s.fullDescr}>
-            
-          </p>
-
-          {/* <Link to={`/categories/${category}`}>
-          { category } Read more
-        </Link> */}
-          <Link to={`/products/${product_id}`}>
-            {category ? category : "No product"} Read more
-          </Link>
+          <p className={s.fullDescr}> </p>
+          <Link className={s.readmore_text}>Read more</Link>
+          
         </div>
       </div>
       }
 
       
-    </>
+    </div>
   );
 };
 
