@@ -10,7 +10,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import SingleProductPage from './pages/SingleProductPage';
 import LikedProductsPage from './pages/LikedProductsPage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
-import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
+import ProductsByCategoryPage from './pages/ProductsByCategoriesPage';
 
 
 

@@ -5,9 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList";
 import { changeStatusAction } from "../../store/reducers/productsByCategoryReducer";
 
-import { getCategories } from "../../requests/categories";
-import s from './index.module.css'
-
 const ProductsByCategoryPage = () => {
   const { categoryId } = useParams();
   const dispatch = useDispatch();
@@ -29,39 +26,13 @@ const ProductsByCategoryPage = () => {
   useEffect(() => {
     // Изменяем статус загрузки и загружаем продукты по категории
     dispatch(changeStatusAction());
-  
-    dispatch(getProductsByCategory(categoryId));
-  }, [dispatch, categoryId]); // Добавили id в зависимости для перезагрузки при его изменении
+    dispatch(getProductsByCategory(id));
+  }, [dispatch, id]); // Добавили id в зависимости для перезагрузки при его изменении
 
   const { status, data } = productsByCategoryState; // Извлекаем статус и данные из состояния
 
-  
-
-
-  // console.log(productsByCategoryState);
   return (
     <div className="container">
-      {category && category.title ? (
-     <div className={s.breadcrumbs}>
-        <Link to='/' className={s.crumbBox}>
-          <span className={s.crumbText}>Main page</span>
-        </Link>
-        <div className={s.line}></div>
-        <Link to='/categories' className={s.crumbBox}>
-          <span className={s.crumbText}>Categories</span>
-        </Link>
-        <div className={s.line}></div>
-        <div className={s.crumbBox}>
-          <span className={s.crumbTextBlack}>{category.title}</span>
-        </div>
-      </div> 
-      ) : (
-        <p>Loading...</p>
-      )}
-
-
-
-      
       <div>
         {status === "loading" ? (
           <p>Products are loading...</p> // Добавил параграф для текстового отображения
