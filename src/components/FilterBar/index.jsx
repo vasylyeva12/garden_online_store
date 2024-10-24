@@ -28,7 +28,7 @@ const FilterBar = () => {
     console.log( dispatch(filterByPriceAction(priceValues)));
     
    
-    // event.target.reset();
+    event.target.reset();
   };
 
   return (
