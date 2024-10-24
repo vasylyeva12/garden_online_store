@@ -1,5 +1,5 @@
 
-import { act } from "react";
+
 
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 const DELETE_PRODUCT_FROM_CART = 'DELETE_PRODUCT_FROM_CART';

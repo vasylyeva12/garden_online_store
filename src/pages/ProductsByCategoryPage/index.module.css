@@ -59,6 +59,16 @@
   .dark.crumbBox:hover {
     color: #20e220;
   }
+
+  .navigation{
+    display: flex;
+  }
+
+  .filtered{
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+  }
    
   
   
