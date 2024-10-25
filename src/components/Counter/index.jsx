@@ -1,5 +1,7 @@
 import React, { useState } from 'react'; 
 import s from './index.module.css';
+import { FiMinus } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 
 const Counter = () => {
     const [count, setCount] = useState(1); 
@@ -17,9 +19,9 @@ const Counter = () => {
 return (
     
     <div className={s.counter}>
-        <button onClick={decrement} className={s.counterButton}>-</button>
+        <button onClick={decrement} className={s.counterButton}><FiMinus /></button>
         <span className={s.counterValue}>{count}</span>
-        <button onClick={increment} className={s.counterButton}>+</button>    
+        <button onClick={increment} className={s.counterButton}><FiPlus /></button>    
     </div>
   )
 }

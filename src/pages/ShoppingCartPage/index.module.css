@@ -1,79 +1,207 @@
-.shop_cart{
+.shop_cart {
+    max-width: 1360px;
     max-height: 692px;
-    max-width: 1,360px;
     top: 168px;
     left: 40px;
     gap: 40px;
-    opacity: 0px;
-    margin: 30px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
-.cart{
-    max-width: 1,360px;
-    max-height: 582px;
+
+
+.cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
     gap: 32px;
-    opacity: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;    
-    width: 100%; /* Заставит блок занимать всю ширину родительского контейнера */
-
-
 }
 
 
-.linia{
+
+
+.linia {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Позволит линии занять всю оставшуюся ширину */
+    flex-grow: 1;
     margin-left: 20px;
 }
 
 
-.cart > h1{
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 70.4px;
-    text-align: left;
-    color: #424436;
-}
 
 
 .linia hr {
-    flex-grow: 1; /* Линия займет всё доступное пространство между h1 и кнопкой */
+    flex-grow: 1;
     border: none;
     border-top: 1px solid #DDDDDD;
 }
 
 
-.cart > hr {
-        max-width: 681px;
-        max-height: 0px;
-        border: 1px 0px 0px 0px;
-        color: #DDDDDD;    
-  }
 
 
-.store{
-    width: 170px;
-    height: 36px;
+.store {
+    max-height: 36px;
+    max-width: 170px;
     padding: 8px 16px;
-    gap: 10px;
     border-radius: 6px;
-    border: 1px 0px 0px 0px;
-    opacity: 0px;
     border: 1px solid #DDDDDD;
     font-size: 16px;
     font-weight: 500;
-    line-height: 20.16px;
-    text-align: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Пример с прозрачным фоном */
+}
+
+
+
+
+.shoping_section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1360px;
+    max-height: 582px;
+    gap: 32px;
+}
+
+
+
+
+.cartitems_block {
+    max-width: 780px;
+    max-height: 572px;
+    gap: 16px;
+}
+
+
+
+
+.order_form {
+    width: 100%;
+    max-height: 582px;
+    background-color: #F2F6D3;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+.order_details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.order_details > h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #424436;
+}
+
+
+
+
+.order_calculations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 484px;
+    max-height: 190px;
+}
+
+
+
+
+.order_calculations p:first-child {
+    font-size: 40px;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+
+.total_info {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+}
+
+.total_info p {
+    font-size: 40px;
+    font-weight: 500;
     color: #8B8B8B;
 }
 
 
-.store:hover {
+
+
+.total_info p:last-child {
+    font-size: 64px;
+    font-weight: 700;
+    color: #282828;
+       
+}
+
+
+
+
+.input_form{
+    max-width: 484px;
+    max-height: 296px;
+    gap: 32px;
+}
+
+
+
+
+.input_form ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;    
+}
+
+
+
+
+.input_form li {
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #FFFFF1;
+    border: 1px solid #DDDDDD;
+    font-size: 20px;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+
+
+
+
+.input_form button {
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #92A134;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
     cursor: pointer;
-  }
+    width: 100%;
+    margin-top: 16px;
+    background-color: #7d8d27;
+}
+
+
+
+
+.input_form button:hover {
+    cursor: pointer;
+}
 
 
