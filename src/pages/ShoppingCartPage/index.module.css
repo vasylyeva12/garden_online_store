@@ -8,6 +8,7 @@
     margin: 30px;
 }
 
+
 .cart{
     max-width: 1,360px;
     max-height: 582px;
@@ -18,14 +19,17 @@
     justify-content: space-between;    
     width: 100%; /* Заставит блок занимать всю ширину родительского контейнера */
 
+
 }
 
+
 .linia{
-    display: flex; 
+    display: flex;
     align-items: center;
     flex-grow: 1; /* Позволит линии занять всю оставшуюся ширину */
-    margin-left: 20px; 
+    margin-left: 20px;
 }
+
 
 .cart > h1{
     font-size: 64px;
@@ -35,18 +39,21 @@
     color: #424436;
 }
 
+
 .linia hr {
     flex-grow: 1; /* Линия займет всё доступное пространство между h1 и кнопкой */
     border: none;
-    border-top: 1px solid #DDDDDD; 
+    border-top: 1px solid #DDDDDD;
 }
+
 
 .cart > hr {
         max-width: 681px;
         max-height: 0px;
         border: 1px 0px 0px 0px;
-        color: #DDDDDD;     
+        color: #DDDDDD;    
   }
+
 
 .store{
     width: 170px;
@@ -64,6 +71,9 @@
     color: #8B8B8B;
 }
 
+
 .store:hover {
-    cursor: pointer; 
+    cursor: pointer;
   }
+
+
