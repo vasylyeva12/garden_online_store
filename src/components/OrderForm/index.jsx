@@ -3,12 +3,14 @@ import s from "./index.module.css";
 
 const OrderForm = () => {
   return (
-    <div className={s.orderform_item}>
+    <div>
+       
         {/* <p>Items count: {totalCount}</p>
         <p>Total sum: {totalPrice}$</p> */}
-        <h2 className={s.header}>Order details</h2>
+        {/* <h2 className={s.header}>Order details</h2>
         <p>Summ items: </p>
         <p>Total sum: $</p>
+     */}
     </div>
   )
 }

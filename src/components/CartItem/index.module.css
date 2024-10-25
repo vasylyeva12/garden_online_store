@@ -6,7 +6,6 @@
     border: 1px solid #DDDDDD;
     margin: 10px auto;
     display: flex;
-    /* justify-content: left;  */
     align-items: center;
     position: relative;
 }
@@ -20,53 +19,118 @@
     border: 1px 0px 0px 0px;
 }
 
-/* .item > div {
+.data {
     display: flex;
-    gap: 5px;
-    border: 1px solid gray;
-    padding: 5px;
-    border-radius: 5px;
-} */
-
-.data{
-    display: flex;
+    flex-direction: column; 
     max-width: 548px;
     max-height: 180px;
     padding: 32px 32px 32px 0px;
-    align-items: center;
-    justify-items: column;    
 }
 
-.title_cross{
-    max-width: 516px;
-    max-height: 26px;
-    gap: 16px;
+.title_cross {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 16px;
+    width: 516px;
+    max-height: 26px;
+    margin: 10px 0px;
 }
 
-.counter_price{
-    width: 516px;
-    height: 58px;
-    gap: 32px;
-    justify-content: left; 
+.delete_icon {
+    cursor: pointer; 
+}
+
+.delete_icon:hover {
+    cursor: pointer; 
+}
+
+.counter_price {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; /* Это гарантирует, что элементы растянутся на всю ширину контейнера */
+}
+
+.counter_price > div:first-child{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: fit-content;
+    /* width: 100%;  */
+    max-height: 58px;
+    margin-top: 20px;
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+}
+
+.counter_content {
+    display: flex;
+    align-items: center; 
+    width: 200px;
+    max-height: 58px;
+    justify-content: space-between;
+    border: 1px 0px 1px 0px;
+     
 }
 
 .counter_item {
-    border: none;
-    cursor: pointer;
     width: 50px;
     height: 50px;
-    
-}
-
-.item > p:nth-child(2){
-    width: 300px;
-}
-
-.item > p:last-child {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+    background-color: transparent;
     cursor: pointer;
+    border: none;
 }
+
+.counter_item:first-child {
+    border-right: 1px solid #DDDDDD;
+    border-radius: 6px;
+}
+
+.counter_item:last-child {
+    border-left: 1px solid #DDDDDD;
+    border-radius: 6px;
+}
+
+.counter_value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #424436;
+    background-color: transparent;
+    border: none;
+}
+
+
+.price_content {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    align-items: flex-end; /* Прижимаем содержимое к низу */
+    width: 284px;
+    height: 44px;
+    gap: 16px;    
+    margin-top: 15px;
+}
+
+.real_price{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: left;
+    color: #424436;
+}
+
+.discount_price{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    color: #8B8B8B;
+    text-decoration: line-through;
+}
+
