@@ -20,7 +20,9 @@ const ProductsByCategoryPage = () => {
     (store) => store.productsByCategory
   );
   const categoriesState = useSelector((store) => store.categories);
-  const category = categoriesState[id - 1];
+  const category = categoriesState[id - 1]
+
+  console.log(categoriesState);
 
   useEffect(() => {
     dispatch(getCategories);
