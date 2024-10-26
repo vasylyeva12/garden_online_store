@@ -41,16 +41,16 @@ const ProductsByCategoryPage = () => {
     <div className="container">
       {category && category.title ? (
         <div className={s.breadcrumbs}>
-          <Link to="/" className={s.crumbBox}>
-            <span className={s.crumbText}>Main page</span>
+          <Link to="/" className={s.crumb_box}>
+            <span className={s.crumb_text}>Main page</span>
           </Link>
           <div className={s.line}></div>
-          <Link to="/categories" className={s.crumbBox}>
-            <span className={s.crumbText}>Categories</span>
+          <Link to="/categories" className={s.crumb_box}>
+            <span className={s.crumb_text}>Categories</span>
           </Link>
           <div className={s.line}></div>
-          <div className={s.crumbBox}>
-            <span className={s.crumbTextBlack}>{category.title}</span>
+          <div className={s.crumb_box}>
+            <span className={s.crumb_text_black}>{category.title}</span>
           </div>
         </div>
       ) : (

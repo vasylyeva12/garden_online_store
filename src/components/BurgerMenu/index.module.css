@@ -4,16 +4,17 @@
   align-items: center;
 }
 
-.nav_favourites {
+.nav_liked {
   border: 2.2px;
   color: #424436;
   align-items: center;
+  position: relative;
 }
 
 .favourites {
   width: 54px;
   height: 54px;
-  position: relative;
+  /* position: relative; */
 }
 .heart_count {
   width: 26px;
@@ -21,23 +22,50 @@
   background-color: #92a134;
   border-radius: 50%;
   color: white;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
   position: absolute;
-  top: 35px;
-  right: 148px;
+  top: 7px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .favourites:hover {
   color: #92a134;
 }
+
+.nav_basket {
+  position: relative;
+}
 .nav_basket svg {
+  position: relative;
   border: 2.2px;
   color: #424436;
   width: 57px;
   height: 67px;
+  margin-top: 5px;
 }
 
 .nav_basket svg:hover {
   color: #92a134;
+}
+
+.bag_quantity {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  background-color:  #92a134;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -2px;
+  top: 17px;
+
 }
