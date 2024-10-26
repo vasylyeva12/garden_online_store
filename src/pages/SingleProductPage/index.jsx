@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
-import { getSingleProduct } from "../../requests/products";
+import { getProductsByCategory, getSingleProduct } from "../../requests/products";
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
-
 import Counter from "../../components/Counter";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSingleProductStatusAction } from "../../store/reducers/singleProductReducer";
+import { changeStatusAction } from "../../store/reducers/productsByCategoryReducer";
+import { getCategories } from "../../requests/categories";
 import ButtonNavigation from "../../components/ButtonNavigation";
+
 
 const SingleProductPage = () => {
   // const [selectedProduct, setSelectedProduct] = useState(null); /*for modal window */
-
   const dispatch = useDispatch();
+ 
 
   const { product_id } = useParams();
 
@@ -22,6 +24,13 @@ const SingleProductPage = () => {
   }, []);
 
   const singleProductState = useSelector((store) => store.product);
+  const categoriesState = useSelector((store) => store.categories)
+
+  const getCategoryTitle = id => {
+    const category = categoriesState.find(el => el.id === id)
+    return category ? category.title : 'Loading ...'
+  }
+  
 
   const {
     title,
@@ -40,8 +49,23 @@ const SingleProductPage = () => {
 
   return (
     <div className="container">
-      <ButtonNavigation />
-
+       <section className={s.breadcrumbs}>
+            <Link to='/'>
+               <div className={s.crumb_box}> Main page </div>
+            </Link>
+               <div className={s.line}></div>
+            <Link to='/categories'>
+               <div className={s.crumb_box}> Categories </div>
+            </Link>
+               <div className={s.line}></div>
+            <Link to={`/categories/:id`}>
+               <div className={s.crumb_box}>{categoriesState.length > 0 ? getCategoryTitle(id) : 'Loading...'}</div>
+            </Link>
+               <div className={s.line}></div> 
+            <Link to={`/product/${product_id}`}>
+               <div className={s.crumb_box}> { title } </div>
+            </Link>
+         </section>
       {
         singleProductState.status === 'loading'
         ? <p>Product info is loading...</p>
