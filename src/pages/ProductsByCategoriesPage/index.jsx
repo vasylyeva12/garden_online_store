@@ -6,7 +6,7 @@ import ProductsList from "../../components/ProductsList";
 import { changeStatusAction } from "../../store/reducers/productsByCategoryReducer";
 
 const ProductsByCategoryPage = () => {
-  const { categoryId } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   
 
@@ -15,7 +15,7 @@ const ProductsByCategoryPage = () => {
     (store) => store.productsByCategory
   );
   const categoriesState = useSelector((store) => store.categories);
-  const category = categoriesState[categoryId - 1]
+  const category = categoriesState[id - 1]
 
   console.log(categoriesState);
 
