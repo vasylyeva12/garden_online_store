@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../requests/products";
 import ProductItem from "../../components/ProductItem";
 import ButtonNavigation from "../../components/ButtonNavigation";
-import FilterBar from "../../components/FilterBar";
 import FilterPrice from "../../components/FilterBar/FilterPrice";
 import FilterSort from "../../components/FilterBar/FilterSort";
 
@@ -22,7 +21,7 @@ const AllSalesPage = () => {
 
       <h1 className={s.title}>Discounted items</h1>
 
-      <div className={s.filters_container}>
+      <div className='filters_bar'>
         <FilterPrice />
         <FilterSort />
       </div>
