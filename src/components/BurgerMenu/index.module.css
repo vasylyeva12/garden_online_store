@@ -16,16 +16,20 @@
   position: relative;
 }
 .heart_count {
+  position: absolute;
   width: 26px;
   height: 26px;
   background-color: #92a134;
   border-radius: 50%;
   color: white;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
-  position: absolute;
-  top: 35px;
+  top: 40px;
   right: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .favourites:hover {

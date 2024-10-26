@@ -2,6 +2,8 @@ import React from 'react'
 import s from './index.module.css'
 import { useDispatch } from 'react-redux'
 import { decrementCountAction, deleteProductFromCartAction, incrementCountAction } from '../../store/reducers/cartReducer';
+import { FiPlus } from "react-icons/fi";
+import { FiMinus } from "react-icons/fi";
 
 export default function CartItem({ id, title, price, image, discont_price, count }) {
 
@@ -14,21 +16,26 @@ export default function CartItem({ id, title, price, image, discont_price, count
       <div className={s.data}>
             <div className={s.title_cross}>
               <p>{ title }</p>
-              <p onClick={() => dispatch(deleteProductFromCartAction(id))}> X </p>
+              <p className={s.delete_icon} onClick={() => dispatch(deleteProductFromCartAction(id))}> X </p>
             </div>
         
             <div className={s.counter_price}>
-              <button className={s.counter_item} onClick={() => dispatch(decrementCountAction(id))}>
-              -
-              </button>
-              <p>{ count }</p>
-              <button className={s.counter_item} onClick={() => dispatch(incrementCountAction(id))}>
-              +
-              </button>
+              <div className={s.counter_content}>
+                  <button className={s.counter_item} onClick={() => dispatch(decrementCountAction(id))}>
+                  <FiMinus /></button>
+                  <span className={s.counter_value}>{ count }</span>
+                  <button className={s.counter_item} onClick={() => dispatch(incrementCountAction(id))}>
+                  <FiPlus /></button>
+              </div>
 
-              <p>{ price * count }$</p>
-              <p>{ discont_price * count}$</p>
+              <div className={s.price_content}>
+                  <p className={s.real_price}>{ price * count }$</p>
+                  <p className={s.discount_price}>{ discont_price * count}$</p>
+              </div>
+              
             </div>
+
+            
       </div>
 
     </div>
