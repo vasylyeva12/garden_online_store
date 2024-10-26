@@ -1,0 +1,79 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: clamp(40px, calc(40px + (1440px - 100vw) * 0.06), 75px);
+  }
+  
+  .crumb_box {
+    display: flex;  
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #8b8b8b;
+    text-align: center;
+    font-size: clamp(0.875rem, 0.833rem + 0.19vw, 1rem);
+    line-height: 126%;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .crumb_text {
+    color:  #8B8B8B;
+    text-align: center;   
+    font-size: 16px;    
+    line-height: 126%;
+  }
+  
+  .crumb_text_black {
+    color: black;
+    text-align: center;   
+    font-size: 16px;   
+    line-height: 126%;
+  }
+  
+  .line {
+    width: 16px;
+    height: 1px;
+    background-color: #ddd;
+  }  
+  
+  a.active {
+    color: black;
+  }
+  
+  .crumb_box:active {
+    transform: scale(0.95);
+  }
+  
+  .crumb_box:hover {
+    background-color: #f2f6d3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark.crumb_box:hover {
+    color: #20e220;
+  }
+
+  .navigation{
+    display: flex;
+  }
+
+  .filtered{
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+  }
+   
+  
+  
+  @media (max-width: 768px) {
+    .crumbBox{
+      display: none;
+    }
+  }

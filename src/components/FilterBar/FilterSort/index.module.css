@@ -1,0 +1,17 @@
+.sorted {
+    width: 285px;
+    height: 36px;
+    display: flex;
+  }
+  
+  .sorted > span {
+    width: 69px;
+    height: 26px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: center;
+    color: #424436;
+    margin-right: 16px;
+    padding-top: 6px;
+  }

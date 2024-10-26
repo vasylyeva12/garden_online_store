@@ -6,7 +6,9 @@ import ProductItem from "../ProductItem";
 const ProductsList = ({ products }) => {
   return (
     <div className={s.products_list}>
-      {products.map((el) => (
+      {Array.isArray(products) && products
+      .filter(el => el.visible)
+      .map((el) => (
         <ProductItem key={el.id} {...el} />
       ))}
     </div>

@@ -8,11 +8,11 @@
 }
 
 .navigation {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 16px;
   font-weight: 500;
   line-height: 20.16px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-radius: 7px;
   height: 36px;
   width: 125px;
@@ -23,7 +23,7 @@
 }
 
 .main_page_button {
-  color: #8B8B8B;
+  color: #8b8b8b;
 }
 
 .categories_button {
@@ -32,7 +32,7 @@
 
 .line {
   width: 16px;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #dddddd;
   position: absolute;
   top: 17px;
   left: 125px;
@@ -49,11 +49,14 @@
   margin: 40px 0;
 }
 
-.categories_container {
+.categories_container  {
+  display: grid;
+  grid-row: 1;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
   margin-bottom: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px
+ 
+
   
 }
+
