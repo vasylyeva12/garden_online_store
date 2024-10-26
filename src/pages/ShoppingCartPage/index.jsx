@@ -6,14 +6,11 @@ import { Link } from 'react-router-dom'
 import { deleteAllAction } from '../../store/reducers/cartReducer';
 import OrderForm from '../../components/OrderForm';
 
-
-
 const ShoppingCartPage = () => {
   const cartState = useSelector(store => store.cart);
   const dispatch = useDispatch();
   const totalCount = cartState.reduce((acc, el) => acc + el.count, 0);
   const totalPrice = +cartState.reduce((acc, el) => acc + (el.price * el.count), 0).toFixed(2);
-  
 
   return (
     <div className={s.shop_cart}>
@@ -50,8 +47,5 @@ const ShoppingCartPage = () => {
   )
 
 }
-
-
-
 
 export default ShoppingCartPage
