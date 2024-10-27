@@ -92,12 +92,9 @@ const SingleProductPage = () => {
   //   dispatch(getProductsByCategory);
   // }, []); 
 
-  const { id, title, price, discont_price, description, image } =
-    singleProductState.data;
-
-  }
-
+  
   const {
+    id,
     title,
     price,
     discont_price,
