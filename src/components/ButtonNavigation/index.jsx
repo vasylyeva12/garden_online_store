@@ -10,13 +10,16 @@ import {
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
+  
   const dispatch = useDispatch();
-  const { id } = useParams();
+  // const { id, categoryId } = useParams();
+  const id = useParams().id;
+  const categoryId = useParams().categoryId;
 
 
   // Данные из Redux store
-  const categoryState = useSelector((store) => store.products);
-  const productState = useSelector((store) => store.product);
+  const productsByCategoryState = useSelector((store) => store.productsByCategory);
+  const singleProductState = useSelector((store) => store.product);
 
   let buttonText = "";
   let linkTo = "";
@@ -34,23 +37,23 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   } else if (location.pathname.startsWith("/liked")) {
     buttonText = "Liked products";
     linkTo = "/liked";
-  } else if (location.pathname.startsWith("/products/:id")) {
-    buttonText = "Categories";
-    linkTo = "/products/:id";
-  }
+  } 
 
   // Используем useEffect для загрузки данных при наличии id 
-  useEffect(() => {
-    if (id) {
-      dispatch(getSingleProduct(id));
-       }
+
+  // useEffect(() => {
     
-  }, [dispatch, id ]);
+  //   if (id) {
+  //     dispatch(getSingleProduct(id));
+  //      }
+    
+  // }, [dispatch, id]);
+
 
   const categoryTitle = 
-  categoryState && categoryState.category ? categoryState.category.title : "";
+  productsByCategoryState && productsByCategoryState.category ? productsByCategoryState.category.title : "";
   const productTitle = 
-  productState && productState.length > 0 ? productState[0].title : "";
+  singleProductState && singleProductState.length > 0 ? singleProductState[0].title : "";
 
   // Установка стилей для отображения кнопок в зависимости от наличия данных
   const categoryButtonStyle = categoryTitle
