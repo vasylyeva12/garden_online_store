@@ -86,13 +86,11 @@
     right: 0;
 }
 
-.discount_percent{
-    max-width: 63px;
-    max-height: 34px;
+.discount_percent{   
     padding: 4px 8px;
     gap: 10px;
     border-radius: 6px;  
-    background-color: #92A134;
+    background-color: #F26D22;
     color: white;
     font-size: 16px;  
     font-weight: 600;
@@ -173,14 +171,14 @@
     transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   
-  .crumb_text {
+  .text {
     color:  #8B8B8B;
     text-align: center;   
     font-size: 16px;    
     line-height: 126%;
   }
   
-  .crumb_text_black {
+  .text_black {
     color: black;
     text-align: center;   
     font-size: 16px;   

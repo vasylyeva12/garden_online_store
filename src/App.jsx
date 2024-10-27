@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import AllProductsPage from './pages/AllProductsPage'
@@ -21,6 +21,10 @@ const App = () => {
     window.scrollTo(0, 0); // при каждом изменении маршрута страница будет прокручена в самое начало.
   }, [key]);
 
+  const [modalActive, setModalActive] = useState(false);
+  const openModal = () => setModalActive(true);
+  const closeModal =() => setModalActive(false);
+
   return (
     <>
       <Routes>
@@ -36,6 +40,7 @@ const App = () => {
           <Route path='*' element={<NotFoundPage />}/>
         </Route>
       </Routes>
+      {/* <ModalWindow close_modal={closeModal} modalActive={modalActive}/> */}
     </>
   );
 };
