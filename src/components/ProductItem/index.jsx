@@ -29,7 +29,7 @@ const ProductItem = ({
   const handleClickCartIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    dispatch(addProductToCartAction({ id, image, title, price, discont_price })); //добавила нужное количество товаров в корзину, но при єтом переход на саму корзину не делается
+    dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
   };
 
   return (
