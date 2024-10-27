@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./index.module.css";
 import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
@@ -13,7 +13,17 @@ const ProductItem = ({
   price,
   discont_price,
 }) => {
+  // const isLiked = useSelector((state) => state.likedProducts.likedProducts.some((el) => el.id === id))
+
   const dispatch = useDispatch();
+
+
+  // Вычисляем процент скидки
+  const discountPercent =
+    discont_price !== null
+      ? Math.round(((price - discont_price) / price) * 100)
+      : null;
+
 
   // Вычисляем процент скидки
   const discountPercent = discont_price !== null
@@ -26,11 +36,6 @@ const ProductItem = ({
     dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
   };
 
-  const handleClickCartIcon = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    dispatch(addProductToCartAction({ id, image, title, price, discont_price })); //добавила нужное количество товаров в корзину, но при єтом переход на саму корзину не делается
-  };
 
   return (
     <div className={`${s.products_wrapper}`}>
@@ -46,6 +51,37 @@ const ProductItem = ({
         )}
       </Link>
 
+        <div className={s.icons_wrapper}>
+          <PiHeartFill 
+          className={s.like}
+          onClick={handleClickLikeIcon}
+          />
+            
+          
+          {/* иконка корзины */}
+          <PiHandbagSimpleFill className={s.bag} />
+        </div>
+
+        <h3 className={s.product_title}>{title}</h3>
+        <div className={s.price_container}>
+          {discont_price ? (
+            <>
+              <p className={s.discount_price}>${discont_price}</p>
+              <p className={s.original_price}>${price}</p>
+            </>
+          ) : (
+            <p className={s.discount_price}>${price}</p>
+          )}
+        </div>
+        </Link>
+
+        <div className={s.icons_wrapper}>
+          {/* иконка сердце */}
+          <PiHeartFill 
+          className={s.like}
+          onClick={handleClickLikeIcon}
+          />
+        </div>
       <div className={s.icons_wrapper}>
         <PiHeartFill className={s.like} onClick={handleClickLikeIcon} />
         <PiHandbagSimpleFill className={s.bag} onClick={handleClickCartIcon} />
