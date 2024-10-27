@@ -24,11 +24,11 @@ const NotFoundPage = () => {
             We’re sorry, the page you requested could not be found. Please go
             back to the homepage.
           </p>
-          <button 
-          className={s.btn}
-          onClick={()=> {
-            navigate('/')
-          }}> Go Home</button>
+          <button
+            className={s.btn}
+            onClick={() => {
+              navigate('/')
+            }}> Go Home</button>
         </div>
       </section>
     </div>

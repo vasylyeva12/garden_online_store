@@ -1,11 +1,84 @@
-s.orderform_item{
-    width: 548px;
-    height: 582px;
-    padding: 32px 0px 0px 0px;
-    gap: 32px;
-    border-radius: 12px;
-    background-color: #F2F6D3;
-    border: 2px solid black; 
+.order_details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
 
-    
+.order_details>h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #424436;
+}
+
+.order_calculations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 484px;
+    max-height: 190px;
+}
+
+.order_calculations p:first-child {
+    font-size: 40px;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+
+.total_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total_info p {
+    font-size: 40px;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+
+.total_info p:last-child {
+    font-size: 64px;
+    font-weight: 700;
+    color: #282828;
+
+}
+
+.input_form {
+    max-width: 484px;
+    max-height: 296px;
+    gap: 32px;
+}
+
+.input_form ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input_form li {
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #FFFFF1;
+    border: 1px solid #DDDDDD;
+    font-size: 20px;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+
+.input_form button {
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #92A134;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 16px;
+    background-color: #7d8d27;
+}
+
+.input_form button:hover {
+    cursor: pointer;
 }

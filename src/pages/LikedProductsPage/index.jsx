@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem';
 import s from './index.module.css'
 
+
+
 export default function LikedProductsPage() {
   const likedProducts = useSelector(store => store.likedProducts.likedProducts); // Получаем список избранных товаров из состояния
 

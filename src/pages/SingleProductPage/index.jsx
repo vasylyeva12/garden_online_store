@@ -41,6 +41,7 @@ const SingleProductPage = () => {
    const getCategoryTitle = categoryId => {
     const category = productsByCategoryState.find(el => el.id === categoryId)
     return category ? category.title : 'Loading ...'
+
   }  
 
   // const categoryObject = productsByCategoryState?.category;
@@ -94,6 +95,18 @@ const SingleProductPage = () => {
   const { id, title, price, discont_price, description, image } =
     singleProductState.data;
 
+  }
+
+  const {
+    title,
+    price,
+    discont_price,
+    description,
+    image,
+
+  } = singleProductState.data;
+
+
   // Вычисляем процент скидки
   const discountPercent =
     discont_price !== null
@@ -102,6 +115,7 @@ const SingleProductPage = () => {
 
   return (
     <div className="container">
+
        <section className={s.breadcrumbs}>
             <Link to='/'>
                <div className={s.crumb_box}> Main page </div>
@@ -176,20 +190,21 @@ const SingleProductPage = () => {
 
                 {/* Показывать discont_price только если есть скидка */}
                 {discont_price && price > discont_price && (
-                  <p className={s.priceDisc}>${Math.round(discont_price)}</p>
+                  <p className={s.priceDisc}>${Math.round(discont_price)}</p>    
+     
+                  )}
+                </div>
+
+                {/* Показывать процент скидки, если он существует */}
+                {discountPercent && (
+                  <div className={s.discount_percent}>
+                    <p>-{discountPercent}%</p>
+                  </div>
                 )}
               </div>
 
-              {/* Показывать процент скидки, если он существует */}
-              {discountPercent && (
-                <div className={s.discount_percent}>
-                  <p>-{discountPercent}%</p>
-                </div>
-              )}
-            </div>
-
-            <div className={s.counter_item}>
-              <Counter />
+              <div className={s.counter_item}>
+                <Counter />              
               <ButtonAddToCard
                 id={product_id}
                 title={title}
@@ -208,6 +223,7 @@ const SingleProductPage = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };

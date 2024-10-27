@@ -16,6 +16,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const id = useParams().id;
   const categoryId = useParams().categoryId;
 
+
   // Данные из Redux store
   const productsByCategoryState = useSelector((store) => store.productsByCategory);
   const singleProductState = useSelector((store) => store.product);
@@ -39,6 +40,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   } 
 
   // Используем useEffect для загрузки данных при наличии id 
+
   // useEffect(() => {
     
   //   if (id) {
@@ -46,6 +48,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   //      }
     
   // }, [dispatch, id]);
+
 
   const categoryTitle = 
   productsByCategoryState && productsByCategoryState.category ? productsByCategoryState.category.title : "";
@@ -77,7 +80,6 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
           </>
         )}
         <div className={s.line} style={categoryButtonStyle}></div>
-
         <Link to={`/categories/${id}`}>
           <button
             style={categoryButtonStyle}
@@ -94,7 +96,6 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
         </div>
       </div>
     </>
-  );
-};
-
+  )
+}
 export default ButtonNavigation;
