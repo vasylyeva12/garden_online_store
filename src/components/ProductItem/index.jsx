@@ -36,6 +36,11 @@ const ProductItem = ({
     dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
   };
 
+  const handleClickCartIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
+  };
 
   return (
     <div className={`${s.products_wrapper}`}>

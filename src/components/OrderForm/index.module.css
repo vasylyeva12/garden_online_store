@@ -40,22 +40,19 @@
     font-size: 64px;
     font-weight: 700;
     color: #282828;
-
+    padding-right: 25px;
 }
 
 .input_form {
-    max-width: 484px;
-    max-height: 296px;
-    gap: 32px;
-}
-
-.input_form ul {
+    max-width: 430px;
+    max-height: 276px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
 
-.input_form li {
+.input_form input {
+    width: 100%; 
     padding: 16px;
     border-radius: 6px;
     background-color: #FFFFF1;

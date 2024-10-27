@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+
+import { getProductsByCategory, getSingleProduct } from "../../requests/products";
+
 import {
   getProductsByCategory,
   getSingleProduct,
 } from "../../requests/products";
+
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
@@ -20,6 +24,9 @@ const SingleProductPage = () => {
   const { product_id } = useParams();
   //  const [isModalOpen, setIsModalOpen] = useState(false) /*for modal window */
 
+
+    // Состояние для отображения полного текста в Read more
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleProduct(product_id));
@@ -211,15 +218,20 @@ const SingleProductPage = () => {
               />
             </div>
 
-            <h3 className={s.descr_text}>Description</h3>
+             <h3 className={s.descr_text}>Description</h3>
 
-            <h3 className={s.descr}>{description} </h3>
+              <p className={`${s.descr} ${isExpanded ? s.expanded : ""}`}>
+            {description}
+          </p>
 
-            <p className={s.fullDescr}> </p>
-            <Link className={s.readmore_text}>Read more</Link>
+              {/* <p className={s.fullDescr}> </p> */}
+              <Link onClick={() => setIsExpanded(!isExpanded)} className={s.readmore_text}>
+            {isExpanded ? "Show less" : "Read more"}
+          </Link>
+            </div>
           </div>
-        </div>
-      )}
+      }
+
 
     </div>
   );
