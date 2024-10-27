@@ -7,7 +7,7 @@ import { addProductToCartAction } from '../../store/reducers/cartReducer';
 const ButtonAddToCard = ({ id, image, title, price, discont_price }) => {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();  // Используем useNavigate
+  const navigate = useNavigate();  
   const handleAddToCart = () => {
     dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
     navigate('/cart');  // После добавления товара переходим на страницу корзины
