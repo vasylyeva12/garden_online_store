@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./index.module.css";
 import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
@@ -14,9 +14,11 @@ const ProductItem = ({
   discont_price,
  
 }) => {
-  // const isLiked = useSelector((state) => state.cart.cartItems.some((el) => el.id === id))
+  // const isLiked = useSelector((state) => state.likedProducts.likedProducts.some((el) => el.id === id))
 
   const dispatch = useDispatch();
+
+
   // Вычисляем процент скидки
   const discountPercent =
     discont_price !== null
@@ -57,7 +59,6 @@ const ProductItem = ({
         )}
 
         <div className={s.icons_wrapper}>
-          {/* иконка сердце */}
           <PiHeartFill 
           className={s.like}
           onClick={handleClickLikeIcon}
