@@ -2,21 +2,21 @@ import React from 'react'
 import s from "./index.module.css";
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteAllAction } from '../../store/reducers/cartReducer';
 
 const OrderForm = ({ totalCount, totalPrice }) => {
 
   const dispatch = useDispatch();
-  
+
   const cartState = useSelector(store => store.cart);
- 
+
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const order = data => {
 
-        reset();
-        
-        dispatch(deleteAllAction());
-    }
+    reset(); // Очистить поля формы
+    dispatch(deleteAllAction()); // Очистить корзину
+  }
 
   const registerName = register('name');
   const registerPhone = register('phone');
