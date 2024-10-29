@@ -15,10 +15,18 @@ const ProductsByCategoryPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    // Изменяем статус загрузки и загружаем продукты по категории
+    dispatch(changeStatusAction());
+
+    dispatch(getProductsByCategory(id));
+  }, [dispatch, id]); // Добавили id в зависимости для перезагрузки при его изменении
   // Получаем состояние продуктов по категории из Redux
+  
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
+
   const categoriesState = useSelector((store) => store.categories);
   const category = categoriesState[id - 1]
 
@@ -28,12 +36,7 @@ const ProductsByCategoryPage = () => {
     dispatch(getCategories);
   }, []);
 
-  useEffect(() => {
-    // Изменяем статус загрузки и загружаем продукты по категории
-    dispatch(changeStatusAction());
-
-    dispatch(getProductsByCategory(id));
-  }, [dispatch, id]); // Добавили id в зависимости для перезагрузки при его изменении
+ 
 
   const { status, data } = productsByCategoryState; // Извлекаем статус и данные из состояния
 
