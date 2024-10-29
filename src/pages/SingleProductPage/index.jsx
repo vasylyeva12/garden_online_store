@@ -30,7 +30,7 @@ const SingleProductPage = () => {
 
   const singleProductState = useSelector((store) => store.product);
   const [isLiked, setIsLiked] = useState(false)
-  const likedProductsState = useSelector((store) => store.likedProducts.likedProducts.some((item) => item.id === parseInt(id)));
+  const likedProductsState = useSelector((store) => store.likedProducts.likedProducts.some((item) => item.id === parseInt(product_id)));
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
@@ -39,7 +39,16 @@ const SingleProductPage = () => {
     const category = productsByCategoryState.find(el => el.id === categoryId)
     return category ? category.title : 'Loading ...'
 
+
+  }  
+
+  // const categoryObject = productsByCategoryState?.category;
+  // const categoryTitle = categoryObject?.title || "Unknown Category";
+
+  
+
   }
+
 
 
   const handleLikedClick = () => {
@@ -83,24 +92,27 @@ const SingleProductPage = () => {
   return (
     <div className="container">
 
-      <section className={s.breadcrumbs}>
-        <Link to='/'>
-          <div className={s.crumb_box}> Main page </div>
-        </Link>
-        <div className={s.line}></div>
-        <Link to='/categories'>
-          <div className={s.crumb_box}> Categories </div>
-        </Link>
-        <div className={s.line}></div>
-        <Link to={`/categories/${id}`}>
-          <div className={s.crumb_box}>{productsByCategoryState.length > 0 ? getCategoryTitle(categoryId) : 'Loading...'}</div>
-        </Link>
-        <div className={s.line}></div>
-        <Link to={`/product/${id}`}>
-          <div className={`${s.crumb_box} ${s.text_black}`}> {title} </div>
-        </Link>
-      </section>
-      
+
+       <section className={s.breadcrumbs}>
+            <Link to='/'>
+               <div className={s.crumb_box}> Main page </div>
+            </Link>
+               <div className={s.line}></div>
+            <Link to='/categories'>
+               <div className={s.crumb_box}> Categories </div>
+            </Link>
+               <div className={s.line}></div>
+            <Link to={`/categories/${id}`}>
+               <div className={s.crumb_box}>{productsByCategoryState.length > 0 ? getCategoryTitle(categoryId) : 'Loading...'}</div>
+            </Link>
+               <div className={s.line}></div> 
+            <Link to={`/product/${id}`}>
+               <div className={`${s.crumb_box} ${s.text_black}`}> { title } </div>
+            </Link>
+         </section>     
+     
+
+
       {singleProductState.status === "loading" ? (
         <p>Product info is loading...</p>
       ) : (

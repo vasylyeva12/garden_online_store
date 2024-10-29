@@ -6,6 +6,7 @@ import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 
+
 const ProductItem = ({ id, image, title, price, discont_price }) => {
   const dispatch = useDispatch();
 
@@ -14,6 +15,7 @@ const ProductItem = ({ id, image, title, price, discont_price }) => {
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
+
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
@@ -29,7 +31,7 @@ const ProductItem = ({ id, image, title, price, discont_price }) => {
 
   return (
     <div className={`${s.products_wrapper}`}>
-      <Link to={`/products/${id}`}>
+   <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img src={`http://localhost:3333/${image}`} alt={title} className={s.images} />
         </div>
@@ -52,18 +54,18 @@ const ProductItem = ({ id, image, title, price, discont_price }) => {
         />
       </div>
 
-      <h3 className={s.product_title}>{title}</h3>
-      <div className={s.price_container}>
-        {discont_price ? (
-          <>
-            <p className={s.discount_price}>${discont_price}</p>
-            <p className={s.original_price}>${price}</p>
-          </>
-        ) : (
-          <p className={s.discount_price}>${price}</p>
-        )}
-      </div>
+    <h3 className={s.product_title}>{title}</h3>
+    <div className={s.price_container}>
+      {discont_price ? (
+        <>
+          <p className={s.discount_price}>${discont_price}</p>
+          <p className={s.original_price}>${price}</p>
+        </>
+      ) : (
+        <p className={s.discount_price}>${price}</p>
+      )}
     </div>
+  </div>
   );
 };
 
