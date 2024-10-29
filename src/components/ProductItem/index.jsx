@@ -6,19 +6,16 @@ import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 
-const ProductItem = ({
-  id,
-  image,
-  title,
-  price,
-  discont_price,
-}) => {
+
+const ProductItem = ({ id, image, title, price, discont_price }) => {
   const dispatch = useDispatch();
 
   // Вычисляем процент скидки
-  const discountPercent = discont_price !== null
-    ? Math.round(((price - discont_price) / price) * 100)
-    : null;
+  const discountPercent =
+    discont_price !== null
+      ? Math.round(((price - discont_price) / price) * 100)
+      : null;
+
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
@@ -35,21 +32,27 @@ const ProductItem = ({
   return (
     <div className={`${s.products_wrapper}`}>
    <Link to={`/products/${id}`}>
-      <div className={s.img_container}>
-        <img src={`http://localhost:3333/${image}`} alt={title} className={s.images} />
-      </div>
-
-      {discountPercent !== null && (
-        <div className={s.cross_out}>
-          <div className={s.discount_text}>-{discountPercent}%</div>
+        <div className={s.img_container}>
+          <img src={`http://localhost:3333/${image}`} alt={title} className={s.images} />
         </div>
-      )}
-    </Link>
 
-    <div className={s.icons_wrapper}>
-      <PiHeartFill className={s.like} onClick={handleClickLikeIcon} />
-      <PiHandbagSimpleFill className={s.bag} onClick={handleClickCartIcon} />
-    </div>
+        {discountPercent !== null && (
+          <div className={s.cross_out}>
+            <div className={s.discount_text}>-{discountPercent}%</div>
+          </div>
+        )}
+      </Link>
+
+      <div className={s.icons_wrapper}>
+        <PiHeartFill 
+          className={s.like}
+          onClick={handleClickLikeIcon}
+        />
+        <PiHandbagSimpleFill 
+          className={s.bag} 
+          onClick={handleClickCartIcon} 
+        />
+      </div>
 
     <h3 className={s.product_title}>{title}</h3>
     <div className={s.price_container}>

@@ -1,10 +1,29 @@
 import React from 'react'
 import s from "./index.module.css";
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteAllAction } from '../../store/reducers/cartReducer';
 
 const OrderForm = ({ totalCount, totalPrice }) => {
 
+  const dispatch = useDispatch();
+
+  const cartState = useSelector(store => store.cart);
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+  const order = data => {
+
+    reset(); // Очистить поля формы
+    dispatch(deleteAllAction()); // Очистить корзину
+  }
+
+  const registerName = register('name');
+  const registerPhone = register('phone');
+  const registerEmail = register('email');
+
   return (
-    <div>
+    <div >
       <div className={s.order_details}>
         <h2>Order details</h2>
 
@@ -17,14 +36,14 @@ const OrderForm = ({ totalCount, totalPrice }) => {
         </div>
       </div>
 
-      <div className={s.input_form}>
-        <ul>
-          <li>Name</li>
-          <li>Phone number</li>
-          <li>Email</li>
-        </ul>
+      <form className={s.input_form} onSubmit={handleSubmit(order)}>
+
+        <input type="text" placeholder='Name' {...registerName} />
+        <input type="text" placeholder='Phone' {...registerPhone} />
+        <input type="text" placeholder='Email' {...registerEmail} />
+
         <button>Order</button>
-      </div>
+      </form>
 
     </div>
   )
