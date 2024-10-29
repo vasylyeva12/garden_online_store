@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { getProductsByCategory, getSingleProduct } from "../../requests/products";
+import {
+  getProductsByCategory,
+  getSingleProduct,
+} from "../../requests/products";
 
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
@@ -11,14 +14,13 @@ import { changeSingleProductStatusAction } from "../../store/reducers/singleProd
 import { PiHeartFill } from "react-icons/pi";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
-import ButtonNavigation from "../../components/ButtonNavigation";
+
 
 const SingleProductPage = () => {
   const dispatch = useDispatch();
 
   const { product_id } = useParams();
   //  const [isModalOpen, setIsModalOpen] = useState(false) /*for modal window */
-
 
   // Состояние для отображения полного текста в Read more
   const [isExpanded, setIsExpanded] = useState(false);
@@ -29,31 +31,25 @@ const SingleProductPage = () => {
   }, [dispatch, product_id]);
 
   const singleProductState = useSelector((store) => store.product);
-  const [isLiked, setIsLiked] = useState(false)
-  const likedProductsState = useSelector((store) => store.likedProducts.likedProducts.some((item) => item.id === parseInt(product_id)));
+ 
+  const likedProductsState = useSelector((store) =>
+    store.likedProducts.likedProducts.some(
+      (item) => item.id === parseInt(product_id)
+    )
+  );
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
- 
-  const getCategoryTitle = categoryId => {
-    const category = productsByCategoryState.find(el => el.id === categoryId)
-    return category ? category.title : 'Loading ...'
+   // const [isLiked, setIsLiked] = useState(false)
 
-
-  }  
-
-  // const categoryObject = productsByCategoryState?.category;
-  // const categoryTitle = categoryObject?.title || "Unknown Category";
-
-  
-
-  }
-
-
+  const getCategoryTitle = (categoryId) => {
+    const category = productsByCategoryState.find((el) => el.id === categoryId);
+    return category ? category.title : "Loading ...";
+  };  
 
   const handleLikedClick = () => {
     if (singleProductState) {
-      if (isLikedProduct) {
+      if (likedProductsState) {
         dispatch(toggleLikedProductAction(singleProductState.id));
       } else {
         dispatch(
@@ -69,19 +65,8 @@ const SingleProductPage = () => {
     }
   };
 
- 
-
-
-  const {
-    id,
-    title,
-    price,
-    discont_price,
-    description,
-    image,
-
-  } = singleProductState.data;
-
+  const { id, title, price, discont_price, description, image } =
+    singleProductState.data || {};
 
   // Вычисляем процент скидки
   const discountPercent =
@@ -91,27 +76,27 @@ const SingleProductPage = () => {
 
   return (
     <div className="container">
-
-
-       <section className={s.breadcrumbs}>
-            <Link to='/'>
-               <div className={s.crumb_box}> Main page </div>
-            </Link>
-               <div className={s.line}></div>
-            <Link to='/categories'>
-               <div className={s.crumb_box}> Categories </div>
-            </Link>
-               <div className={s.line}></div>
-            <Link to={`/categories/${id}`}>
-               <div className={s.crumb_box}>{productsByCategoryState.length > 0 ? getCategoryTitle(categoryId) : 'Loading...'}</div>
-            </Link>
-               <div className={s.line}></div> 
-            <Link to={`/product/${id}`}>
-               <div className={`${s.crumb_box} ${s.text_black}`}> { title } </div>
-            </Link>
-         </section>     
-     
-
+      <section className={s.breadcrumbs}>
+        <Link to="/">
+          <div className={s.crumb_box}> Main page </div>
+        </Link>
+        <div className={s.line}></div>
+        <Link to="/categories">
+          <div className={s.crumb_box}> Categories </div>
+        </Link>
+        <div className={s.line}></div>
+        <Link to={`/categories/${singleProductState?.data?.categoryId}`}>
+          <div className={s.crumb_box}>
+            {productsByCategoryState.length > 0
+              ? getCategoryTitle(singleProductState?.data?.categoryId)
+              : "Loading..."}
+          </div>
+        </Link>
+        <div className={s.line}></div>
+        <Link to={`/product/${id}`}>
+          <div className={`${s.crumb_box} ${s.text_black}`}> {title} </div>
+        </Link>
+      </section>
 
       {singleProductState.status === "loading" ? (
         <p>Product info is loading...</p>
@@ -123,7 +108,7 @@ const SingleProductPage = () => {
             <div>
               <h2>{title}</h2>
               <PiHeartFill
-                className={`${s.heartIcon} ${isLiked ? s.liked : ""}`}
+                className={`${s.heartIcon} ${likedProductsState ? s.liked : ""}`}
                 onClick={handleLikedClick}
               />
             </div>
@@ -135,7 +120,6 @@ const SingleProductPage = () => {
                 {/* Показывать discont_price только если есть скидка */}
                 {discont_price && price > discont_price && (
                   <p className={s.priceDisc}>${Math.round(discont_price)}</p>
-
                 )}
               </div>
 
@@ -165,14 +149,15 @@ const SingleProductPage = () => {
             </p>
 
             {/* <p className={s.fullDescr}> </p> */}
-            <Link onClick={() => setIsExpanded(!isExpanded)} className={s.readmore_text}>
+            <Link
+              onClick={() => setIsExpanded(!isExpanded)}
+              className={s.readmore_text}
+            >
               {isExpanded ? "Show less" : "Read more"}
             </Link>
           </div>
         </div>
       )}
-
-
     </div>
   );
 
