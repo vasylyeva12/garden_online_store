@@ -1,22 +1,14 @@
 import React from "react";
 import s from "./index.module.css";
 import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 
-const ProductItem = ({
-  id,
-  image,
-  title,
-  price,
-  discont_price,
-}) => {
-  // const isLiked = useSelector((state) => state.likedProducts.likedProducts.some((el) => el.id === id))
 
+const ProductItem = ({ id, image, title, price, discont_price }) => {
   const dispatch = useDispatch();
-
 
   // Вычисляем процент скидки
   const discountPercent =
@@ -40,7 +32,7 @@ const ProductItem = ({
 
   return (
     <div className={`${s.products_wrapper}`}>
-      <Link to={`/products/${id}`}>
+   <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img src={`http://localhost:3333/${image}`} alt={title} className={s.images} />
         </div>
@@ -52,54 +44,29 @@ const ProductItem = ({
         )}
       </Link>
 
-        <div className={s.icons_wrapper}>
-          <PiHeartFill 
-          className={s.like}
-          onClick={handleClickLikeIcon}
-          />
-            
-          
-          {/* иконка корзины */}
-          <PiHandbagSimpleFill className={s.bag} />
-        </div>
-
-        <h3 className={s.product_title}>{title}</h3>
-        <div className={s.price_container}>
-          {discont_price ? (
-            <>
-              <p className={s.discount_price}>${discont_price}</p>
-              <p className={s.original_price}>${price}</p>
-            </>
-          ) : (
-            <p className={s.discount_price}>${price}</p>
-          )}
-        </div>
-        </Link>
-
-        <div className={s.icons_wrapper}>
-          {/* иконка сердце */}
-          <PiHeartFill 
-          className={s.like}
-          onClick={handleClickLikeIcon}
-          />
-        </div>
       <div className={s.icons_wrapper}>
-        <PiHeartFill className={s.like} onClick={handleClickLikeIcon} />
-        <PiHandbagSimpleFill className={s.bag} onClick={handleClickCartIcon} />
+        <PiHeartFill 
+          className={s.like}
+          onClick={handleClickLikeIcon}
+        />
+        <PiHandbagSimpleFill 
+          className={s.bag} 
+          onClick={handleClickCartIcon} 
+        />
       </div>
 
-      <h3 className={s.product_title}>{title}</h3>
-      <div className={s.price_container}>
-        {discont_price ? (
-          <>
-            <p className={s.discount_price}>${discont_price}</p>
-            <p className={s.original_price}>${price}</p>
-          </>
-        ) : (
-          <p className={s.discount_price}>${price}</p>
-        )}
-      </div>
+    <h3 className={s.product_title}>{title}</h3>
+    <div className={s.price_container}>
+      {discont_price ? (
+        <>
+          <p className={s.discount_price}>${discont_price}</p>
+          <p className={s.original_price}>${price}</p>
+        </>
+      ) : (
+        <p className={s.discount_price}>${price}</p>
+      )}
     </div>
+  </div>
   );
 };
 
