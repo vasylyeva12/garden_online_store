@@ -17,6 +17,7 @@ const ProductItem = ({ id, image, title, price, discont_price }) => {
       : null;
 
 
+
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
