@@ -25,10 +25,6 @@ const ProductItem = ({
       : null;
 
 
-  // Вычисляем процент скидки
-  const discountPercent = discont_price !== null
-    ? Math.round(((price - discont_price) / price) * 100)
-    : null;
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
