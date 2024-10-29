@@ -37,13 +37,15 @@ const SingleProductPage = () => {
       (item) => item.id === parseInt(product_id)
     )
   );
-  const productsByCategoryState = useSelector(
-    (store) => store.productsByCategory
+  const productsByCategoryState = useSelector((store) => store.productsByCategory.data
   );
    // const [isLiked, setIsLiked] = useState(false)
 
+   console.log(productsByCategoryState);
+   
+
   const getCategoryTitle = (categoryId) => {
-    const category = productsByCategoryState.find((el) => el.id === categoryId);
+    const category = productsByCategoryState && productsByCategoryState.find((el) => el.id === categoryId);
     return category ? category.title : "Loading ...";
   };  
 
@@ -87,9 +89,9 @@ const SingleProductPage = () => {
         <div className={s.line}></div>
         <Link to={`/categories/${singleProductState?.data?.categoryId}`}>
           <div className={s.crumb_box}>
-            {productsByCategoryState.length > 0
-              ? getCategoryTitle(singleProductState?.data?.categoryId)
-              : "Loading..."}
+            {/* {productsByCategoryState.length > 0 */}
+              {getCategoryTitle(singleProductState?.data?.categoryId)}
+              {/* : "Loading..."} */}
           </div>
         </Link>
         <div className={s.line}></div>
