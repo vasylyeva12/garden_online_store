@@ -5,20 +5,21 @@
 }
 
 .contact_title {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
-  font-size: 64px;
+  color: #424436;
+  font-size: clamp(2.5rem, 2.071rem + 2.14vw, 4rem);
   font-style: normal;
   font-weight: 700;
   line-height: 110%;
-  margin-bottom: 40px;
+  margin-bottom: clamp(1.5rem, 1.214rem + 1.43vw, 2.5rem);
 }
 
 .contact_container {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1.42fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: 58% 40%;
+  grid-template-rows: auto auto;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .contact_item {
@@ -26,26 +27,23 @@
   padding: 32px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 26px;
+  gap: 16px;
   flex: 1 0 0;
   align-self: stretch;
-  border-radius: var(--radius-big, 12px);
-  background: var(--light-grey, #f2f6d3);
+  border-radius: 12px;
+  background: #f2f6d3;
 }
 
 .contact_item h3 {
-  color: var(--txt-grey, #8b8b8b);
-  font-family: Montserrat;
+  color: #8b8b8b;
   font-size: 20px;
   font-style: normal;
-  font-weight: 500;
   line-height: 130%;
 }
 
 .contact_item p,
 .contact_item a {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
+  color: #424436;
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
@@ -54,21 +52,67 @@
 
 .social_icons {
   display: flex;
-  gap: 10px;
+  gap: 16px;
 }
 
 .social_icons i {
   font-size: 24px;
 }
 
-.map_container {
-  margin-top: 20px;
+.map {
+  object-fit: cover;
+  width: 100%;
+  height: 21.9rem;
+  border: none;
 }
 
-iframe {
-  width: 100%;
-  height: 350px;
-  grid-column: 1 / 3;
-  border-radius: 12px;
-  border: none;
+@media (max-width: 1440px) {
+  .contact_container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact_title {
+    margin-bottom: 32px;
+  }
+  .contact_container {
+    grid-template-columns: 67% 30%;
+  }
+  .map {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact_container > div {
+    padding: 24px 20px;
+  }
+
+  .contact_item h3 {
+    font-size: 18px;
+  }
+
+  .contact_item p {
+    font-size: 28px;
+  }
+
+  .contact_container {
+    grid-template-columns: 100%;
+  }
+
+  .contact_item {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact_container > div {
+    padding: 24px 20px;
+  }
+
+  .contact_item {
+    margin-top: 20px;
+  }
 }

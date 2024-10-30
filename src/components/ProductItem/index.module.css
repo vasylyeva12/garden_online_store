@@ -113,3 +113,15 @@
   display: none;
   align-items: center;
 }
+
+.custom_btn{
+  opacity: 0;
+}
+
+.custom_btn:hover{
+  opacity: 1;
+}
+
+
+
+

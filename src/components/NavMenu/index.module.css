@@ -12,11 +12,15 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 32px;  
 }
 
 .menu li a:hover {
   color: #92a134;
+}
+
+.active{
+  right: 0;
 }
 
 .link {
@@ -27,11 +31,6 @@
 .active_link {
   color: #92a134;
 }
-
-/* .btn { 
-  text-align: center;
-   cursor: pointer;   
-  } */
 
 .btn_hidden {
   display: none;
@@ -45,17 +44,57 @@
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 35px 20px 30px 20px;
-    font-size: 16px;
+    padding: 35px 20px 30px 20px;    
     gap: 10px;
+  }
+  .link {
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .menu {
+    display: none;
+  }
+  
+  /* Отображаем кнопку и элементы навигации справа в бургер-меню */
+  .menu.active {
+    padding: 100px 20px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: fixed;
+    width: 59%;
+    height: 100%;  
+    font-size: 24px;
+    font-style: normal;    
+    line-height: 130%;
+    
+  }
 
+  .btn .nav_item {
+    text-align: left;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  
+
+  /* Стили для кнопки скидок */
+  .btn_hidden {
+    display: block;
+    width: auto;   
+    color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
   .btn {
     display: none;
   }
+
+  /* 
 
   .menu {
     display: flex;
@@ -78,14 +117,14 @@
     font-style: normal;
     font-weight: 500;
     line-height: 130%;
-  } 
+  }  */
 
   /* .dark .nav_list {
       color: white;
       background: #282828;
     } */
 
-  .menu li {
+  /* .menu li {
     padding-bottom: 36px;
   }
 
@@ -123,7 +162,7 @@
 
   .btn {
     display: none;
-  }
+  } */
 
   /* .btn_hidden {
     display: block;

@@ -87,6 +87,8 @@
 
 
 @media (max-width: 480px) {
+  
+
   .mobile_btn {
     display: block;
     position: absolute;
@@ -98,6 +100,7 @@
   }
   .navbar_actions {
     gap: 10px;
+    padding-right: 70px;
   }
 
   .nav_basket .favourites{

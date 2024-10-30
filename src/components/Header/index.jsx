@@ -14,12 +14,7 @@ const Header = () => {
           <Logo className={s.logo} />
           <NavMenu nav={nav}/>
           <BurgerMenu nav={nav} setNav={setNav}/>
-           {/* Overlay для закрытия меню при клике вне его области */}
-          {/* <div 
-          className={`${s.overlay} ${nav ? s.active_overlay : ""}`} 
-          onClick={() => setNav(false)}>
-            <BurgerMenu  nav={nav} setNav={setNav}/>
-          </div> */}
+           
         </div>
       </div>
     </header>

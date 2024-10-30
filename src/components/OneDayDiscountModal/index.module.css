@@ -1,11 +1,12 @@
 .card {
+    width: 548px;
     border-radius: 12px;
     padding: 32px;
     background-color: #92a134;
 }
 
 .product_card {
-    background-color: #ffffff;
+    background-color: #dddddd;
     padding-bottom: 15px;
 }
 
