@@ -14,6 +14,7 @@ const BurgerMenu = ({ nav, setNav}) => {
   // Считаем количество избранных товаров
   const likedCount = likedProducts.length;
   const totalCount = cartState.reduce((acc, el) => acc + el.count, 0);
+  
 
   return (
     <div className={s.navbar_actions}>

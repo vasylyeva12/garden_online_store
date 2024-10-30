@@ -57,7 +57,7 @@ a {
   margin: 0 auto;
   color: #424436;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 768px) {
     padding: 0 20px;
   }
 }

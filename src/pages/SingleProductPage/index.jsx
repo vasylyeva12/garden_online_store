@@ -41,7 +41,7 @@ const SingleProductPage = () => {
   );
    // const [isLiked, setIsLiked] = useState(false)
 
-   console.log(productsByCategoryState);
+
    
 
   const getCategoryTitle = (categoryId) => {

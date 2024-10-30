@@ -21,16 +21,7 @@ const CategoriesPage = () => {
 
   return (
     <div className='container'>
-      <ButtonNavigation />
-      {/* <div className={s.buttons}>
-        <Link to="/">
-          <div className={s.navigation}>Main page</div>
-        </Link>
-        <div className={s.line}></div>
-        <Link to="/categories">
-          <div className={s.navigation}>Categories</div>
-        </Link>
-      </div>  */}
+      <ButtonNavigation />     
 
       <div className={s.categories}>
         <h2 className={s.title}> Categories </h2>

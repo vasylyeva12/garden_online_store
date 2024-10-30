@@ -16,7 +16,7 @@ const ButtonAddToCard = ({ id, image, title, price, discont_price }) => {
   return (
     <div>
         <button className={s.btn} onClick={handleAddToCart}>
-        Add to card
+        Add to cart
         </button>
     </div>
   )
