@@ -23,6 +23,7 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
 
+
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();

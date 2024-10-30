@@ -162,6 +162,6 @@ const SingleProductPage = () => {
       )}
     </div>
   );
-};
+}
 
 export default SingleProductPage;

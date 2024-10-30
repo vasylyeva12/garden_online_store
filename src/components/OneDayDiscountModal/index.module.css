@@ -1,4 +1,5 @@
 .card {
+
     width: 548px;
     border-radius: 12px;
     padding: 32px;
@@ -8,21 +9,37 @@
 .product_card {
     background-color: #dddddd;
     padding-bottom: 15px;
+
+ 
 }
 
 .text_box h2 {
-    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
-    font-weight: 600;
-    line-height: 110%;
-    color: #ffffff;
+  font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+  font-weight: 600;
+  line-height: 110%;
+  color: #ffffff;
 }
 
 .text_box {
-    display: flex;
-    align-items: start;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: start;
+  margin-bottom: 16px;
 }
 
 .text_box img {
-    cursor: pointer;
+  cursor: pointer;
+}
+.btn_addtocart {
+  width: 536px;
+  height: 58px;
+  color: black;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: #fffff1;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  margin-top: 16px;
 }
