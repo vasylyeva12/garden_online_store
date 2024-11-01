@@ -36,4 +36,12 @@
   }
 } */
 
+/* Светлая тема */
+.light_theme {
+  background-color: #ffffff;
+}
 
+/* Темная тема */
+.dark_theme {
+  background-color: #6e6c6c;
+}
