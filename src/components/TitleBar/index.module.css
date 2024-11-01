@@ -38,3 +38,25 @@
   height: 1px;
   background-color: #ddd;
 }
+
+@media (max-width: 1000px) {
+  .container {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .line {
+    display: none;
+  }
+
+  .container button {
+    display: none;
+  }
+}

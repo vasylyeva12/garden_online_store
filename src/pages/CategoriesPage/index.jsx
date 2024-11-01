@@ -15,9 +15,9 @@ const CategoriesPage = () => {
   console.log(categoriesState);
   
 
-  useEffect(() => {
-    dispatch(getCategories);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCategories);
+  // }, []);
 
   return (
     <div className='container'>

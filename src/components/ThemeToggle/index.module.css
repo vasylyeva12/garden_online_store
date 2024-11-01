@@ -1,15 +1,52 @@
-/* .theme_toggle {
-    border-radius: 30px;
-    background-color: #8b8b8b;
-    width: 60px;
-} */
+.theme_toggle{
+  margin-left: 20px;
+}
 
-.theme_container {
-    /* position: relative; */
+.themeLight_container,
+.themeDark_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; 
+  width: 60px;
+  height: 32px;
+  border-radius: 30px;
+}
 
-    padding: 5px 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.themeLight_container {
+  background-color: #8B8B8B;
+}
 
+.themeDark_container {
+  background-color: #FFFFFF;
+}
+
+.moon {
+  height: 20px;
+  width: 20px;
+  stroke-width: 2px; /* Толщина обводки */
+  stroke: #FFFFFF; /* Цвет обводки */
+  fill: transparent; /* Отсутствие заливки */
+  margin: 3px;
+}
+
+.sun{
+  height: 25px;
+  width: 25px;
+}
+
+.ellipse {
+  width: 28px;
+  height: 28px;
+  background-color: #FFFFFF; 
+  border-radius: 50%; /* Для округлённой формы */
+  margin: 1.5px;
+}
+
+.ellipse_dark {
+  width: 28px;
+  height: 28px;
+  background-color: #8B8B8B;  
+  border-radius: 50%; 
+  margin: 1.5px;
 }

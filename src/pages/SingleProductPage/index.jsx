@@ -17,21 +17,42 @@ const SingleProductPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для модального окна
   const [isExpanded, setIsExpanded] = useState(false); // Состояние для отображения полного текста в Read more
 
-  useEffect(() => {
-    dispatch(getSingleProduct(product_id));
-    dispatch(changeSingleProductStatusAction());
-  }, [dispatch, product_id]);
-
   const singleProductState = useSelector((store) => store.product);
+  const categoriesState = useSelector(store => store.categories)
+
+  // const data = singleProductState.data
+  // const category_title = data.categoryId
+  
+  useEffect(() => {
+    dispatch(changeSingleProductStatusAction());
+    dispatch(getSingleProduct(product_id));    
+    // dispatch(getProductsByCategory(category_title))
+   
+  }, [dispatch]);
+
+
+  
   const likedProductsState = useSelector((store) =>
     store.likedProducts.likedProducts.some(
       (item) => item.id === parseInt(product_id)
     )
   );
-  const productsByCategoryState = useSelector((store) => store.productsByCategory.data);
+   const productsByCategoryState = useSelector((store) => store.productsByCategory.data
+  );
 
   const getCategoryTitle = (categoryId) => {
     const category = productsByCategoryState?.find((el) => el.id === categoryId);
+
+ 
+   // const [isLiked, setIsLiked] = useState(false)
+   
+console.log(productsByCategoryState);
+
+  const getCategoryTitle = (categoryId) => {
+    // return productsByCategoryState.find((el) => el.id === categoryId).title || 'loading'
+    const category = categoriesState && categoriesState.find((el) => el.id === categoryId);
+    console.log(category);
+    
     return category ? category.title : "Loading ...";
   };
 

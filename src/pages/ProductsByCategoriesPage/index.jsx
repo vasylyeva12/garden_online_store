@@ -20,21 +20,19 @@ const ProductsByCategoryPage = () => {
     dispatch(changeStatusAction());
 
     dispatch(getProductsByCategory(id));
-  }, [dispatch, id]); // Добавили id в зависимости для перезагрузки при его изменении
+  }, [dispatch]); // Добавили id в зависимости для перезагрузки при его изменении
   // Получаем состояние продуктов по категории из Redux
   
-  const productsByCategoryState = useSelector(
-    (store) => store.productsByCategory
-  );
+  const productsByCategoryState = useSelector((store) => store.productsByCategory);
 
   const categoriesState = useSelector((store) => store.categories);
   const category = categoriesState[id - 1]
 
-  console.log(categoriesState);
+ 
 
-  useEffect(() => {
-    dispatch(getCategories);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCategories);
+  // }, []);
 
  
 
