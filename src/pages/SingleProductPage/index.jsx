@@ -20,17 +20,12 @@ const SingleProductPage = () => {
   const singleProductState = useSelector((store) => store.product);
   const categoriesState = useSelector(store => store.categories)
 
-  // const data = singleProductState.data
-  // const category_title = data.categoryId
   
   useEffect(() => {
     dispatch(changeSingleProductStatusAction());
-    dispatch(getSingleProduct(product_id));    
-    // dispatch(getProductsByCategory(category_title))
+    dispatch(getSingleProduct(product_id));   
    
   }, [dispatch]);
-
-
   
   const likedProductsState = useSelector((store) =>
     store.likedProducts.likedProducts.some(
@@ -39,10 +34,11 @@ const SingleProductPage = () => {
   );
    const productsByCategoryState = useSelector((store) => store.productsByCategory.data
   );
+ 
+   
+console.log(productsByCategoryState);
 
-
-  const getCategoryTitle = (categoryId) => {
-    // return productsByCategoryState.find((el) => el.id === categoryId).title || 'loading'
+  const getCategoryTitle = (categoryId) => {    
     const category = categoriesState && categoriesState.find((el) => el.id === categoryId);
     console.log(category);
     

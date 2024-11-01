@@ -1,23 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import s from "./index.module.css";
-import { Link } from "react-router-dom";
-import { getCategories } from "../../requests/categories";
 import CategoryItem from "../../components/CategoryItem";
 import ButtonNavigation from "../../components/ButtonNavigation";
 
-const CategoriesPage = () => {
-  
-  const dispatch = useDispatch();
+
+const CategoriesPage = () => { 
 
   const categoriesState = useSelector((store) => store.categories);
 
-  console.log(categoriesState);
-  
-
-  // useEffect(() => {
-  //   dispatch(getCategories);
-  // }, []);
+  console.log(categoriesState);  
 
   return (
     <div className='container'>
