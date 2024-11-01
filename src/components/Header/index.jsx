@@ -17,6 +17,7 @@ const Header = () => {
       <div className="container">
         <div className={s.header_section}>
           <Logo className={s.logo} />
+          <ThemeToggle /> {/* Переключатель */}
           <NavMenu nav={nav}/>
           <BurgerMenu nav={nav} setNav={setNav}/>
            
