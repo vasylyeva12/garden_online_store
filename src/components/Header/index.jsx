@@ -17,15 +17,9 @@ const Header = () => {
       <div className="container">
         <div className={s.header_section}>
           <Logo className={s.logo} />
-          <ThemeToggle /> {/* Переключатель */}
-          <NavMenu nav={nav} />
-          <BurgerMenu nav={nav} setNav={setNav} />
-          {/* Overlay для закрытия меню при клике вне его области */}
-          {/* <div
-          className={${s.overlay} ${nav ? s.active_overlay : ""}}
-          onClick={() => setNav(false)}>
-            <BurgerMenu  nav={nav} setNav={setNav}/>
-          </div> */}
+          <NavMenu nav={nav}/>
+          <BurgerMenu nav={nav} setNav={setNav}/>
+           
         </div>
       </div>
     </header>

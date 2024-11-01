@@ -13,3 +13,44 @@
 .hidden_btn {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  .sale_container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) { 
+
+  .hidden_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden_btn button {
+    display: block;
+    padding: 12px 24px;    
+    color: #8b8b8b;
+    text-align: center;
+    font-size: 16px;   
+    line-height: 126%;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    margin-bottom: 68px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s,
+      box-shadow 0.3s;
+  } 
+
+  .hidden_btn button:active {
+    transform: scale(0.95);
+  }
+
+  .hidden_btn button:hover {
+    color: #92a134;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+}

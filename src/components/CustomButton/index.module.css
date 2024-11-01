@@ -1,30 +1,31 @@
-.btn {
-    width: 70%;
-    bottom: 130px;
-    font-family: Montserrat;
-    left: 15%;
-    right: 16px;
-    border-radius: 12px;
+.custom_btn {
+    width: 90%;
+    bottom: 160px;
+    /* left: 15%; */
+    right: 15px;
+    border-radius: 6px;
     padding: 12px 0;
     position: absolute;
     text-align: center;
-    display: none;
-    cursor: pointer;
+    /* display: none;    */
     font-size: clamp(16px, 2vw, 18px);
     font-weight: 600;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    background-color: #92a134;
+    color: white;
   }
   
-  .btn:hover {
+  .custom_btn:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    /* display: block; */
   }
   
-  .btn:active {
+  .custom_btn:active {
     transform: scale(0.95);
   }
   
-  @media (max-width: 768px) {
-    .btn {
+  @media (max-width: 480px) {
+    .custom_btn {
   
       display: none;
   

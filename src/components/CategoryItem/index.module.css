@@ -1,32 +1,35 @@
 .categories_wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
-
 }
 
 .categories_wrapper img {
-  width: 316px;
+  width: 100%;
   height: 350px;
   object-fit: cover;
-  width: 100%;
-  min-height: auto;
+  transition: transform 0.5s ease;
   object-fit: cover;
   border-radius: 12px;
+  
+  /* min-height: auto; */  
+}
+.categories_wrapperd:hover .image_wrapper img {
+  transform: scale(1.1);
 }
 
-.categories_wrapper p {
-  font-family: "Montserrat";
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 26px;
+.categories_wrapper p { 
+  font-size: 20px;  
+  line-height: 130%;
   text-align: center;
   color: #424436;
   padding: 8px;
   
 }
 
-@media(max-width: 1200px) {
+@media(max-width: 1000px) {
   .categories_wrapper img {
      width: 225px;
      height: 250px;  

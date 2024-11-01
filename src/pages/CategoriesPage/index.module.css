@@ -1,26 +1,4 @@
-.buttons {
-  position: relative;
-  display: flex;
-  width: 254px;
-  height: 36px;
-  gap: 15px;
-  margin: 40px 0;
-}
 
-.navigation {
-  font-family: "Montserrat";
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20.16px;
-  border: 1px solid #dddddd;
-  border-radius: 7px;
-  height: 36px;
-  width: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
 
 .main_page_button {
   color: #8b8b8b;
@@ -30,22 +8,10 @@
   color: #424436;
 }
 
-.line {
-  width: 16px;
-  border-bottom: 1px solid #dddddd;
-  position: absolute;
-  top: 17px;
-  left: 125px;
-}
-
-.title {
-  width: 1360px;
-  height: 70px;
-  font-family: Montserrat;
-  font-size: 64px;
+.title { 
+  font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
   font-weight: 700;
-  line-height: 70.4px;
-  color: #424436;
+  line-height: 110%;
   margin: 40px 0;
 }
 
@@ -54,9 +20,13 @@
   grid-row: 1;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
-  margin-bottom: 60px;
- 
+  margin-bottom: 60px;  
+}
 
-  
+@media (max-width: 768px) {
+  .title {
+    margin-bottom: 30px;
+    margin-top: clamp(40px, calc(40px + (1200px - 100vw) * 0.06), 90px);
+  }
 }
 
