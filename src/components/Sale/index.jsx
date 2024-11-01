@@ -35,8 +35,7 @@ const Sale = () => {
       <div className={s.hidden_btn}>
         <Link to="/sales">
           <button>All sales</button>
-        </Link>
-        {/* <ProductsList products={discountedProducts}/> */}
+        </Link>    
       </div>
     </div>
   );
