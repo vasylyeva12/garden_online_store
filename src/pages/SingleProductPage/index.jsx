@@ -40,13 +40,6 @@ const SingleProductPage = () => {
    const productsByCategoryState = useSelector((store) => store.productsByCategory.data
   );
 
-  const getCategoryTitle = (categoryId) => {
-    const category = productsByCategoryState?.find((el) => el.id === categoryId);
-
- 
-   // const [isLiked, setIsLiked] = useState(false)
-   
-console.log(productsByCategoryState);
 
   const getCategoryTitle = (categoryId) => {
     // return productsByCategoryState.find((el) => el.id === categoryId).title || 'loading'
@@ -166,5 +159,6 @@ console.log(productsByCategoryState);
     </div>
   );
 };
+
 
 export default SingleProductPage;
