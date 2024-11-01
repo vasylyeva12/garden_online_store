@@ -1,22 +1,12 @@
-import React from 'react'
-import s from './index.module.css'
-import { Dialog , Backdrop, Grow} from '@mui/material'
-import ProductItem from '../ProductItem'
-import closeImg from '../../media/close.svg'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addProductToCartAction } from '../../store/reducers/cartReducer'
+import React from "react";
+import s from "./index.module.css";
+import { Dialog, Backdrop, Grow } from "@mui/material";
+import ProductItem from "../ProductItem";
+import closeImg from "../../media/close.svg";
 
 
-
-const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
-  const dispatch = useDispatch();
-
-  // Функция для добавления продукта в корзину
-  const handleAddToCart = () => {
-    dispatch(addProductToCartAction(product)); // Добавляем товар в корзину
-    setIsOpen(false); // Закрываем модальное окно после добавления в корзину
-  };
+const OneDayDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
+  
 
   return (
     <Dialog
@@ -31,10 +21,10 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
         timeout: 500,
       }}
       sx={{
-        borderRadius: "16px",
+        borderRadius: "12px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         "& .MuiPaper-root": {
-          borderRadius: "16px",
+          borderRadius: "12px",
         },
       }}
     >
@@ -50,13 +40,9 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
           productStyles={s.product_card}
           content="modal"
         />
-       
-       <Link to="/cart">
-            <button className={s.btn_addtocart}onClick={handleAddToCart}>Add to cart</button>
-          </Link>
       </div>
     </Dialog>
-  )
-}
+  );
+};
 
-export default OneDayDiscountModal
+export default OneDayDiscountModal;

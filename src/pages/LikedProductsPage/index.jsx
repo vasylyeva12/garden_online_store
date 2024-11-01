@@ -6,7 +6,7 @@ import s from "./index.module.css";
 import ButtonNavigation from "../../components/ButtonNavigation";
 import FilterPrice from "../../components/FilterBar/FilterPrice";
 import FilterSort from "../../components/FilterBar/FilterSort";
-import FilterDiscounded from "../../components/FilterBar/FilterDiscouted";
+
 
 export default function LikedProductsPage() {
   const likedProducts = useSelector(
@@ -37,7 +37,7 @@ export default function LikedProductsPage() {
           <div className={s.product_item}>
             {likedProducts.map((product) => (
               <div key={product.id}>
-                <ProductItem {...product} />{" "}
+                <ProductItem {...product} />
                 {/* Используем компонент для отображения товара */}
               </div>
             ))}

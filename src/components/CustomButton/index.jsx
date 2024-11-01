@@ -8,7 +8,7 @@ const CustomButton = ({ onClick, buttonStyle, buttonText }) => {
   };
   return (
     <div>
-      <button className={`${s.btn} ${buttonStyle}`} onClick={handleClick}>
+      <button className={`${s.custom_btn} ${buttonStyle}`} onClick={handleClick}>
         {buttonText}
       </button>
     </div>

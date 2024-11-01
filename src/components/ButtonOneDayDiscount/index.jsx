@@ -18,7 +18,7 @@ const ButtonOneDayDiscount = () => {
       ...randomProduct,
       discont_price: (randomProduct.price / 2).toFixed(2)
     }
-    console.log( setProduct(productWithDiscount));
+    setProduct(productWithDiscount);
     
    
     setIsOpen(true)

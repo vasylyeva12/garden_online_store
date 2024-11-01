@@ -6,15 +6,26 @@
     bottom: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.8); 
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Обеспечивает, что модальное окно будет поверх других элементов */
+    z-index: 1000;
+}
+.modal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%; 
+    max-height: 100%; 
+}
+.modal_content img {
+    max-width: 80%; 
+    max-height: 80%;
+    object-fit: contain; 
 }
 
-
-.modal_content img {
+/* .modal_content img {
 
  width: 100%;
     width: 900px;
@@ -24,7 +35,7 @@
     gap: 0px;
     opacity: 0px;
     
-}
+} */
 
 .modal.active {
   width: auto;
