@@ -1,11 +1,13 @@
-import React from 'react'
-import s from './index.module.css'
-import { Dialog , Backdrop, Grow} from '@mui/material'
-import ProductItem from '../ProductItem'
-import closeImg from '../../media/close.svg'
+import React from "react";
+import s from "./index.module.css";
+import { Dialog, Backdrop, Grow } from "@mui/material";
+import ProductItem from "../ProductItem";
+import closeImg from "../../media/close.svg";
 
 
-const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
+const OneDayDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
+  
+
   return (
     <Dialog
       open={isOpen}
@@ -19,10 +21,10 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
         timeout: 500,
       }}
       sx={{
-        borderRadius: "16px",
+        borderRadius: "12px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         "& .MuiPaper-root": {
-          borderRadius: "16px",
+          borderRadius: "12px",
         },
       }}
     >
@@ -40,7 +42,7 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
         />
       </div>
     </Dialog>
-  )
-}
+  );
+};
 
-export default OneDayDiscountModal
+export default OneDayDiscountModal;

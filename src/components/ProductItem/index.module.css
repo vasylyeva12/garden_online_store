@@ -2,11 +2,8 @@
   width: 100%;
   height: 422px;
   position: relative;
-
   display: flex;
   flex-direction: column;
-  /* align-items: start; */
-  /* gap: 20px; */
   border: 1px solid #ddd;
   border-radius: 12px;
 }
@@ -14,27 +11,15 @@
 .product_title {
   width: 275px;
   padding-left: 2rem;
-
   overflow: hidden;
   text-overflow: ellipsis; /* добавляет многоточие (...) в конце строки*/
   white-space: nowrap; /*предотвращает перенос текста на новую строку.*/
-
   font-size: 20px;
   line-height: 130%;
   font-weight: 500;
-  margin: 20px 0;
+  margin: 10px 0;
+
 }
-
-/* .img_container {
-  width: 100%;
-  height: 284px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px 12px 0 0;
-  overflow: hidden;
-} */
 
 .product_item:hover .images {
   transform: scale(1.05);
@@ -51,6 +36,7 @@
   overflow: hidden;
   transition: transform 0.5s ease;
 }
+
 .price_container {
   display: flex;
   align-items: end;
@@ -86,6 +72,7 @@
   font-size: 20px;
   text-decoration: line-through;
   line-height: 130%;
+  margin-top: 5px;
 }
 
 .icons_wrapper {
@@ -98,12 +85,11 @@
 
 .icons_wrapper svg {
   border: 2.2px;
-  /* color: #424436; */
   stroke-width: 6px;
   stroke: #424436;
   fill: #ffffff;
-  
 }
+
 .like {
   width: 48px;
   height: 48px;
@@ -127,3 +113,15 @@
   display: none;
   align-items: center;
 }
+
+.custom_btn{
+  opacity: 0;
+}
+
+.custom_btn:hover{
+  opacity: 1;
+}
+
+
+
+

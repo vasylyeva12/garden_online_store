@@ -1,21 +1,25 @@
 
 .product {
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    margin-top: 40px;  
-    margin-bottom: 76px;  
-    max-height: 578px;
-    gap: 32px;
+  max-width: 1360px;
+  max-height: 578px;  
+  display: flex;
+  top: 244px;
+  left: 40px;
+  justify-content: center;
+  align-items: center;    
+  margin-top: 40px;  
+  margin-bottom: 76px;  
+  gap: 32px;
+  
 }
 
 .product img {
-    width: 57%;
+    width: 100%;
     max-height: 572px;
     object-fit: cover;
+    /* object-fit: contain; */
     border-radius: 12px; 
-    /* определяет, как содержимое заменяемого элемента, такого как <img> или <video>, должно заполнять контейнер относительно его высоты и ширины. */
-
+    
 }
 
 .product > div {
@@ -86,13 +90,11 @@
     right: 0;
 }
 
-.discount_percent{
-    max-width: 63px;
-    max-height: 34px;
+.discount_percent{   
     padding: 4px 8px;
     gap: 10px;
     border-radius: 6px;  
-    background-color: #92A134;
+    background-color: #F26D22;
     color: white;
     font-size: 16px;  
     font-weight: 600;
@@ -102,6 +104,7 @@
     top: 0; 
     right: 0;
 }
+
 .counter_item {
     display: flex;
     flex-direction: row;
@@ -121,13 +124,20 @@
 }
 
 .descr{
-    width: 548px;
-    height: 306px;   
+    max-width: 548px;
+    max-height: 306px;   
     font-size: 20px;
     font-weight: 600;
     line-height: 26px;
     text-align: left;
-    color: #424436;      
+    color: #424436;  
+    max-height: 150px; /* Ограниченная высота */
+    overflow: hidden;    
+    transition: max-height 0.3s ease;
+}
+
+.expanded {
+  max-height: none; /* Полностью разворачивает текст */
 }
 
 .fullDescr{
@@ -173,14 +183,14 @@
     transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   
-  .crumb_text {
+  .text {
     color:  #8B8B8B;
     text-align: center;   
     font-size: 16px;    
     line-height: 126%;
   }
   
-  .crumb_text_black {
+  .text_black {
     color: black;
     text-align: center;   
     font-size: 16px;   

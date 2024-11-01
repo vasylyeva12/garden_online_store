@@ -1,47 +1,59 @@
 import React from "react";
 import s from "./index.module.css";
 import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
-import { useDispatch} from "react-redux";
-import { addProductToCartAction } from "../../store/reducers/cartReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToCartAction, deleteAllAction } from "../../store/reducers/cartReducer";
 import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
+import CustomButton from "../CustomButton";
 
-const ProductItem = ({
-  id,
-  image,
-  title,
-  price,
-  discont_price,
- 
-}) => {
-  // const isLiked = useSelector((state) => state.cart.cartItems.some((el) => el.id === id))
-
+const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
   const dispatch = useDispatch();
+
+  const cartState = useSelector(store => store.cart)
+  const target = cartState.find(el => el.id === id);
+  const bagStyles = {
+    color: target ? '#92A134' : '#424436'
+  }
+
+
   // Вычисляем процент скидки
   const discountPercent =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
 
-  // const handleClickLikeIcon = (event) => {
-  //   event.stopPropagation();
-  //   event.preventDefault();
-  //   if (isLiked) {
-  //     dispatch(deleteLikedProductAction(id));
-  //   } else {
-  //     dispatch(addLikedProductAction({ id, image, title, price, discont_price }));
-  //   }
-  // };
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+    dispatch(
+      toggleLikedProductAction({ id, image, title, price, discont_price })
+    );
   };
 
-  return (   
-      <div className={`${s.products_wrapper} `}>
-        <Link to={`/products/${id}`}>
+  const handleClickCartIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(
+      addProductToCartAction({ id, image, title, price, discont_price })
+    );
+  };
+
+  const handleClickAddProduct = () => {
+    dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
+    // dispatch(deleteAllAction());
+  };
+
+  const handleClickRemoveProduct = () => {
+    dispatch(removeFromCart({ id, image, title, price, discont_price }));
+  };
+
+  return (
+    <div>
+
+    <div className={`${s.products_wrapper} ${productStyles}`}>
+      <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img
             src={`http://localhost:3333/${image}`}
@@ -55,47 +67,52 @@ const ProductItem = ({
             <div className={s.discount_text}>-{discountPercent}%</div>
           </div>
         )}
+      </Link>
 
-        <div className={s.icons_wrapper}>
-          {/* иконка сердце */}
-          <PiHeartFill 
-          className={s.like}
-          onClick={handleClickLikeIcon}
-          />
-            
-          
-          {/* иконка корзины */}
-          <PiHandbagSimpleFill className={s.bag} />
-        </div>
-
-        <h3 className={s.product_title}>{title}</h3>
-        <div className={s.price_container}>
-          {discont_price ? (
-            <>
-              <p className={s.discount_price}>${discont_price}</p>
-              <p className={s.original_price}>${price}</p>
-            </>
-          ) : (
-            <p className={s.discount_price}>${price}</p>
-          )}
-        </div>
-        </Link>
-
-        <div className={s.icons_wrapper}>
-          {/* иконка сердце */}
-          <PiHeartFill 
-          className={s.like}
-          onClick={handleClickLikeIcon}
-          />
-        </div>
-
-        <div 
-        className={s.btn}
-        onClick={()=> dispatch(addProductToCartAction({id, image, title, price, discont_price}))}>
-          Add to cart</div>
-        
+      <div className={s.icons_wrapper}>
+        <PiHeartFill className={s.like} onClick={handleClickLikeIcon} />
+        <PiHandbagSimpleFill className={s.bag} onClick={handleClickCartIcon} />
       </div>
+
+      <h3 className={s.product_title}>{title}</h3>
+      <div className={s.price_container}>
+        {discont_price ? (
+          <>
+            <p className={s.discount_price}>${discont_price}</p>
+            <p className={s.original_price}>${price}</p>
+          </>
+        ) : (
+          <p className={s.discount_price}>${price}</p>
+        )}
+      </div>
+       {/* Кнопка "Добавить в корзину" или "Удалить из корзины" */}
+       {content === "modal" ? (
+          ""
+        ) : (
+          <CustomButton
+            onClick={
+              cartState ? handleClickRemoveProduct : handleClickAddProduct
+            }
+            buttonStyle={s.custom_btn}
+            buttonText={cartState ? "Add to Cart" : "Delete from Cart"}
+          />
+        )}
+
+    </div>
     
+    {content === "modal" ? (
+        <CustomButton
+          onClick={
+            cartState ? handleClickAddProduct : handleClickRemoveProduct
+          }
+          buttonStyle={s.custom_btn_modal}
+          buttonText={cartState ? "Add to Cart"  : "Delete from Cart"}
+        />
+      ) : (
+        ""
+      )}
+
+    </div>
   );
 };
 
