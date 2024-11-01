@@ -14,8 +14,7 @@ function CategoriesList() {
   }, [dispatch]);
 
   return (
-
-      <div className="container">
+      <div className={s.categories_list}>
         {getCategoriesState
           .map((el) => (
             <CategoryItem key={el.id} {...el} />
