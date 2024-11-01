@@ -50,7 +50,6 @@ a {
   gap: 40px;
 }
 
-
 .container {
   width: 100%;
   padding: 0 40px;
@@ -61,5 +60,15 @@ a {
 @media (max-width: 1000px) {
   .container {
     padding: 0 20px;
-  } 
+  }
+}
+
+/* Светлая тема */
+.light_theme {
+  background-color: #ffffff;
+}
+
+/* Темная тема */
+.dark_theme {
+  background-color: #6e6c6c;
 }

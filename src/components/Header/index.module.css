@@ -8,18 +8,17 @@
 }
 
 .header_section {
-    display: flex;    
-    align-items: center;
-    justify-content: space-between;   
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
 
 
 @media (max-width: 768px) {
   .header {
     padding: 12px 0;
   }
-}
+} 
 
 /* @media (max-width: 480px) {
   .header {

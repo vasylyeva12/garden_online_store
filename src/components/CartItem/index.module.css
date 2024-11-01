@@ -12,11 +12,12 @@
 
 .item img {
     max-width: 200px;
-    max-height: 180px;
+    max-height: 175px;
     object-fit: contain;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     border: 1px 0px 0px 0px;
+    
 }
 
 .data {

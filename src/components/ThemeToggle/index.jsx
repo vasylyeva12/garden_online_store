@@ -1,15 +1,25 @@
-import React from "react";
-import sun from "../../media/sun.svg";
-import moon from "../../media/moon.svg";
+import React, { useContext } from "react";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import s from "./index.module.css";
+import { ThemeContext } from "../../context/ThemeContext";
+
 
 const ThemeToggle = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <div className={s.theme_toggle}>
-      <div className={s.theme_container}>
-        <img src={sun} alt="sun" />
-        {/* <img src={moon} alt="moon" /> */}
-      </div>
+    <div className={s.theme_toggle} onClick={toggleTheme}>
+      {theme ? (
+        <div className={s.themeDark_container}>
+          <IoSunnyOutline className={s.sun} />
+          <div className={s.ellipse_dark}></div>
+        </div>
+      ) : (
+        <div className={s.themeLight_container}>
+          <div className={s.ellipse}></div>
+          <IoMoonOutline className={s.moon} />
+        </div>
+      )}
     </div>
   );
 };
