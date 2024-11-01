@@ -8,15 +8,10 @@
   color: #424436;
 }
 
-
-
-.title {
-  width: 1360px;
-  height: 70px;  
-  font-size: 64px;
+.title { 
+  font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
   font-weight: 700;
   line-height: 110%;
-  color: #424436;
   margin: 40px 0;
 }
 
@@ -26,5 +21,12 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
   margin-bottom: 60px;  
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin-bottom: 30px;
+    margin-top: clamp(40px, calc(40px + (1200px - 100vw) * 0.06), 90px);
+  }
 }
 

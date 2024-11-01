@@ -14,7 +14,7 @@
 .title {
   max-width: 1360px;
   color: #fff;
-  font-size: 90px;
+  font-size: clamp(3.25rem, 2.333rem + 4.07vw, 6rem);
   font-weight: 700;
   margin-bottom: 40px;
   line-height: 110%; /*  105,6(line-height)/96 (font-size)*100  */
@@ -44,4 +44,42 @@
 
 .btn a {
   padding: 16px 56px;
+}
+
+@media (max-width: 1000px) {
+  .block {
+    padding-bottom: 7.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-weight: 600;
+    font-size: 64px;
+    padding-top: clamp(110px, calc(10vw - 2px), 90px);
+  }
+
+  .block {
+    padding-bottom: 20.37rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .block {
+    padding-bottom: 13.4rem;
+  }
+
+  .btn a {
+    padding: 12px 52px;
+  }
+}
+
+@media (max-width: 360px) {
+  .block {
+    padding-bottom: 15.7rem;
+  }
+
+  .btn a {
+    padding: 12px 52px;
+  }
 }

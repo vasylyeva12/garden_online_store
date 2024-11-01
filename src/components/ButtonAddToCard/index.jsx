@@ -9,7 +9,7 @@ const ButtonAddToCard = ({ id, image, title, price, discont_price }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();  
   const handleAddToCart = () => {
-    dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
+    dispatch(addProductToCartAction({ id: +id, image, title, price, discont_price }));
     navigate('/cart');  // После добавления товара переходим на страницу корзины
   };
 

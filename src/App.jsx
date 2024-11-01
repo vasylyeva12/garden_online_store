@@ -11,13 +11,18 @@ import SingleProductPage from './pages/SingleProductPage';
 import LikedProductsPage from './pages/LikedProductsPage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import ProductsByCategoryPage from './pages/ProductsByCategoriesPage';
-
-
+import { useDispatch } from 'react-redux';
+import { getCategories } from './requests/categories';
 
 
 
 const App = () => {
+  const dispatch = useDispatch()
   const { key } = useLocation();
+
+  useEffect(() => {
+    dispatch(getCategories);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0); // при каждом изменении маршрута страница будет прокручена в самое начало.
