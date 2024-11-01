@@ -29,17 +29,4 @@
 .text_box img {
   cursor: pointer;
 }
-.btn_addtocart {
-  width: 536px;
-  height: 58px;
-  color: black;
-  gap: 10px;
-  border-radius: 6px;
-  background-color: #fffff1;
-  font-family: Montserrat;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 26px;
-  text-align: center;
-  margin-top: 16px;
-}
+
