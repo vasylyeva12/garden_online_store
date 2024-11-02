@@ -30,7 +30,6 @@ const Sale = () => {
       }
 
       </div>
-
       
       <div className={s.hidden_btn}>
         <Link to="/sales">
