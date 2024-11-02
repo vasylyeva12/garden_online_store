@@ -5,16 +5,16 @@ const SORT_ALL_PRODUCTS = 'SORT_ALL_PRODUCTS';
 const GET_DISCOUNTED_PRODUCTS = 'GET_DISCOUNTED_PRODUCTS'
 const FILTER_BY_PRICE = 'FILTER_BY_PRICE';
 
-export const loadAllProductsAction = (products) => ({ type: LOAD_ALL_PRODUCTS,  payload: products,});
-export const sortAllProductsAction = (option_value) => ({ type: SORT_ALL_PRODUCTS,  payload: option_value,});
-export const getDiscountedProductsAction = (value) => ({ type: GET_DISCOUNTED_PRODUCTS,  payload: value,});
-export const filterByPriceAction = (values) => ({ type: FILTER_BY_PRICE,  payload: values,});
+export const loadAllProductsAction = (products) => ({ type: LOAD_ALL_PRODUCTS,  payload: products});
+export const sortAllProductsAction = (option_value) => ({ type: SORT_ALL_PRODUCTS,  payload: option_value});
+export const getDiscountedProductsAction = (value) => ({ type: GET_DISCOUNTED_PRODUCTS,  payload: value});
+export const filterByPriceAction = (values) => ({ type: FILTER_BY_PRICE,  payload: values});
 
 
 
 export const productsReducer = (state = defaultState, action) => {
     if(action.type === LOAD_ALL_PRODUCTS) {
-        return action.payload.map(el => ({...el, visible: true }))
+        return action.payload.map(el => ({...el, visible: true}))
     } else if (action.type === SORT_ALL_PRODUCTS) {
         if (action.payload === 'title') {
             state.sort((a, b) => a.title.localeCompare(b.title))
