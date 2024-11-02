@@ -1,8 +1,9 @@
 import React from "react";
 import s from "./index.module.css";
-import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi"; // Убираем import PiHandbagSimpleFill, так как иконку корзины не нужно отображать в модальном окне
+import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
+import { addProductToCartAction } from "../../store/reducers/cartReducer"; // Импортируем действие для корзины
 import CustomButton from "../CustomButton";
 
 const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
@@ -21,6 +22,12 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
     dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
   };
 
+  const handleClickCartIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(addProductToCartAction({ id, image, title, price, discont_price })); // Добавляем товар в корзину
+  };
+
   return (
     <div className={`${s.products_wrapper} ${productStyles}`}>
       <div className={s.img_container}>
@@ -34,9 +41,9 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
       <div className={s.icons_wrapper}>
         {/* Сердечко с зелёным цветом, если продукт в избранном */}
         <PiHeartFill className={s.like} style={likeStyles} onClick={handleClickLikeIcon} />
-        {/* Убираем иконку корзины, если контент модальный */}
+        {/* Иконка корзины добавляет продукт в корзину */}
         {content !== "modal" && (
-          <PiHandbagSimpleFill className={s.bag} style={{ color: '#424436' }} />
+          <PiHandbagSimpleFill className={s.bag} style={{ color: '#424436' }} onClick={handleClickCartIcon} />
         )}
       </div>
 
@@ -52,10 +59,10 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
         )}
       </div>
       
-      {/* Убираем зелёную кнопку, если контент модальный */}
+      {/* Кнопка "Добавить в корзину" */}
       {content !== "modal" && (
         <CustomButton
-          onClick={() => dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }))}
+          onClick={handleClickCartIcon}
           buttonStyle={s.custom_btn}
           buttonText="Add to Cart"
         />
@@ -65,4 +72,5 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
 };
 
 export default ProductItem;
+
 
