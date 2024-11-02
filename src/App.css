@@ -63,12 +63,24 @@ a {
   }
 }
 
-/* Светлая тема */
 .light_theme {
   background-color: #fffff1;
 }
 
-/* Темная тема */
 .dark_theme {
-  background-color: #6e6c6c;
+  background-color: #424436;
+  color: #fffff1;
+}
+
+.dark_theme h1,
+.dark_theme h2,
+.dark_theme h3,
+.dark_theme p,
+.dark_theme a,
+.dark_theme span,
+.dark_theme li,
+.dark_theme .icon-custom,
+.dark_theme .shoppingH {
+
+  color: #fffff1;
 }

@@ -11,9 +11,11 @@ const Header = () => {
   const [nav, setNav] = useState(false)
 
   const { theme } = useContext(ThemeContext); // Получаем тему из контекста
-
+  
+  // `${s.header} ${theme ? s.dark_theme : s.light_theme`}
   return (
     <header className={`${s.header} ${theme ? s.dark_theme : s.light_theme}`}>
+
       <div className="container">
         <div className={s.header_section}>
           <Logo className={s.logo} />
