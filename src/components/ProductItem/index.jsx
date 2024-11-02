@@ -8,6 +8,7 @@ import { toggleLikedProductAction } from "../../store/reducers/likedProductsRedu
 import CustomButton from "../CustomButton";
 
 const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
+  const apiUrl = import.meta.env.APP_API_URL;
   const dispatch = useDispatch();
 
   const cartState = useSelector(store => store.cart)
@@ -54,7 +55,7 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
       <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img
-            src={`http://localhost:3333/${image}`}
+            src={`${apiUrl}/${image}`}
             alt={title}
             className={s.images}
           />

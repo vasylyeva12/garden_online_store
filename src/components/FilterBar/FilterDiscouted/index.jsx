@@ -3,6 +3,7 @@ import s from "./index.module.css";
 import { useDispatch } from "react-redux";
 import { getDiscountedProductsAction } from "../../../store/reducers/productsReducer";
 
+
 const FilterDiscounded = () => {
     const dispatch = useDispatch();
 
