@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './index.module.css'
+import { filterByPriceAction } from '../../../store/reducers/productsReducer'
+import { useDispatch } from 'react-redux'
 
 const FilterPrice = () => {
-    const handleFilter = (event) => {
-        event.preventDefault();
-        const { min_price, max_price } = event.target;
-        const priceValues = {
-          min: min_price.value || 0,
-          max: max_price.value || Infinity,
-        };
-        dispatch(filterByPriceAction(priceValues));        
-       
-        event.target.reset();
-      };
-      
+    const dispatch = useDispatch()
+
+    const [minValue, setMinValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(Infinity)
+
+    const handleMinValue = e => setMinValue(e.target.value || 0)
+    const handleMaxValue= e => setMaxValue(e.target.value || Infinity)
+
+    useEffect(() => {
+        dispatch(filterByPriceAction({
+          min: minValue,
+          max: maxValue
+        }))
+      }, [minValue, maxValue]);
+   
+
   return (
     <div className={s.price_filter}>
     <p>Price</p>
-    <form onSubmit={handleFilter} className={s.form}>
-      <input type="number" placeholder="from" name="min_price" />
-      <input type="number" placeholder="to" name="max_price" />
+    <form  className={s.form}>
+      <input type="number"  placeholder="from"  name="min_price"  onChange={handleMinValue} />
+      <input type="number"  placeholder="to"    name="max_price"  onChange={handleMaxValue} />
       <button className={s.btn_hidden}></button>
     </form>
   </div>
