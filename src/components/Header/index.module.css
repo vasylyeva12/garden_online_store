@@ -2,8 +2,7 @@
   width: 100%;    
   position: sticky;
   top: 0;
-  z-index: 900;
-  background-color: #fffff1; 
+  z-index: 900; 
   border-bottom: 1px solid #DDDDDD
 }
 
