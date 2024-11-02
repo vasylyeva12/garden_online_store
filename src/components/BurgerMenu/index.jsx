@@ -31,7 +31,7 @@ const BurgerMenu = ({ nav, setNav}) => {
       </div>
       <div className={s.nav_basket}>
         <NavLink to="/cart">
-          <PiHandbagThin className={s.basket} />
+          <PiHandbagThin className={`${s.basket} icon-custom`} />
           </NavLink>
           {/* Переход на страницу ShoppingCartPage, отображение колличества товаров в корзине */}
           {totalCount > 0 && (

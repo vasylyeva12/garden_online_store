@@ -14,8 +14,8 @@ const ShoppingCartPage = () => {
 
   return (
     <div className={s.shop_cart}>
-      <div className={s.cart}>
-        <h1>Shopping Cart</h1>
+      <div className={s.cart}>   
+        <h1 className={`${s.titleH} shoppingH`}>Shopping Cart</h1>
 
         <div className={s.linia}>
           <hr />

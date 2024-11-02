@@ -18,7 +18,7 @@ const AllSalesPage = () => {
   return (
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
-
+      
       <h1 className={s.title}>Discounted items</h1>
 
       <div className='filters_bar'>
