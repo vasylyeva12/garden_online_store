@@ -12,6 +12,7 @@ import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 
 const SingleProductPage = () => {
+  const apiUrl = import.meta.env.APP_API_URL;
   const dispatch = useDispatch();
   const { product_id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для модального окна
@@ -100,7 +101,7 @@ console.log(productsByCategoryState);
       ) : (
         <div className={s.product}>
           <img
-            src={`http://localhost:3333/${image}`}
+            src={`${apiUrl}/${image}`}
             alt={title}
             onClick={openModal}
             style={{ cursor: "pointer" }}

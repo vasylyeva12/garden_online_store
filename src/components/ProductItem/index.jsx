@@ -6,6 +6,7 @@ import { toggleLikedProductAction } from "../../store/reducers/likedProductsRedu
 import CustomButton from "../CustomButton";
 
 const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
+  const apiUrl = import.meta.env.APP_API_URL;
   const dispatch = useDispatch();
 
   const likedProducts = useSelector((store) => store.likedProducts.likedProducts);
@@ -23,13 +24,23 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
 
   return (
     <div className={`${s.products_wrapper} ${productStyles}`}>
-      <div className={s.img_container}>
-        <img
-          src={`http://localhost:3333/${image}`}
-          alt={title}
-          className={s.images}
-        />
-      </div>
+
+      <Link to={`/products/${id}`}>
+        <div className={s.img_container}>
+          <img
+            src={`${apiUrl}/${image}`}
+            alt={title}
+            className={s.images}
+          />
+        </div>
+
+        {discountPercent !== null && (
+          <div className={s.cross_out}>
+            <div className={s.discount_text}>-{discountPercent}%</div>
+          </div>
+        )}
+      </Link>
+
 
       <div className={s.icons_wrapper}>
         {/* Сердечко с зелёным цветом, если продукт в избранном */}
