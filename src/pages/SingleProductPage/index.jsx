@@ -157,4 +157,5 @@ console.log(productsByCategoryState);
   );
 };
 
+
 export default SingleProductPage;

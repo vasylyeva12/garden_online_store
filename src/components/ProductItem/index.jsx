@@ -1,9 +1,7 @@
 import React from "react";
 import s from "./index.module.css";
-import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
+import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi"; // Убираем import PiHandbagSimpleFill, так как иконку корзины не нужно отображать в модальном окне
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCartAction, deleteAllAction } from "../../store/reducers/cartReducer";
-import { Link } from "react-router-dom";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 import CustomButton from "../CustomButton";
 
@@ -11,47 +9,22 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
   const apiUrl = import.meta.env.APP_API_URL;
   const dispatch = useDispatch();
 
-  const cartState = useSelector(store => store.cart)
-  const target = cartState.find(el => el.id === id);
-  const bagStyles = {
-    color: target ? '#92A134' : '#424436'
-  }
+  const likedProducts = useSelector((store) => store.likedProducts.likedProducts);
+  const isLiked = likedProducts.some((el) => el.id === id);
 
-  // Вычисляем процент скидки
-  const discountPercent =
-    discont_price !== null
-      ? Math.round(((price - discont_price) / price) * 100)
-      : null;
+  const likeStyles = {
+    color: isLiked ? 'green' : '#424436', // Зелёный цвет, если продукт в избранном
+  };
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    dispatch(
-      toggleLikedProductAction({ id, image, title, price, discont_price })
-    );
-  };
-
-  const handleClickCartIcon = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    dispatch(
-      addProductToCartAction({ id, image, title, price, discont_price })
-    );
-  };
-
-  const handleClickAddProduct = () => {
-    dispatch(addProductToCartAction({ id, image, title, price, discont_price }));
-    // dispatch(deleteAllAction());
-  };
-
-  const handleClickRemoveProduct = () => {
-    dispatch(removeFromCart({ id, image, title, price, discont_price }));
+    dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
   };
 
   return (
-    <div>
-
     <div className={`${s.products_wrapper} ${productStyles}`}>
+
       <Link to={`/products/${id}`}>
         <div className={s.img_container}>
           <img
@@ -68,9 +41,14 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
         )}
       </Link>
 
+
       <div className={s.icons_wrapper}>
-        <PiHeartFill className={s.like} onClick={handleClickLikeIcon} />
-        <PiHandbagSimpleFill className={s.bag} onClick={handleClickCartIcon} />
+        {/* Сердечко с зелёным цветом, если продукт в избранном */}
+        <PiHeartFill className={s.like} style={likeStyles} onClick={handleClickLikeIcon} />
+        {/* Убираем иконку корзины, если контент модальный */}
+        {content !== "modal" && (
+          <PiHandbagSimpleFill className={s.bag} style={{ color: '#424436' }} />
+        )}
       </div>
 
       <h3 className={s.product_title}>{title}</h3>
@@ -84,35 +62,18 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
           <p className={s.discount_price}>${price}</p>
         )}
       </div>
-       {/* Кнопка "Добавить в корзину" или "Удалить из корзины" */}
-       {content === "modal" ? (
-          ""
-        ) : (
-          <CustomButton
-            onClick={
-              cartState ? handleClickRemoveProduct : handleClickAddProduct
-            }
-            buttonStyle={s.custom_btn}
-            buttonText={cartState ? "Add to Cart" : "Delete from Cart"}
-          />
-        )}
-
-    </div>
-    
-    {content === "modal" ? (
+      
+      {/* Убираем зелёную кнопку, если контент модальный */}
+      {content !== "modal" && (
         <CustomButton
-          onClick={
-            cartState ? handleClickAddProduct : handleClickRemoveProduct
-          }
-          buttonStyle={s.custom_btn_modal}
-          buttonText={cartState ? "Add to Cart"  : "Delete from Cart"}
+          onClick={() => dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }))}
+          buttonStyle={s.custom_btn}
+          buttonText="Add to Cart"
         />
-      ) : (
-        ""
       )}
-
     </div>
   );
 };
 
 export default ProductItem;
+
