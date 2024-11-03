@@ -4,7 +4,7 @@
     display: flex;
   }
   
-  .sorted > span {
+  .sort_lable {
     width: 69px;
     height: 26px;
     font-size: 20px;

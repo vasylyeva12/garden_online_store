@@ -10,7 +10,10 @@ const FilterSort = () => {
       };
   return (
     <div className={s.sorted}>
-        <span>Sorted</span>
+        <label htmlFor="sort" className={s.sort_lable}>
+        Sorted
+        </label>
+        {/* <span></span> */}
         <select onInput={handleOrder}>
           <option value="default" defaultValue>
             by default

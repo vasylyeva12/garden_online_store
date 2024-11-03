@@ -1,14 +1,12 @@
 .form_wrapper {
   display: flex;
-  padding: 32px 32px 0px 32px;
+  padding: 24px 32px 0px 32px;
   margin-bottom: 108px;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   border-radius: 12px;
   background: linear-gradient(80.46deg, #87933d -0.68%, #55610b 66.66%);
-  /*    background: linear-gradient(261.47deg, #0B710B 32.63%, #339933 98.96%),
- linear-gradient(80.46deg, #87933D -0.68%, #55610B 66.66%); */
 }
 
 .title {
@@ -29,38 +27,44 @@
 
 .form_image {
   width: 58%;
-  /* background-image: url(../../media/form_discount.svg);
-        background-size: contain; /* Масштабируем картинку по размеру контейнера */
-  /* background-repeat: no-repeat; /* Не повторяем картинку */
-  /* background-position: center; Центрируем изображение */
+  object-position: right;
+  object-fit: cover;
+}
+
+.form_block {
+  width: 42%;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .form_item {
-  width: 40%;
-  padding: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
 }
 
 .form_input {
-  padding: 16px 32px 16px 32px;
+  width: 100%;
+  padding: 16px 32px;
   border-radius: 6px;
-  border: 1px 0px 0px 0px;
   border: 1px solid #fffff1;
-  background-color: transparent;
-  font-family: Montserrat;
+  background: transparent;
   font-size: 20px;
-  font-weight: 500;
-  line-height: 26px;
-  text-align: left;
+  line-height: 130%;
+  overflow: hidden;
+}
+
+.form_input::placeholder {
   color: #ffffff;
 }
 
 .btn {
-  padding: 16px 32px 16px 32px;
+  padding: 16px 32px;
   border-radius: 6px;
-  font-family: Montserrat;
+
   font-size: 20px;
   font-weight: 600;
   line-height: 26px;
@@ -68,4 +72,71 @@
   color: #282828;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.error_message {
+  color: #f26d22;
+  padding-top: 5px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1000px) {
+  .form_wrapper {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form_item {
+    padding: 16px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form_wrapper {
+    padding: 24px 20px 0 20px;
+  }
+
+  .title {
+    margin-top: 0;
+  }
+
+  .form_sale {
+    flex-direction: column-reverse;
+  }
+  .form_image {
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+  .form_block {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .form_wrapper {
+    padding: 24px 20px 0 20px;
+  }
+
+  .title {
+    margin-top: 0;
+  }
+
+  .form_sale {
+    flex-direction: column-reverse;
+  }
+
+  .form_image {
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .form_item {
+    .form-input {
+      padding: 16px 10px;
+    }
+  }
 }

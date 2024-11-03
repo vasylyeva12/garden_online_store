@@ -18,12 +18,12 @@
   text-align: left;
   padding: 0 0 40px;
 }
-.product_item {
-  margin-top: 5%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-bottom: 80px;
+.product_item{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 80px;
 }
 .liked_info { 
   font-size: 20px; 

@@ -9,9 +9,7 @@ import { addProductToCartAction } from '../../store/reducers/cartReducer'
 
 
 
-
-const OneDayDiscountModal = ({isOpen, setIsOpen, product, content}) => {
-
+const OneDayDiscountModal = ({isOpen, setIsOpen, product}) => {
   const dispatch = useDispatch();
 
   // Функция для добавления продукта в корзину
@@ -19,7 +17,6 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product, content}) => {
     dispatch(addProductToCartAction(product)); // Добавляем товар в корзину
     setIsOpen(false); // Закрываем модальное окно после добавления в корзину
   };
-
 
   return (
     <Dialog
@@ -34,10 +31,10 @@ const OneDayDiscountModal = ({isOpen, setIsOpen, product, content}) => {
         timeout: 500,
       }}
       sx={{
-        borderRadius: "12px",
+        borderRadius: "16px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         "& .MuiPaper-root": {
-          borderRadius: "12px",
+          borderRadius: "16px",
         },
       }}
     >
