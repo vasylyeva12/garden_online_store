@@ -49,12 +49,12 @@
 .form_input {
   width: 100%;
   padding: 16px 32px;
-  border-radius: 6px;  
+  border-radius: 6px;
   border: 1px solid #fffff1;
   background: transparent;
-  font-size: 20px;  
+  font-size: 20px;
   line-height: 130%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .form_input::placeholder {
@@ -64,7 +64,7 @@
 .btn {
   padding: 16px 32px;
   border-radius: 6px;
- 
+
   font-size: 20px;
   font-weight: 600;
   line-height: 26px;
@@ -72,6 +72,13 @@
   color: #282828;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.error_message {
+  color: #f26d22;
+  padding-top: 5px;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 1000px) {
@@ -95,7 +102,7 @@
     margin-top: 0;
   }
 
-  .form__container {
+  .form_sale {
     flex-direction: column-reverse;
   }
   .form_image {
@@ -103,7 +110,7 @@
     object-position: center;
     object-fit: cover;
   }
-  .form {
+  .form_block {
     width: 100%;
   }
 }
@@ -117,7 +124,7 @@
     margin-top: 0;
   }
 
-  .form__container {
+  .form_sale {
     flex-direction: column-reverse;
   }
 
