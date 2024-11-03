@@ -95,9 +95,23 @@
   height: 48px;
 }
 
+.icons_wrapper .liked {
+  width: 48px;
+  height: 48px;
+  fill: #92a134;
+  stroke: #92a134;
+}
+
 .bag {
   width: 44px;
   height: 48px;
+}
+
+.icons_wrapper .full_bag {
+  width: 48px;
+  height: 48px;
+  fill: #92a134;
+  stroke: #92a134;
 }
 
 .btn {

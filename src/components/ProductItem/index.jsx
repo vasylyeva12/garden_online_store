@@ -4,6 +4,8 @@ import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi"; // Убира
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 import CustomButton from "../CustomButton";
+import { Link } from "react-router-dom";
+import { addProductToCartAction } from "../../store/reducers/cartReducer";
 
 const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
   const apiUrl = import.meta.env.APP_API_URL;
@@ -12,14 +14,31 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
   const likedProducts = useSelector((store) => store.likedProducts.likedProducts);
   const isLiked = likedProducts.some((el) => el.id === id);
 
-  const likeStyles = {
-    color: isLiked ? 'green' : '#424436', // Зелёный цвет, если продукт в избранном
-  };
+  const cartItem = useSelector(store => store.cart)
+  const inCart = cartItem.find(el => el.id === id)
+
+  
+   // Вычисляем процент скидки
+   const discountPercent =
+   discont_price !== null
+     ? Math.round(((price - discont_price) / price) * 100)
+     : null;
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+    if (isLiked) {
+      dispatch(toggleLikedProductAction({id}))
+    }else{
+      dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+    }    
+  };
+
+  const handleAddToCart = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(addProductToCartAction({ id: +id, image, title, price, discont_price }));
+     
   };
 
   return (
@@ -44,10 +63,10 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
 
       <div className={s.icons_wrapper}>
         {/* Сердечко с зелёным цветом, если продукт в избранном */}
-        <PiHeartFill className={s.like} style={likeStyles} onClick={handleClickLikeIcon} />
+        <PiHeartFill className={isLiked ? s.liked : s.like}  onClick={handleClickLikeIcon} />
         {/* Убираем иконку корзины, если контент модальный */}
         {content !== "modal" && (
-          <PiHandbagSimpleFill className={s.bag} style={{ color: '#424436' }} />
+          <PiHandbagSimpleFill className={inCart ? s.full_bag : s.bag}  onClick={handleAddToCart}/>
         )}
       </div>
 

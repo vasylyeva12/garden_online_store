@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getProductsByCategory, getSingleProduct } from "../../requests/products";
+import {
+  getProductsByCategory,
+  getSingleProduct,
+} from "../../requests/products";
 import { Link, useParams } from "react-router-dom";
 import s from "./index.module.css";
 import ButtonAddToCard from "../../components/ButtonAddToCard";
@@ -19,34 +22,32 @@ const SingleProductPage = () => {
   const [isExpanded, setIsExpanded] = useState(false); // Состояние для отображения полного текста в Read more
 
   const singleProductState = useSelector((store) => store.product);
-  const categoriesState = useSelector(store => store.categories)
+  const categoriesState = useSelector((store) => store.categories);
 
-  
   useEffect(() => {
     dispatch(changeSingleProductStatusAction());
-    dispatch(getSingleProduct(product_id));   
-   
+    dispatch(getSingleProduct(product_id));
   }, [dispatch]);
-  
+
   const likedProductsState = useSelector((store) =>
     store.likedProducts.likedProducts.some(
       (item) => item.id === parseInt(product_id)
     )
   );
-   const productsByCategoryState = useSelector((store) => store.productsByCategory.data
-  );
- 
-   
-console.log(productsByCategoryState);
 
-  const getCategoryTitle = (categoryId) => {    
-    const category = categoriesState && categoriesState.find((el) => el.id === categoryId);
+  const productsByCategoryState = useSelector(
+    (store) => store.productsByCategory.data
+  );
+
+  const getCategoryTitle = (categoryId) => {
+    const category =
+      categoriesState && categoriesState.find((el) => el.id === categoryId);
     console.log(category);
-    
+
     return category ? category.title : "Loading ...";
   };
 
-  const handleLikedClick = () => {
+  const handleClickLikeIcon = () => {
     if (singleProductState) {
       if (likedProductsState) {
         dispatch(toggleLikedProductAction(singleProductState.id));
@@ -108,24 +109,29 @@ console.log(productsByCategoryState);
           />
 
           <div>
-            <h2>{title}</h2>
-            <PiHeartFill
-              className={`${s.heartIcon} ${likedProductsState ? s.liked : ""}`}
-              onClick={handleLikedClick}
-            />
-
-            <div className={s.price}>
-              <p className={s.priceReal}>${Math.round(price)}</p>
-              {discont_price && price > discont_price && (
-                <p className={s.priceDisc}>${Math.round(discont_price)}</p>
-              )}
+            <div className={s.title_box}>
+              <h2>{title}</h2>
+              <PiHeartFill
+                className={likedProductsState ? s.liked : s.like}
+                onClick={handleClickLikeIcon}
+              />
             </div>
 
-            {discountPercent && (
-              <div className={s.discount_percent}>
-                <p>-{discountPercent}%</p>
+            <div className={s.price_container}>
+
+              <div className={s.price_box}>
+                <p className={s.priceReal}>${Math.round(price)}</p>
+                {discont_price && price > discont_price && (
+                  <p className={s.priceDisc}>${Math.round(discont_price)}</p>
+                )}
               </div>
-            )}
+
+              <div >
+                {discountPercent && (                  
+                    <p className={s.discount_percent}>-{discountPercent}%</p>                  
+                )}
+              </div>
+            </div>
 
             <div className={s.counter_item}>
               <Counter />
@@ -143,19 +149,24 @@ console.log(productsByCategoryState);
               {description}
             </p>
 
-            <Link onClick={() => setIsExpanded(!isExpanded)} className={s.readmore_text}>
+            <Link
+              onClick={() => setIsExpanded(!isExpanded)}
+              className={s.readmore_text}
+            >
               {isExpanded ? "Show less" : "Read more"}
             </Link>
           </div>
 
           {isModalOpen && (
-            <ModalSingleProduct product={singleProductState.data} closeModal={closeModal} />
+            <ModalSingleProduct
+              product={singleProductState.data}
+              closeModal={closeModal}
+            />
           )}
         </div>
       )}
     </div>
   );
 };
-
 
 export default SingleProductPage;
