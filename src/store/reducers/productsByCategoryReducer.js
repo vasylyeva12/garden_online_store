@@ -29,13 +29,13 @@ export const productsByCategoryReducer = (state = defaultState, action) => {
         }
     } else if (action.type === SORT_ALL_PRODUCTS) {
         if (action.payload === 'title') {
-            state.sort((a, b) => a.title.localeCompare(b.title))
+            state.data.sort((a, b) => a.title.localeCompare(b.title))
         }else if (action.payload === 'price_low') {
-            state.sort((a, b) => a.price - b.price) 
+            state.data.sort((a, b) => a.price - b.price) 
         } else if (action.payload === 'price_high') {
-            state.sort((a, b) => b.price - a.price)
+            state.data.sort((a, b) => b.price - a.price)
         }
-        return [...state]
+        return {...state}
     }else if (action.type === GET_DISCOUNTED_PRODUCTS) {
         if (action.payload) {
               state.data.map(el => {

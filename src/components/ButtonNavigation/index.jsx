@@ -2,21 +2,13 @@ import React, { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import s from "./index.module.css";
-import {
-  getProductsByCategory,
-  getSingleProduct,
-} from "../../requests/products";
-
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   
-  const dispatch = useDispatch();
-  // const { id, categoryId } = useParams();
+  const dispatch = useDispatch(); 
   const id = useParams().id;
-  const categoryId = useParams().categoryId;
-
-
+  
   // Данные из Redux store
   const productsByCategoryState = useSelector((store) => store.productsByCategory);
   const singleProductState = useSelector((store) => store.product);
@@ -37,17 +29,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   } else if (location.pathname.startsWith("/liked")) {
     buttonText = "Liked products";
     linkTo = "/liked";
-  } 
-
-  // Используем useEffect для загрузки данных при наличии id 
-
-  // useEffect(() => {
-    
-  //   if (id) {
-  //     dispatch(getSingleProduct(id));
-  //      }
-    
-  // }, [dispatch, id]);
+  }   
 
 
   const categoryTitle = 
