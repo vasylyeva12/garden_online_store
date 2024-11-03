@@ -1,18 +1,15 @@
-import Skeleton from 'react-loading-skeleton'; 
-import s from './index.module.css'
- 
-const ProductSkeleton = () => { 
-  return ( 
-    <> 
-      {Array(11) // создаем массив из 12 элементов 
-        .fill(null) // заполняем массив null, чтобы на его основе создать элементы 
-        .map((value, index) => ( 
-          <div key={index} className={s.skeleton_item}> 
-            <Skeleton className="skeleton_custom" /> 
-          </div> 
-        ))} 
-    </> 
-  ); 
-} 
- 
-export default ProductSkeleton
+import SkeletonCard from '../SkeletonCard';
+import s from './index.module.css';
+
+
+const SkeletonProduct = () => {
+  const cards = Array.from({ length: 8 }, (_, index) => (
+    <SkeletonCard key={index} />
+  ));
+  return (
+    <div className="container">
+      <div className={s.wrapper}>{cards}</div>
+    </div>
+  );
+};
+export default SkeletonProduct;
