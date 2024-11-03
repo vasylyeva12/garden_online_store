@@ -6,12 +6,13 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 
 export default function CartItem({ id, title, price, image, discont_price, count }) {
+  const apiUrl = import.meta.env.APP_API_URL;
 
   const dispatch = useDispatch();
 
   return (
     <div className={s.item}>
-      <img src={`http://localhost:3333/${image}`} alt={title} />
+      <img src={`${apiUrl}/${image}`} alt={title} />
         
       <div className={s.data}>
             <div className={s.title_cross}>

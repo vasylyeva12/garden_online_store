@@ -5,21 +5,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleLikedProductAction } from "../../store/reducers/likedProductsReducer";
 import { addProductToCartAction } from "../../store/reducers/cartReducer"; // Импортируем действие для корзины
 import CustomButton from "../CustomButton";
+import { Link } from "react-router-dom";
+import { addProductToCartAction } from "../../store/reducers/cartReducer";
 
 const ProductItem = ({ id, image, title, price, discont_price, content, productStyles }) => {
+  const apiUrl = import.meta.env.APP_API_URL;
   const dispatch = useDispatch();
 
   const likedProducts = useSelector((store) => store.likedProducts.likedProducts);
   const isLiked = likedProducts.some((el) => el.id === id);
 
-  const likeStyles = {
-    color: isLiked ? 'green' : '#424436', // Зелёный цвет, если продукт в избранном
-  };
+  const cartItem = useSelector(store => store.cart)
+  const inCart = cartItem.find(el => el.id === id)
+
+  
+   // Вычисляем процент скидки
+   const discountPercent =
+   discont_price !== null
+     ? Math.round(((price - discont_price) / price) * 100)
+     : null;
 
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+    if (isLiked) {
+      dispatch(toggleLikedProductAction({id}))
+    }else{
+      dispatch(toggleLikedProductAction({ id, image, title, price, discont_price }));
+    }    
+  };
+
+  const handleAddToCart = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(addProductToCartAction({ id: +id, image, title, price, discont_price }));
+     
   };
 
   const handleClickCartIcon = (event) => {
@@ -30,20 +50,36 @@ const ProductItem = ({ id, image, title, price, discont_price, content, productS
 
   return (
     <div className={`${s.products_wrapper} ${productStyles}`}>
-      <div className={s.img_container}>
-        <img
-          src={`http://localhost:3333/${image}`}
-          alt={title}
-          className={s.images}
-        />
-      </div>
+
+      <Link to={`/products/${id}`}>
+        <div className={s.img_container}>
+          <img
+            src={`${apiUrl}/${image}`}
+            alt={title}
+            className={s.images}
+          />
+        </div>
+
+        {discountPercent !== null && (
+          <div className={s.cross_out}>
+            <div className={s.discount_text}>-{discountPercent}%</div>
+          </div>
+        )}
+      </Link>
+
 
       <div className={s.icons_wrapper}>
         {/* Сердечко с зелёным цветом, если продукт в избранном */}
+
         <PiHeartFill className={s.like} style={likeStyles} onClick={handleClickLikeIcon} />
         {/* Иконка корзины добавляет продукт в корзину */}
         {content !== "modal" && (
           <PiHandbagSimpleFill className={s.bag} style={{ color: '#424436' }} onClick={handleClickCartIcon} />
+
+        <PiHeartFill className={isLiked ? s.liked : s.like}  onClick={handleClickLikeIcon} />
+        {/* Убираем иконку корзины, если контент модальный */}
+        {content !== "modal" && (
+          <PiHandbagSimpleFill className={inCart ? s.full_bag : s.bag}  onClick={handleAddToCart}/>
         )}
       </div>
 
