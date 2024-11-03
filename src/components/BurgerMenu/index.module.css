@@ -70,14 +70,22 @@
 }
 
 .mobile_btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
   display: none;
 }
 
 @media (max-width: 1000px) {
-  .navbar_actions{
+  .navbar_actions {
     gap: 11px;
   }
-  .nav_basket .favourites{
+  .nav_basket .favourites {
     width: 44px;
     height: 44px;
     /* padding-right: 70px; */
@@ -85,27 +93,21 @@
 }
 
 @media (max-width: 480px) {
-  
-
   .mobile_btn {
     display: block;
     position: absolute;
     right: 20px;
-    top: 35px;
+    top: 12px;
     z-index: 10;
     cursor: pointer;
-    
   }
   .navbar_actions {
     gap: 10px;
     padding-right: 70px;
   }
 
-  .nav_basket .favourites{
+  .nav_basket .favourites {
     width: 32px;
-    height: 32px;
-    /* padding-right: 60px; */
-  } 
-
- 
+    height: 32px;    
+  }
 }
