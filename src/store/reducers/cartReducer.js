@@ -27,6 +27,11 @@ const checkProduct = (state, payload) => {
     }
 };
 
+//Вытаскиваем из localStorage, при этом 'cart' это ключ, а JSON.parse превращает стоку снова в массив. Или вернет пустой массив (пустую страницу), если в корзине товара нет
+
+const defaultState = JSON.parse(localStorage.getItem('cart')) || [];
+
+
 export const cartReducer = (state=[], action) => {
     if(action.type === ADD_PRODUCT_TO_CART){
         return checkProduct(state, action.payload)

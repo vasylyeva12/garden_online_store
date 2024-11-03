@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './index.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import CartItemsContainer from '../../components/CartItemsContainer';
@@ -12,6 +12,9 @@ const ShoppingCartPage = () => {
   const totalCount = cartState.reduce((acc, el) => acc + el.count, 0);
   const totalPrice = +cartState.reduce((acc, el) => acc + (el.price * el.count), 0).toFixed(2);
 
+  //кладем данные localStorage, вытаскиваем в cartReducer
+  useEffect(() => localStorage.setItem('cart', JSON.stringify(cartState)), [cartState]);
+  //'cart' - под каким ключом записывается массив, JSON.stringify - превраещает джейсон в строку, в таком формате хранятся данные в локалсторидже
   return (
     <div className={s.shop_cart}>
       <div className={s.cart}>   
