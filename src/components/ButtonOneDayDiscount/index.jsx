@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import s from './index.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import OneDayDiscountModal from '../OneDayDiscountModal'
-import { getAllProducts } from '../../requests/products'
 
 const ButtonOneDayDiscount = () => {
 

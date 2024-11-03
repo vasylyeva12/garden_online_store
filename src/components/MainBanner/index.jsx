@@ -7,7 +7,7 @@ const MainBanner = () => {
     <section className={s.main}>
       <div className="container">
         <div className={s.block}>
-          <h1 className={s.title}>Amazing Discounts on Garden Products!</h1>
+          <h1 className={s.title}>Amazing Discounts <br />on Garden Products!</h1>
           <div className={s.btn}>
             <Link to="/sales" className={s.btn}>
               Check out

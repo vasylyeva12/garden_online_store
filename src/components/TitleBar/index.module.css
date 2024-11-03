@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40 auto;
+  /* margin: 40 auto; */
   color: #282828;
 }
 
 .container h2 {
-  margin-right: 32px;
+  /* margin-right: 32px; */
   font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
   line-height: 110%;
 }
@@ -29,7 +29,7 @@
 }
 
 .container button:hover {
-    color: #0c7d0c;
+    color: #92A134;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
@@ -39,17 +39,13 @@
   background-color: #ddd;
 }
 
+
 @media (max-width: 1000px) {
   .container {
     margin-top: 60px;
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-top: 80px;
-  }
-}
 
 @media (max-width: 480px) {
   .line {
@@ -57,6 +53,7 @@
   }
 
   .container button {
+    margin-top: 56px;
     display: none;
   }
 }
