@@ -3,6 +3,7 @@ import FormDiscount from "../../components/FormDiscount";
 import MainBanner from "../../components/MainBanner";
 import CategoriesMainSection from "../../components/CategoriesMainSection";
 import Sale from "../../components/Sale";
+import SaleMainSection from "../../components/SaleMainSection";
 
 
 const MainPage = () => {
@@ -11,7 +12,7 @@ const MainPage = () => {
       <MainBanner />
       <CategoriesMainSection  />   
       <FormDiscount />
-      <Sale />
+      <SaleMainSection />
     </div>
   );
 };
