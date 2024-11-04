@@ -9,7 +9,6 @@ const CategoriesPage = () => {
 
   const categoriesState = useSelector((store) => store.categories);
 
-  console.log(categoriesState);  
 
   return (
     <div className='container'>
