@@ -20,9 +20,28 @@ const OrderForm = ({ totalCount, totalPrice, onSubmit }) => {
     onSubmit();
   }
 
-  const registerName = register('name');
-  const registerPhone = register('phone');
-  const registerEmail = register('email');
+  const registerName = register('name', {
+    required: '*The field "Name" is required'
+  });
+  //то, что мы видим в импутах, как подсказка, required:true означает обязательность поля для заполнения
+ 
+  const registerPhone = register('phone', {
+    required: '*The field "Phone" is required',
+    pattern: {
+      value: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, // регулярное выражение
+      message: 'You entered the wrong phone.' //Message - какое сообщение будет выводиться если заполнено неправильно
+    }
+  });
+
+
+  const registerEmail = register('email', {
+    required: '*The field "Email" is required',
+    pattern: {
+      value: /^\S+@\S+\.\S+$/,
+      message: 'You entered the wrong e-mail.'
+    }
+  });
+
 
   return (
     <div >
@@ -40,12 +59,30 @@ const OrderForm = ({ totalCount, totalPrice, onSubmit }) => {
 
       <form className={s.input_form} onSubmit={handleSubmit(order)}>
 
-        <input type="text" placeholder='Name' {...registerName} />
-        <input type="text" placeholder='Phone' {...registerPhone} />
-        <input type="text" placeholder='Email' {...registerEmail} />
 
-        <button  type="submit">Order</button>
+        <input type='text' placeholder='Name' {...registerName} />
+
+
+        {
+          errors.name && <p>{errors.name?.message}</p>
+        }
+
+
+        <input type="text" placeholder='Phone' {...registerPhone} />
+        {
+          errors.phone && <p>{errors.phone?.message}</p>
+        }
+
+
+        <input type="text" placeholder='Email' {...registerEmail} />
+        {
+          errors.email && <p>{errors.email?.message}</p>
+        }
+
+
+        <button>Order</button>
       </form>
+
 
     </div>
   )
