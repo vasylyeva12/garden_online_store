@@ -1,7 +1,9 @@
 .products_list{
     margin-top: 5%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr); */
     gap: 2rem;
     margin-bottom: 80px;
 }
