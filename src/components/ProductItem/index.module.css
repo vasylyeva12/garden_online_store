@@ -1,5 +1,5 @@
 .products_wrapper {
-  width: 22%; 
+  width: 22%;
   height: 422px;
   position: relative;
   display: flex;
@@ -9,16 +9,15 @@
 }
 
 .product_title {
-  padding: 0 32px 16px 32px; 
+  padding: 0 32px 16px 32px;
   /* width: 275px; */
   /* padding-left: 2rem; */
   overflow: hidden;
   text-overflow: ellipsis; /* добавляет многоточие (...) в конце строки*/
   white-space: nowrap; /*предотвращает перенос текста на новую строку.*/
   font-size: 20px;
-  line-height: 130%;  
+  line-height: 130%;
   margin: 10px 0;
-
 }
 
 .product_item:hover .images {
@@ -41,7 +40,7 @@
   width: 100%;
   display: flex;
   align-items: end;
-  gap: 1rem;  
+  gap: 1rem;
   padding-left: 2rem;
   padding-bottom: 2rem;
 }
@@ -129,66 +128,62 @@
   align-items: center;
 }
 
-.custom_btn{
+.custom_btn {
   opacity: 0;
 }
 
-.custom_btn:hover{
+.custom_btn:hover {
   opacity: 1;
 }
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
   .products_wrapper {
     width: 22.5%;
-  height: 398px;
+    height: 398px;
   }
-  .images {    
-    height: 250px;    
+  .images {
+    height: 250px;
   }
   .product_title {
     padding: 0 20px 12px 20px;
     font-size: 16px;
   }
-  .price_container {  
+  .price_container {
     gap: 12px;
     /* padding: 0 20px 20px 20px; */
     padding-left: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .products_wrapper {
-    width: 46%;
+    width: 100%;
+    /* width: 46%; */
     height: 372px;
-  } 
-  
-  .price_container {    
+  }
+
+  .price_container {
     padding-left: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
   }
-  
 }
 
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .products_wrapper {
-    width: 43.75%;
+    width: 100%;
+    /* width: 43.75%; */
     height: 358px;
-  } 
-  .images {    
-    height: 220px;    
   }
-  
+  .images {
+    height: 220px;
+  }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
   .products_wrapper {
-    width: 89%;
+    width: 100%;
+    /* width: 89%; */
     height: 335px;
-  }  
-  
+  }
 }
-
-
-
-

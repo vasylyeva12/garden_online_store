@@ -7,11 +7,13 @@
   
   .card_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;    
     gap: 32px;
     margin: 40px 0;
     align-items: center; 
+    
   }
+ 
   
   .hidden_btn {
     display: none;
